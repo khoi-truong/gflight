@@ -10,9 +10,7 @@ is **not affiliated with, endorsed by, or supported by Google**; the upstream
 surface is undocumented and *will* break. Treat every upstream shape as
 untrusted and versioned by nobody.
 
-Primary consumer: `plan-bee`'s `internal/provider` Google Flights adapter
-(sibling repo, `../plan-bee`). The stability contract lives in *Versioning &
-release* below.
+The stability contract lives in *Versioning & release* below.
 
 No server, no database, no API contract, no container images, no secrets.
 
@@ -105,8 +103,8 @@ responses in `internal/testdata/`, served by an `httptest.Server`, injected with
 - Default branch `main`. **Squash-merge only**, so the *PR title* must be a
   conventional commit (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`,
   `perf:`, `build:`, `ci:`, `revert:`) — checked by
-  `.github/workflows/pr-title.yml`. Individual commit messages are
+  `.github/workflows/check-pr-title.yml`. Individual commit messages are
   unconstrained. `pre-commit` runs gofmt, `go vet`, golangci-lint on staged Go.
 - Parallel work: create worktrees under `.worktrees/` (gitignored):
   `git worktree add .worktrees/<branch> -b <branch>`.
-- `go.work` (gitignored) may link a local `plan-bee` checkout — never commit it.
+- `go.work` is gitignored — never commit it.

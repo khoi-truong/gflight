@@ -8,7 +8,7 @@ updates:
     # Wait for a release to age before bumping — dodges a compromised fresh publish.
     cooldown:
       default-days: 7
-    # Conventional-commit prefix so PR titles pass .github/workflows/pr-title.yml.
+    # Conventional-commit prefix so PR titles pass .github/workflows/check-pr-title.yml.
     # With a prefix set, Dependabot writes "build(deps): bump ..." (lowercase).
     commit-message:
       prefix: build(deps)

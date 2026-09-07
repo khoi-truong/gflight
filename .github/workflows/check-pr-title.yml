@@ -1,5 +1,5 @@
-name: PR title
-run-name: 'PR title · ${{ github.event.pull_request.title }}'
+name: Check PR title
+run-name: "${{ github.workflow }} · ${{ github.event.pull_request.title }}"
 
 # Squash-merge only: the PR title becomes the squash commit subject, so lint
 # that instead of individual commits (which are discarded on merge).
@@ -7,24 +7,26 @@ run-name: 'PR title · ${{ github.event.pull_request.title }}'
 
 on:
   pull_request:
-    types: [opened, edited, reopened, synchronize]
+    types: [opened, edited, reopened]
 
 permissions: {}
 
 concurrency:
-  group: pr-title-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  lint-title:
-    runs-on: ubuntu-latest
+  title:
+    name: Check the PR title
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - name: Check conventional-commit prefix
+      - name: Verify the PR title is a conventional commit
         env:
           TITLE: ${{ github.event.pull_request.title }}
           ACTOR: ${{ github.actor }}
         run: |
+          set -euo pipefail
           # Dependabot's grouped-update titles ("Bump the <group> group …") are
           # valid conventional commits but keep a capital verb — it ignores the
           # commit-message prefix casing for groups. Machine-generated, so trust.
