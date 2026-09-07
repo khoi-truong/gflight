@@ -1,4 +1,5 @@
 name: PR title
+run-name: 'PR title · ${{ github.event.pull_request.title }}'
 
 # Squash-merge only: the PR title becomes the squash commit subject, so lint
 # that instead of individual commits (which are discarded on merge).
@@ -15,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  conventional:
+  lint-title:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

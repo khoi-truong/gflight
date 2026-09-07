@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-test:
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -25,11 +25,13 @@ jobs:
           persist-credentials: false
       - uses: ./.github/actions/setup-go
 
-      - name: go mod tidy is clean
+      - name: go.mod is tidy
         run: |
           go mod tidy
           git diff --exit-code -- go.mod go.sum
-      - run: go vet ./...
-      - run: go build -trimpath ./...
-      - name: test
+      - name: Vet
+        run: go vet ./...
+      - name: Build
+        run: go build -trimpath ./...
+      - name: Run tests with race detector
         run: go test -race -shuffle=on -covermode=atomic -coverprofile=coverage.txt ./...

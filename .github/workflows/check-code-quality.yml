@@ -12,21 +12,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  changes:
+  detect-changes:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       contents: read
       pull-requests: read
     outputs:
-      go: ${{ steps.filter.outputs.go }}
-      workflows: ${{ steps.filter.outputs.workflows }}
+      go: ${{ steps.changed.outputs.go }}
+      workflows: ${{ steps.changed.outputs.workflows }}
     steps:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
-        id: filter
+        id: changed
         with:
           filters: |
             go:
@@ -39,8 +39,8 @@ jobs:
               - '.github/**'
 
   lint:
-    needs: changes
-    if: needs.changes.outputs.go == 'true'
+    needs: detect-changes
+    if: needs.detect-changes.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -57,13 +57,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-golangci-${{ hashFiles('.golangci.yml') }}-
             ${{ runner.os }}-golangci-
-      - run: golangci-lint run
+      - name: no lint findings
+        run: golangci-lint run
       - name: gofmt is clean
         run: golangci-lint fmt --diff
 
   govulncheck:
-    needs: changes
-    if: needs.changes.outputs.go == 'true'
+    needs: detect-changes
+    if: needs.detect-changes.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -73,11 +74,12 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup-go
-      - run: govulncheck ./...
+      - name: no known vulnerabilities
+        run: govulncheck ./...
 
-  actions:
-    needs: changes
-    if: needs.changes.outputs.workflows == 'true'
+  lint-actions:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.workflows == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -89,7 +91,8 @@ jobs:
       - uses: ./.github/actions/setup-go
         with:
           go-cache: "false"
-      - run: mise run lint:actions
+      - name: no workflow lint findings
+        run: mise run lint:actions
 
   pre-commit:
     runs-on: ubuntu-latest
@@ -107,7 +110,7 @@ jobs:
         with:
           path: ~/.cache/pre-commit
           key: ${{ runner.os }}-pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
-      - name: pre-commit run --all-files
+      - name: pre-commit hooks pass
         run: pre-commit run --all-files --show-diff-on-failure --color always
         env:
           # Go hooks are covered by the Tests workflow and the lint job above.

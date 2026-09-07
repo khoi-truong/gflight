@@ -1,4 +1,5 @@
 name: Release
+run-name: Release ${{ github.ref_name }}
 
 # Go libraries are consumed by git tag — nothing is built or uploaded. Tagging
 # runs CI once more and cuts a GitHub release with generated notes.
