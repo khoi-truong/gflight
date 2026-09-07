@@ -91,6 +91,9 @@ responses in `internal/testdata/`, served by an `httptest.Server`, injected with
 
 - No secrets of any kind; this library needs none. No `.env`.
 - Tracked docs live in `docs/` as Markdown. `.omc/` is gitignored scratch.
+- Implementation plans live in `docs/plans/` (one file per plan, `**Status:**`
+  header, indexed by `docs/plans/README.md`). Reverse-engineered upstream field
+  maps live in `docs/wire/` — they outlive any single plan.
 - Non-Go files: 2-space indent, LF, final newline (`.editorconfig`).
 - Agent skills live in `.claude/skills/<name>/`.
 - CI: third-party GitHub Actions are pinned to a commit SHA (with a `# vX.Y.Z`
