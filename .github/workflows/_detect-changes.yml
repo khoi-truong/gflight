@@ -1,0 +1,70 @@
+name: Detect changed paths
+
+# Reusable (workflow_call only) — hence the `_` filename prefix. The single
+# source of truth for path-gating: every workflow that skips jobs on unrelated
+# changes calls this, then gates its jobs on `needs.<id>.outputs.<key>`.
+# Called by test.yml and check-code-quality.yml.
+#
+# No checkout — dorny/paths-filter reads the PR's changed-file list from the API.
+# The filter runs on pull_request only; on push (post-merge) every flag is forced
+# 'true' so the full suite runs, and a git-based push diff (needs a full fetch,
+# breaks on force-push) is avoided.
+#
+# Filter-key naming: one lowercase token for the *area of concern* that decides
+# which jobs run — not the file extension, not the tool.
+
+on:
+  workflow_call:
+    outputs:
+      active:
+        description: "'false' only on a draft PR — gate heavy jobs on this too."
+        value: ${{ jobs.detect.outputs.active }}
+      go:
+        description: "'true' when Go code, modules, or Go toolchain/lint config changed."
+        value: ${{ jobs.detect.outputs.go }}
+      go-files:
+        description: "Changed paths matching `go`, shell-quoted, space-separated (empty on push)."
+        value: ${{ jobs.detect.outputs.go-files }}
+      ci:
+        description: "'true' when workflows, composite actions, or CI/tooling config changed."
+        value: ${{ jobs.detect.outputs.ci }}
+      ci-files:
+        description: "Changed paths matching `ci` (empty on push)."
+        value: ${{ jobs.detect.outputs.ci-files }}
+
+permissions: {}
+
+jobs:
+  detect:
+    name: Detect changed paths
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      # On push the filter step is skipped: every flag is 'true', `*-files` empty.
+      active: ${{ github.event_name != 'pull_request' || github.event.pull_request.draft == false }}
+      go: ${{ github.event_name != 'pull_request' || steps.filter.outputs.go == 'true' }}
+      go-files: ${{ steps.filter.outputs.go_files }}
+      ci: ${{ github.event_name != 'pull_request' || steps.filter.outputs.ci == 'true' }}
+      ci-files: ${{ steps.filter.outputs.ci_files }}
+    steps:
+      - name: Detect changed paths
+        if: github.event_name == 'pull_request'
+        uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
+        id: filter
+        with:
+          list-files: shell
+          filters: |
+            go:
+              - '**/*.go'
+              - 'go.mod'
+              - 'go.sum'
+              - 'mise.toml'
+              - '.golangci.yml'
+              - '.github/actions/setup-go/**'
+              - '.github/workflows/_detect-changes.yml'
+            ci:
+              - '.github/**'
+              - 'mise.toml'

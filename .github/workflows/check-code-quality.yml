@@ -1,0 +1,143 @@
+name: Check code quality
+run-name: "${{ github.workflow }} · ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions: {}
+
+# Each job installs only the tools it needs (setup-go `install-args`); don't let
+# `mise run` silently pull the whole toolchain back in.
+env:
+  MISE_TASK_RUN_AUTO_INSTALL: "false"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect-changes:
+    name: Detect changed paths
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: ./.github/workflows/_detect-changes.yml
+
+  lint:
+    name: Lint Go code
+    needs: detect-changes
+    if: needs.detect-changes.outputs.active == 'true' && needs.detect-changes.outputs.go == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up toolchain
+        uses: ./.github/actions/setup-go
+        with:
+          install-args: go golangci-lint
+      - name: Cache golangci-lint
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/golangci-lint
+          key: golangci-${{ runner.os }}-${{ hashFiles('.golangci.yml') }}-${{ github.sha }}
+          restore-keys: |
+            golangci-${{ runner.os }}-${{ hashFiles('.golangci.yml') }}-
+            golangci-${{ runner.os }}-
+      - name: Check for lint findings
+        run: mise run lint
+      - name: Verify gofmt and goimports are clean
+        run: golangci-lint fmt --diff
+
+  govulncheck:
+    name: Scan for vulnerabilities
+    needs: detect-changes
+    if: needs.detect-changes.outputs.active == 'true' && needs.detect-changes.outputs.go == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up toolchain
+        uses: ./.github/actions/setup-go
+        with:
+          install-args: go go:golang.org/x/vuln/cmd/govulncheck
+      - name: Check for known vulnerabilities
+        run: mise run vuln
+
+  workflow-lint:
+    name: Lint workflows
+    needs: detect-changes
+    if: needs.detect-changes.outputs.active == 'true' && needs.detect-changes.outputs.ci == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up toolchain
+        uses: ./.github/actions/setup-go
+        with:
+          go-cache: "false"
+          install-args: go go:github.com/rhysd/actionlint/cmd/actionlint aqua:zizmorcore/zizmor
+      - name: Check for workflow-lint findings
+        run: mise run lint:actions
+
+  pre-commit:
+    name: Run pre-commit hooks
+    needs: detect-changes
+    if: needs.detect-changes.outputs.active == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up toolchain
+        uses: ./.github/actions/setup-go
+        with:
+          go-cache: "false"
+          install-args: pre-commit
+      - name: Cache pre-commit hooks
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}-
+            pre-commit-${{ runner.os }}-
+      - name: Run pre-commit hooks
+        env:
+          # Go hooks are covered by the lint job above.
+          SKIP: gofmt,go-vet,golangci-lint
+        run: pre-commit run --all-files --show-diff-on-failure --color always
+
+  # Single stable status for branch protection: the per-path jobs above skip on
+  # unrelated PRs, and a required check that never runs would block merge.
+  quality-gate:
+    name: Quality gate
+    if: always()
+    needs: [detect-changes, lint, govulncheck, workflow-lint, pre-commit]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Verify no job failed
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1

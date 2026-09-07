@@ -1,0 +1,28 @@
+# Read by the VS Code markdownlint extension (and `markdownlint-cli2` if ever
+# wired into mise/CI — it is not today). Adapted from plan-bee's config.
+#
+# There is no Prettier in this repo, so markdownlint is the only Markdown style
+# authority. Keep the rule set close to default; only turn off what fights the
+# hand-maintained house style in docs/.
+# YAML (not JSONC) so an editor round-trip can't churn a trailing comma.
+config:
+  default: true
+
+  # Repo choices
+  MD013: false # no hard line-length limit on prose
+  MD024:
+    siblings_only: true # repeated headings OK under different parents
+  MD033: false # inline HTML is allowed in docs
+  MD041: false # first line need not be a top-level heading
+
+  # table-column-style: its pipe-alignment math miscounts em-dashes and `…`,
+  # so wide tables flap between "aligned" and "not aligned" on every save.
+  MD060: false
+
+globs:
+  - "**/*.md"
+
+ignores:
+  - .omc
+  - .worktrees
+  - coverage.html

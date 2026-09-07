@@ -1,0 +1,33 @@
+version: 2
+updates:
+  - package-ecosystem: gomod
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Wait for a release to age before bumping — dodges a compromised fresh publish.
+    cooldown:
+      default-days: 7
+    # Conventional-commit prefix so PR titles pass .github/workflows/check-pr-title.yml.
+    # With a prefix set, Dependabot writes "build(deps): bump ..." (lowercase).
+    commit-message:
+      prefix: build(deps)
+      prefix-development: build(deps-dev)
+    groups:
+      go:
+        patterns: ["*"]
+        # Majors land as their own PR so a breaking bump is reviewed in isolation.
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: build(deps)
+    groups:
+      actions:
+        patterns: ["*"]
