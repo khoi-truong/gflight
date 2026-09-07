@@ -1,0 +1,27 @@
+name: Setup toolchain
+description: >
+  Provision the Go toolchain and dev tools via mise (single source of truth),
+  with mise-tool and Go module/build caching. Run after actions/checkout.
+
+inputs:
+  go-cache:
+    description: Restore/save the Go module + build cache (disable for non-Go jobs).
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2.4.4
+      with:
+        experimental: true
+        cache: true
+
+    - if: inputs.go-cache == 'true'
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/go-build
+          ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.sum', 'mise.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-go-

@@ -1,0 +1,30 @@
+# Binaries / build output
+/bin/
+/dist/
+/tmp/
+*.exe
+*.test
+*.out
+
+# Go workspace (local dev only)
+go.work
+go.work.sum
+
+# Coverage
+coverage.txt
+coverage.html
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# OMC scratch space — tracked docs live in docs/
+.omc/
+
+# Parallel agent worktrees
+.worktrees/
+
+# Local tool binaries
+/.bin/

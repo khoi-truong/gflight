@@ -1,0 +1,71 @@
+# mise — single source of truth for toolchain + task runner.
+# https://mise.jdx.dev  ·  `mise install` to provision, `mise run <task>` to run.
+
+[tools]
+go = "1.26"
+golangci-lint = "2.13"
+"go:golang.org/x/vuln/cmd/govulncheck" = "1.7.0"
+"go:github.com/rhysd/actionlint/cmd/actionlint" = "1.7.12"
+"aqua:zizmorcore/zizmor" = "1.30.0"
+pre-commit = "4.6.2"
+
+[settings]
+# Tools declared with the `go:` backend are built with the pinned Go above.
+go_default_packages_file = ""
+# mise.toml is the single source of truth — don't read versions from go.mod etc.
+idiomatic_version_file_enable_tools = []
+
+[tasks.tidy]
+description = "go mod tidy"
+run = "go mod tidy"
+
+[tasks.fmt]
+description = "Format code"
+run = "golangci-lint fmt"
+
+[tasks.lint]
+description = "Run golangci-lint"
+run = "golangci-lint run"
+
+[tasks.vet]
+description = "go vet"
+run = "go vet ./..."
+
+[tasks."lint:actions"]
+description = "Lint GitHub Actions workflows (actionlint + zizmor)"
+run = ["actionlint", "zizmor --persona=regular ."]
+
+[tasks.test]
+description = "Tests with race detector + coverage"
+run = "go test -race -shuffle=on -covermode=atomic -coverprofile=coverage.txt ./..."
+
+[tasks.vuln]
+description = "Check for known vulnerabilities"
+run = "govulncheck ./..."
+
+[tasks.build]
+description = "Compile-check every package (library: no binaries)"
+run = "go build -trimpath ./..."
+
+[tasks.cover]
+description = "Render the coverage profile as HTML"
+run = "go tool cover -html=coverage.txt -o coverage.html"
+
+[tasks.example]
+description = "Run the example consumer program"
+run = "go run ./examples/search"
+
+[tasks.hooks]
+description = "Install git hooks (pre-commit)"
+run = "pre-commit install --install-hooks"
+
+[tasks.setup]
+description = "One-shot dev environment bootstrap (run after installing mise)"
+run = [
+  "mise install",
+  "mise run hooks",
+]
+
+[tasks.ci]
+description = "Everything CI runs"
+depends = ["tidy", "vet", "lint", "lint:actions", "test", "vuln"]

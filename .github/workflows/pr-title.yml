@@ -1,0 +1,38 @@
+name: PR title
+
+# Squash-merge only: the PR title becomes the squash commit subject, so lint
+# that instead of individual commits (which are discarded on merge).
+# Plain regex — no external action, no token, nothing to leak.
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions: {}
+
+concurrency:
+  group: pr-title-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conventional:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check conventional-commit prefix
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          # Dependabot's grouped-update titles ("Bump the <group> group …") are
+          # valid conventional commits but keep a capital verb — it ignores the
+          # commit-message prefix casing for groups. Machine-generated, so trust.
+          if [[ "$ACTOR" == "dependabot[bot]" ]]; then
+            echo "Skipping title lint for $ACTOR"
+            exit 0
+          fi
+          pattern='^(feat|fix|chore|docs|refactor|test|perf|build|ci|revert)(\([a-z0-9,/ -]+\))?!?: [a-z]'
+          if [[ ! "$TITLE" =~ $pattern ]]; then
+            echo "::error::PR title '$TITLE' must be a conventional commit whose description starts lowercase (e.g. 'feat: add itinerary parser', 'fix(client): handle nil price')"
+            exit 1
+          fi

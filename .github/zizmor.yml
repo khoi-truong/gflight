@@ -1,0 +1,17 @@
+# zizmor — GitHub Actions static analysis. https://docs.zizmor.sh
+# Run via `mise run lint:actions`.
+rules:
+  unpinned-uses:
+    config:
+      # Mirror AGENTS.md: third-party actions pinned to a SHA; first-party
+      # actions/* and github/* may ride a major-version tag.
+      policies:
+        "actions/*": ref-pin
+        "github/*": ref-pin
+        "*": hash-pin
+  # './...' is the portable local-action form; actionlint rejects the newer '$/...'.
+  self-repository:
+    ignore:
+      - check-code-quality.yml
+      - release.yml
+      - test.yml

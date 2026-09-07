@@ -1,0 +1,35 @@
+name: Release
+
+# Go libraries are consumed by git tag — nothing is built or uploaded. Tagging
+# runs CI once more and cuts a GitHub release with generated notes.
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions: {}
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-go
+      - run: mise run ci
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" --generate-notes
+      - name: Warm the module proxy
+        env:
+          GOPROXY: proxy.golang.org
+        run: go list -m "github.com/khoi-truong/gflight@$GITHUB_REF_NAME"
