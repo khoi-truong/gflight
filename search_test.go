@@ -7,6 +7,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"testing"
 	"time"
@@ -190,6 +191,154 @@ func TestSearchNonEnvelopeResponse(t *testing.T) {
 	_, err := c.Search(t.Context(), sampleRequest())
 	if !errors.Is(err, gflight.ErrBlocked) {
 		t.Fatalf("err = %v, want ErrBlocked", err)
+	}
+}
+
+// f.req positions asserted end to end. They mirror the named constants in
+// internal/encoding/freq.go and docs/wire/shopping-results.md.
+const (
+	outerSortIdx = 2
+
+	mainPassengersIdx          = 6
+	mainMaxPriceIdx            = 7
+	mainBagsIdx                = 10
+	mainSegmentsIdx            = 13
+	mainExcludeBasicEconomyIdx = 28
+
+	segTimeWindowIdx      = 2
+	segAirlineIncludeIdx  = 4
+	segAirlineExcludeIdx  = 5
+	segMaxDurationIdx     = 7
+	segLayoverAirportsIdx = 9
+	segMinLayoverIdx      = 11
+	segMaxLayoverIdx      = 12
+	segLessEmissionsIdx   = 13
+)
+
+// TestSearchFiltersReachTheWire is the end-to-end proof that a filtered
+// SearchRequest lands in the POSTed f.req body, on both legs of a round trip.
+func TestSearchFiltersReachTheWire(t *testing.T) {
+	t.Parallel()
+	c, bodies := roundTripServer(t, "shopping_results_oneway_jfk_lax.txt")
+
+	req := sampleRequest()
+	req.ReturnDate = time.Date(2026, 7, 5, 0, 0, 0, 0, time.UTC)
+	req.Adults = 2
+	req.Children = 1
+	req.InfantsOnLap = 1
+	req.InfantsInSeat = 1
+	req.SortBy = gflight.SortCheapest
+	req.MaxPrice = 700
+	req.CheckedBags = 2
+	req.CarryOnBags = 1
+	req.MaxStops = 1
+	req.IncludeAirlines = []string{"B6", "AA"}
+	req.ExcludeAirlines = []string{"NK"}
+	req.MaxDuration = 8 * time.Hour
+	req.LayoverAirports = []string{"DFW"}
+	req.MinLayover = 90 * time.Minute
+	req.MaxLayover = 5 * time.Hour
+	req.DepartureWindow = gflight.TimeWindow{EarliestHour: 6, LatestHour: 12}
+	req.ArrivalWindow = gflight.TimeWindow{LatestHour: 22}
+	req.LessEmissionsOnly = true
+	req.ExcludeBasicEconomy = true
+
+	if _, err := c.SearchResults(t.Context(), req); err != nil {
+		t.Fatalf("SearchResults: %v", err)
+	}
+	if len(*bodies) != 1 {
+		t.Fatalf("got %d requests, want 1", len(*bodies))
+	}
+
+	filters := decodeFreqBody(t, (*bodies)[0])
+	main, ok := filters[1].([]any)
+	if !ok {
+		t.Fatalf("filters[1] not a list")
+	}
+
+	mainWant := map[int]any{
+		mainPassengersIdx:          []any{float64(2), float64(1), float64(1), float64(1)},
+		mainMaxPriceIdx:            []any{nil, float64(700)},
+		mainBagsIdx:                []any{float64(2), float64(1)},
+		mainExcludeBasicEconomyIdx: float64(1),
+	}
+	for idx, want := range mainWant {
+		if got := main[idx]; !reflect.DeepEqual(got, want) {
+			t.Errorf("main[%d] = %#v, want %#v", idx, got, want)
+		}
+	}
+	if got := filters[outerSortIdx]; got != float64(2) {
+		t.Errorf("sort mode = %#v, want 2 (cheapest)", got)
+	}
+
+	segs, ok := main[mainSegmentsIdx].([]any)
+	if !ok || len(segs) != 2 {
+		t.Fatalf("want 2 segments, got %#v", main[mainSegmentsIdx])
+	}
+	segWant := map[int]any{
+		segTimeWindowIdx:      []any{float64(6), float64(12), nil, float64(22)},
+		segAirlineIncludeIdx:  []any{"B6", "AA"},
+		segAirlineExcludeIdx:  []any{"NK"},
+		segMaxDurationIdx:     []any{float64(480)},
+		segLayoverAirportsIdx: []any{"DFW"},
+		segMinLayoverIdx:      float64(90),
+		segMaxLayoverIdx:      float64(300),
+		segLessEmissionsIdx:   []any{float64(1)},
+	}
+	// Per-segment filters apply to the outbound and the return alike.
+	for i, s := range segs {
+		seg, ok := s.([]any)
+		if !ok {
+			t.Fatalf("segment %d not a list", i)
+		}
+		for idx, want := range segWant {
+			if got := seg[idx]; !reflect.DeepEqual(got, want) {
+				t.Errorf("segment %d slot %d = %#v, want %#v", i, idx, got, want)
+			}
+		}
+	}
+}
+
+// TestSearchUnfilteredStaysInert guards the additive contract: a request with no
+// filters set must still encode the pre-M3 body.
+func TestSearchUnfilteredStaysInert(t *testing.T) {
+	t.Parallel()
+	c, bodies := roundTripServer(t, "shopping_results_oneway_jfk_lax.txt")
+
+	if _, err := c.Search(t.Context(), sampleRequest()); err != nil {
+		t.Fatalf("Search: %v", err)
+	}
+	filters := decodeFreqBody(t, (*bodies)[0])
+	main := filters[1].([]any)
+	seg := main[mainSegmentsIdx].([]any)[0].([]any)
+
+	inert := map[string]any{
+		"main[7]":     main[mainMaxPriceIdx],
+		"main[10]":    main[mainBagsIdx],
+		"main[28]":    main[mainExcludeBasicEconomyIdx],
+		"segment[2]":  seg[segTimeWindowIdx],
+		"segment[4]":  seg[segAirlineIncludeIdx],
+		"segment[5]":  seg[segAirlineExcludeIdx],
+		"segment[7]":  seg[segMaxDurationIdx],
+		"segment[9]":  seg[segLayoverAirportsIdx],
+		"segment[11]": seg[segMinLayoverIdx],
+		"segment[12]": seg[segMaxLayoverIdx],
+		"segment[13]": seg[segLessEmissionsIdx],
+	}
+	for name, got := range inert {
+		want := any(nil)
+		if name == "main[28]" {
+			want = float64(0)
+		}
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("unfiltered %s = %#v, want %#v", name, got, want)
+		}
+	}
+	if pax := main[mainPassengersIdx].([]any); !reflect.DeepEqual(pax, []any{float64(1), float64(0), float64(0), float64(0)}) {
+		t.Errorf("unfiltered passengers = %#v", pax)
+	}
+	if got := filters[outerSortIdx]; got != float64(1) {
+		t.Errorf("unfiltered sort mode = %#v, want 1 (best)", got)
 	}
 }
 

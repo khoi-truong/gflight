@@ -56,7 +56,7 @@ func FuzzDecodeRow(f *testing.F) {
 		if json.Unmarshal(data, &row) != nil {
 			return
 		}
-		_, _ = parseRow(row)
+		_, _ = parseRow(row, nil)
 	})
 }
 

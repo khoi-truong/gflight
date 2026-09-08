@@ -19,8 +19,12 @@ Google's Terms of Service and any applicable rate limits. Use at your own risk.
 > **Status:** one-way `Client.Search` and two-phase round-trip
 > `Client.RoundTripTopN` work end to end against Google's undocumented RPC,
 > driven by recorded fixtures in the tests. The round-trip `segment[8]` shape is
-> structurally derived, not browser-captured. Price calendars, booking options,
-> and the full filter set are still to come.
+> structurally derived, not browser-captured. `SearchRequest` exposes the full
+> filter set — sort order, infants, airline/alliance include+exclude, max price,
+> bags, max trip duration, layover airports and min/max layover, departure and
+> arrival hour windows, less-emissions-only, exclude-basic-economy — each inert
+> at its zero value and each with a structurally derived wire shape. Price
+> calendars and booking options are still to come.
 >
 > Google fingerprints TLS clients — the stock `net/http` transport is often met
 > with `ErrBlocked`. Plug a browser-grade transport into `WithHTTPClient` when
