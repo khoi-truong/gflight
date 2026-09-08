@@ -27,8 +27,8 @@ Google's Terms of Service and any applicable rate limits. Use at your own risk.
 > calendars and booking options are still to come.
 >
 > Google fingerprints TLS clients — the stock `net/http` transport is often met
-> with `ErrBlocked`. Plug a browser-grade transport into `WithHTTPClient` when
-> that happens.
+> with a `*BlockedError`. Plug a browser-grade transport in with `WithTransport`
+> when that happens, and enable `WithRetry` for transient 429/5xx.
 
 ## Install
 
@@ -92,8 +92,18 @@ without any network I/O.
 Compare with `errors.Is` against `ErrBadResponse`, `ErrNoResults`, `ErrBlocked`
 (429 or a bot wall), and `ErrUpstreamChanged` (every response row failed to
 decode — Google moved the wire format). A non-2xx reply carries an `*HTTPError`
-reachable with `errors.As` that unwraps to `ErrBadResponse`. Never match on
-message text.
+reachable with `errors.As` that unwraps to `ErrBadResponse`. A block carries a
+`*BlockedError` (unwraps to `ErrBlocked`) with the `RetryAfter` delay and a
+`DeepLink` browser-fallback URL. Never match on message text.
+
+## Resilience
+
+`WithRetry(RetryPolicy{MaxAttempts: 4})` installs a retrying transport —
+connection errors and 408/425/429/500/502/503/504 are retried with full-jitter
+exponential backoff, and a `Retry-After` header overrides the computed wait.
+`WithTransport` sets the base `http.RoundTripper` (retry layers on top of it)
+for slotting in a uTLS or proxy stack without replacing the whole `http.Client`.
+Both are off by default; `go.sum` stays empty.
 
 ## Acknowledgements
 

@@ -170,6 +170,10 @@ func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq enc
 
 	raw, err := c.post(ctx, endpoint, "f.req="+body)
 	if err != nil {
+		var be *BlockedError
+		if errors.As(err, &be) && be.DeepLink == "" {
+			be.DeepLink = deepLink(req)
+		}
 		return SearchResult{}, err
 	}
 
@@ -177,10 +181,10 @@ func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq enc
 	if err != nil {
 		var se *wire.StatusError
 		if errors.As(err, &se) {
-			return SearchResult{}, fmt.Errorf("gflight: upstream status %d: %w", se.Code, ErrBlocked)
+			return SearchResult{}, &BlockedError{StatusCode: se.Code, DeepLink: deepLink(req)}
 		}
 		if errors.Is(err, wire.ErrNoEnvelope) {
-			return SearchResult{}, fmt.Errorf("gflight: response was not a batchexecute envelope: %w", ErrBlocked)
+			return SearchResult{}, &BlockedError{DeepLink: deepLink(req)}
 		}
 		return SearchResult{}, fmt.Errorf("gflight: read response: %w", errors.Join(err, ErrBadResponse))
 	}
@@ -341,7 +345,11 @@ func (c *Client) post(ctx context.Context, endpoint, body string) ([]byte, error
 
 	data, readErr := io.ReadAll(io.LimitReader(resp.Body, 32<<20))
 	if resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode == http.StatusForbidden {
-		return nil, fmt.Errorf("gflight: upstream returned %s: %w", resp.Status, ErrBlocked)
+		be := &BlockedError{StatusCode: resp.StatusCode}
+		if d, ok := parseRetryAfter(resp.Header.Get("Retry-After"), time.Now()); ok {
+			be.RetryAfter = d
+		}
+		return nil, be
 	}
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
 		return nil, &HTTPError{
@@ -426,6 +434,17 @@ func toItinerary(f decode.Flight, fallbackCurrency string) Itinerary {
 		}
 	}
 	return it
+}
+
+// deepLink returns the browser URL reproducing req, or "" if one can't be
+// built — used to enrich a [BlockedError] so a blocked caller can fall back to
+// opening the search in a browser.
+func deepLink(req SearchRequest) string {
+	u, err := SearchURL(req)
+	if err != nil {
+		return ""
+	}
+	return u
 }
 
 func airport(a decode.Airport) Airport {
