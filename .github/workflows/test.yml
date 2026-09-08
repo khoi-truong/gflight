@@ -9,6 +9,11 @@ on:
 
 permissions: {}
 
+# Each job installs only the tools it needs (setup-go `install-args`); don't let
+# `mise run` silently pull the whole toolchain back in.
+env:
+  MISE_TASK_RUN_AUTO_INSTALL: "false"
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
