@@ -5,10 +5,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -26,13 +27,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "172",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -41,7 +47,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T15:55:00Z",
         "ArrivalTime": "2026-07-12T17:20:00Z",
@@ -54,7 +60,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -96,10 +106,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -117,13 +128,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "833",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -132,7 +148,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T17:10:00Z",
         "ArrivalTime": "2026-07-12T18:35:00Z",
@@ -145,7 +161,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -187,15 +207,16 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "136",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T18:10:00Z",
         "ArrivalTime": "2026-07-12T12:45:00Z",
@@ -208,7 +229,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -239,15 +264,16 @@
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "268",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:55:00Z",
         "ArrivalTime": "2026-07-12T15:25:00Z",
@@ -260,7 +286,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -291,15 +321,16 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "923",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T15:35:00Z",
         "ArrivalTime": "2026-07-12T10:10:00Z",
@@ -312,7 +343,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -343,10 +378,11 @@
         "Carrier": "TK",
         "OperatingCarrier": "",
         "FlightNumber": "10",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "IST",
@@ -364,13 +400,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "TK",
         "OperatingCarrier": "",
         "FlightNumber": "1987",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IST",
           "Name": "Istanbul Airport",
@@ -379,7 +420,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T20:25:00Z",
         "ArrivalTime": "2026-07-12T22:25:00Z",
@@ -392,7 +433,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -434,10 +479,11 @@
         "Carrier": "AS",
         "OperatingCarrier": "",
         "FlightNumber": "1522",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "SFO",
@@ -455,13 +501,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "LO",
         "OperatingCarrier": "",
         "FlightNumber": "38",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "SFO",
           "Name": "San Francisco International Airport",
@@ -483,13 +534,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "LO",
         "OperatingCarrier": "",
         "FlightNumber": "285",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "WAW",
           "Name": "Warsaw Frederic Chopin",
@@ -498,7 +554,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T20:20:00Z",
         "ArrivalTime": "2026-07-12T22:00:00Z",
@@ -511,7 +567,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -563,15 +623,16 @@
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "282",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T15:50:00Z",
         "ArrivalTime": "2026-07-12T10:15:00Z",
@@ -584,7 +645,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -615,15 +680,16 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "134",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T16:15:00Z",
         "ArrivalTime": "2026-07-12T10:50:00Z",
@@ -636,7 +702,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -667,15 +737,16 @@
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "280",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T17:05:00Z",
         "ArrivalTime": "2026-07-12T11:35:00Z",
@@ -688,7 +759,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -719,10 +794,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "307",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "JFK",
@@ -740,13 +816,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "100",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "JFK",
           "Name": "John F. Kennedy International Airport",
@@ -755,7 +836,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T18:05:00Z",
         "ArrivalTime": "2026-07-12T06:25:00Z",
@@ -768,7 +849,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -810,10 +895,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "3164",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "PHL",
@@ -831,13 +917,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "728",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "PHL",
           "Name": "Philadelphia International Airport",
@@ -846,7 +937,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T19:35:00Z",
         "ArrivalTime": "2026-07-12T07:50:00Z",
@@ -859,7 +950,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -901,10 +996,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "30",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "JFK",
@@ -922,13 +1018,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "178",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "JFK",
           "Name": "John F. Kennedy International Airport",
@@ -937,7 +1038,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T07:50:00Z",
         "ArrivalTime": "2026-07-12T19:45:00Z",
@@ -950,7 +1051,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -992,10 +1097,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2743",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -1013,13 +1119,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "16",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -1028,7 +1139,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T17:25:00Z",
         "ArrivalTime": "2026-07-12T05:55:00Z",
@@ -1041,7 +1152,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1083,10 +1198,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "1946",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "ORD",
@@ -1104,13 +1220,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "929",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -1119,7 +1240,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T16:30:00Z",
         "ArrivalTime": "2026-07-12T06:45:00Z",
@@ -1132,7 +1253,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1174,10 +1299,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "277",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "IAH",
@@ -1195,13 +1321,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "880",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IAH",
           "Name": "George Bush Intercontinental Airport",
@@ -1210,7 +1341,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T16:35:00Z",
         "ArrivalTime": "2026-07-12T07:55:00Z",
@@ -1223,7 +1354,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1265,10 +1400,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2113",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "ORD",
@@ -1286,13 +1422,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "920",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -1301,7 +1442,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T18:15:00Z",
         "ArrivalTime": "2026-07-12T08:30:00Z",
@@ -1314,7 +1455,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1356,10 +1501,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "1981",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -1377,13 +1523,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "940",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -1392,7 +1543,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:50:00Z",
         "ArrivalTime": "2026-07-12T09:20:00Z",
@@ -1405,7 +1556,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1447,10 +1602,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "1635",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "IAD",
@@ -1468,13 +1624,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "924",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IAD",
           "Name": "Dulles International Airport",
@@ -1483,7 +1644,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T22:15:00Z",
         "ArrivalTime": "2026-07-12T10:40:00Z",
@@ -1496,7 +1657,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1538,10 +1703,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "360",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DEN",
@@ -1559,13 +1725,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "27",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DEN",
           "Name": "Denver International Airport",
@@ -1574,7 +1745,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T17:35:00Z",
         "ArrivalTime": "2026-07-12T09:40:00Z",
@@ -1587,7 +1758,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1629,10 +1804,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2487",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "ORD",
@@ -1650,13 +1826,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "938",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -1665,7 +1846,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T21:40:00Z",
         "ArrivalTime": "2026-07-12T11:55:00Z",
@@ -1678,7 +1859,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1720,10 +1905,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2146",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DEN",
@@ -1741,13 +1927,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "262",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DEN",
           "Name": "Denver International Airport",
@@ -1756,7 +1947,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:25:00Z",
         "ArrivalTime": "2026-07-12T12:25:00Z",
@@ -1769,7 +1960,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1811,10 +2006,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2019",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "SFO",
@@ -1832,13 +2028,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "930",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "SFO",
           "Name": "San Francisco International Airport",
@@ -1847,7 +2048,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T19:50:00Z",
         "ArrivalTime": "2026-07-12T14:10:00Z",
@@ -1860,7 +2061,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1902,10 +2107,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2303",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -1923,13 +2129,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "934",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -1938,7 +2149,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T08:30:00Z",
         "ArrivalTime": "2026-07-12T20:40:00Z",
@@ -1951,7 +2162,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -1993,10 +2208,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2303",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -2014,13 +2230,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "122",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -2029,7 +2250,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T09:30:00Z",
         "ArrivalTime": "2026-07-12T21:20:00Z",
@@ -2042,7 +2263,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2084,15 +2309,16 @@
         "Carrier": "VS",
         "OperatingCarrier": "",
         "FlightNumber": "142",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:35:00Z",
         "ArrivalTime": "2026-07-12T15:00:00Z",
@@ -2105,7 +2331,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2136,15 +2366,16 @@
         "Carrier": "VS",
         "OperatingCarrier": "",
         "FlightNumber": "24",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T23:15:00Z",
         "ArrivalTime": "2026-07-12T17:35:00Z",
@@ -2157,7 +2388,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2188,10 +2423,11 @@
         "Carrier": "LH",
         "OperatingCarrier": "",
         "FlightNumber": "451",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "FRA",
@@ -2209,13 +2445,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "LH",
         "OperatingCarrier": "",
         "FlightNumber": "914",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "FRA",
           "Name": "Frankfurt Airport",
@@ -2224,7 +2465,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T16:00:00Z",
         "ArrivalTime": "2026-07-12T16:40:00Z",
@@ -2237,7 +2478,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2279,15 +2524,16 @@
         "Carrier": "VS",
         "OperatingCarrier": "",
         "FlightNumber": "8",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T15:50:00Z",
         "ArrivalTime": "2026-07-12T10:15:00Z",
@@ -2300,7 +2546,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2331,10 +2581,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -2352,13 +2603,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "172",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -2367,7 +2623,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T15:55:00Z",
         "ArrivalTime": "2026-07-12T17:20:00Z",
@@ -2380,7 +2636,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2422,10 +2682,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -2443,13 +2704,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "833",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -2458,7 +2724,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T17:10:00Z",
         "ArrivalTime": "2026-07-12T18:35:00Z",
@@ -2471,7 +2737,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2513,10 +2783,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -2534,13 +2805,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "178",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -2549,7 +2825,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T18:00:00Z",
         "ArrivalTime": "2026-07-12T19:25:00Z",
@@ -2562,7 +2838,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2604,10 +2884,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -2625,13 +2906,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "182",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -2640,7 +2926,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T19:00:00Z",
         "ArrivalTime": "2026-07-12T20:20:00Z",
@@ -2653,7 +2939,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2695,10 +2985,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -2716,13 +3007,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "180",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -2731,7 +3027,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T19:35:00Z",
         "ArrivalTime": "2026-07-12T20:55:00Z",
@@ -2744,7 +3040,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2786,15 +3086,16 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "136",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T18:10:00Z",
         "ArrivalTime": "2026-07-12T12:45:00Z",
@@ -2807,7 +3108,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2838,15 +3143,16 @@
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "268",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:55:00Z",
         "ArrivalTime": "2026-07-12T15:25:00Z",
@@ -2859,7 +3165,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2890,15 +3200,16 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "923",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T15:35:00Z",
         "ArrivalTime": "2026-07-12T10:10:00Z",
@@ -2911,7 +3222,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -2942,10 +3257,11 @@
         "Carrier": "TK",
         "OperatingCarrier": "",
         "FlightNumber": "10",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "IST",
@@ -2963,13 +3279,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "TK",
         "OperatingCarrier": "",
         "FlightNumber": "1987",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IST",
           "Name": "Istanbul Airport",
@@ -2978,7 +3299,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T20:25:00Z",
         "ArrivalTime": "2026-07-12T22:25:00Z",
@@ -2991,7 +3312,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3033,10 +3358,11 @@
         "Carrier": "AS",
         "OperatingCarrier": "",
         "FlightNumber": "1522",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "SFO",
@@ -3054,13 +3380,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "LO",
         "OperatingCarrier": "",
         "FlightNumber": "38",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "SFO",
           "Name": "San Francisco International Airport",
@@ -3082,13 +3413,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "LO",
         "OperatingCarrier": "",
         "FlightNumber": "285",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "WAW",
           "Name": "Warsaw Frederic Chopin",
@@ -3097,7 +3433,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T20:20:00Z",
         "ArrivalTime": "2026-07-12T22:00:00Z",
@@ -3110,7 +3446,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3162,15 +3502,16 @@
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "282",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T15:50:00Z",
         "ArrivalTime": "2026-07-12T10:15:00Z",
@@ -3183,7 +3524,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3214,15 +3559,16 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "134",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T16:15:00Z",
         "ArrivalTime": "2026-07-12T10:50:00Z",
@@ -3235,7 +3581,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3266,15 +3616,16 @@
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "280",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T17:05:00Z",
         "ArrivalTime": "2026-07-12T11:35:00Z",
@@ -3287,7 +3638,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3318,10 +3673,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "307",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "JFK",
@@ -3339,13 +3695,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "100",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "JFK",
           "Name": "John F. Kennedy International Airport",
@@ -3354,7 +3715,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T18:05:00Z",
         "ArrivalTime": "2026-07-12T06:25:00Z",
@@ -3367,7 +3728,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3409,10 +3774,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "3164",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "PHL",
@@ -3430,13 +3796,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "728",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "PHL",
           "Name": "Philadelphia International Airport",
@@ -3445,7 +3816,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T19:35:00Z",
         "ArrivalTime": "2026-07-12T07:50:00Z",
@@ -3458,7 +3829,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3500,10 +3875,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "30",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "JFK",
@@ -3521,13 +3897,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "178",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "JFK",
           "Name": "John F. Kennedy International Airport",
@@ -3536,7 +3917,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T07:50:00Z",
         "ArrivalTime": "2026-07-12T19:45:00Z",
@@ -3549,7 +3930,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3591,10 +3976,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2743",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -3612,13 +3998,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "16",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -3627,7 +4018,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T17:25:00Z",
         "ArrivalTime": "2026-07-12T05:55:00Z",
@@ -3640,7 +4031,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3682,10 +4077,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "1946",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "ORD",
@@ -3703,13 +4099,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "929",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -3718,7 +4119,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T16:30:00Z",
         "ArrivalTime": "2026-07-12T06:45:00Z",
@@ -3731,7 +4132,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3773,10 +4178,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "277",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "IAH",
@@ -3794,13 +4200,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "880",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IAH",
           "Name": "George Bush Intercontinental Airport",
@@ -3809,7 +4220,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T16:35:00Z",
         "ArrivalTime": "2026-07-12T07:55:00Z",
@@ -3822,7 +4233,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3864,10 +4279,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2113",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "ORD",
@@ -3885,13 +4301,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "920",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -3900,7 +4321,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T18:15:00Z",
         "ArrivalTime": "2026-07-12T08:30:00Z",
@@ -3913,7 +4334,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -3955,10 +4380,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "1981",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -3976,13 +4402,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "940",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -3991,7 +4422,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:50:00Z",
         "ArrivalTime": "2026-07-12T09:20:00Z",
@@ -4004,7 +4435,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4046,10 +4481,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "1635",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "IAD",
@@ -4067,13 +4503,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "924",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IAD",
           "Name": "Dulles International Airport",
@@ -4082,7 +4523,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T22:15:00Z",
         "ArrivalTime": "2026-07-12T10:40:00Z",
@@ -4095,7 +4536,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4137,10 +4582,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "360",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DEN",
@@ -4158,13 +4604,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "27",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DEN",
           "Name": "Denver International Airport",
@@ -4173,7 +4624,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T17:35:00Z",
         "ArrivalTime": "2026-07-12T09:40:00Z",
@@ -4186,7 +4637,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4228,10 +4683,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2487",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "ORD",
@@ -4249,13 +4705,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "938",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -4264,7 +4725,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T21:40:00Z",
         "ArrivalTime": "2026-07-12T11:55:00Z",
@@ -4277,7 +4738,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4319,10 +4784,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2146",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DEN",
@@ -4340,13 +4806,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "262",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DEN",
           "Name": "Denver International Airport",
@@ -4355,7 +4826,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:25:00Z",
         "ArrivalTime": "2026-07-12T12:25:00Z",
@@ -4368,7 +4839,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4410,10 +4885,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2019",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "SFO",
@@ -4431,13 +4907,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "930",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "SFO",
           "Name": "San Francisco International Airport",
@@ -4446,7 +4927,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T19:50:00Z",
         "ArrivalTime": "2026-07-12T14:10:00Z",
@@ -4459,7 +4940,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4501,10 +4986,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2303",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -4522,13 +5008,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "934",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -4537,7 +5028,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T08:30:00Z",
         "ArrivalTime": "2026-07-12T20:40:00Z",
@@ -4550,7 +5041,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4592,10 +5087,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "2303",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "EWR",
@@ -4613,13 +5109,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "122",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "EWR",
           "Name": "Newark Liberty International Airport",
@@ -4628,7 +5129,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T09:30:00Z",
         "ArrivalTime": "2026-07-12T21:20:00Z",
@@ -4641,7 +5142,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4683,15 +5188,16 @@
         "Carrier": "VS",
         "OperatingCarrier": "",
         "FlightNumber": "142",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T20:35:00Z",
         "ArrivalTime": "2026-07-12T15:00:00Z",
@@ -4704,7 +5210,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4735,15 +5245,16 @@
         "Carrier": "VS",
         "OperatingCarrier": "",
         "FlightNumber": "24",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T23:15:00Z",
         "ArrivalTime": "2026-07-12T17:35:00Z",
@@ -4756,7 +5267,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4787,10 +5302,11 @@
         "Carrier": "LH",
         "OperatingCarrier": "",
         "FlightNumber": "451",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "FRA",
@@ -4808,13 +5324,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "LH",
         "OperatingCarrier": "",
         "FlightNumber": "914",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "FRA",
           "Name": "Frankfurt Airport",
@@ -4823,7 +5344,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T16:00:00Z",
         "ArrivalTime": "2026-07-12T16:40:00Z",
@@ -4836,7 +5357,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4878,15 +5403,16 @@
         "Carrier": "VS",
         "OperatingCarrier": "",
         "FlightNumber": "8",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-11T15:50:00Z",
         "ArrivalTime": "2026-07-12T10:15:00Z",
@@ -4899,7 +5425,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -4930,10 +5460,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -4951,13 +5482,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "172",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -4966,7 +5502,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T15:55:00Z",
         "ArrivalTime": "2026-07-12T17:20:00Z",
@@ -4979,7 +5515,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -5021,10 +5561,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -5042,13 +5583,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "BA",
         "OperatingCarrier": "",
         "FlightNumber": "833",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -5057,7 +5603,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T17:10:00Z",
         "ArrivalTime": "2026-07-12T18:35:00Z",
@@ -5070,7 +5616,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -5112,10 +5662,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -5133,13 +5684,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "178",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -5148,7 +5704,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T18:00:00Z",
         "ArrivalTime": "2026-07-12T19:25:00Z",
@@ -5161,7 +5717,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -5203,10 +5763,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -5224,13 +5785,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "182",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -5239,7 +5805,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T19:00:00Z",
         "ArrivalTime": "2026-07-12T20:20:00Z",
@@ -5252,7 +5818,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],
@@ -5294,10 +5864,11 @@
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "68",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "LAX",
           "Name": "Los Angeles International Airport",
-          "City": ""
+          "City": "Los Angeles"
         },
         "Destination": {
           "Code": "DUB",
@@ -5315,13 +5886,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "EI",
         "OperatingCarrier": "",
         "FlightNumber": "180",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "DUB",
           "Name": "Dublin Airport",
@@ -5330,7 +5906,7 @@
         "Destination": {
           "Code": "LHR",
           "Name": "Heathrow Airport",
-          "City": ""
+          "City": "London"
         },
         "DepartureTime": "2026-07-12T19:35:00Z",
         "ArrivalTime": "2026-07-12T20:55:00Z",
@@ -5343,7 +5919,11 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       }
     ],

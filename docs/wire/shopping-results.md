@@ -30,8 +30,8 @@ main[2]   trip type: 1 round-trip, 2 one-way, 3 multi-city
 main[4]   [] — rejects scalars; empty list is the inert form
 main[5]   cabin: 1 economy, 2 premium economy, 3 business, 4 first
 main[6]   [adults, children, infants_lap, infants_seat]
-main[7]   [null, max_price]                 (M3)
-main[10]  [checked_bags, carry_on]          (M3)
+main[7]   [null, max_price] — omitted (null) when uncapped
+main[10]  [checked_bags, carry_on] — omitted (null) when both are 0
 main[13]  segments
 main[17]  1 (constant, set by the UI)
 main[28]  exclude basic economy (0 | 1)
@@ -39,22 +39,32 @@ main[28]  exclude basic economy (0 | 1)
 
 segment[0]   [[[IATA, 0]]] departure — exactly 3 levels; wrong depth = 0 results, no error
 segment[1]   [[[IATA, 0]]] arrival
-segment[2]   [earliest_dep, latest_dep, earliest_arr, latest_arr] hour buckets (M3)
+segment[2]   [earliest_dep, latest_dep, earliest_arr, latest_arr] hour buckets;
+             an unset bound is null, an all-unset window is null
 segment[3]   max stops (int; 0 = no constraint)
-segment[4]   airline / alliance include     (M3)
-segment[5]   airline / alliance exclude     (M3)
+segment[4]   airline / alliance include — flat list of IATA codes or alliance
+             names ("STAR_ALLIANCE", "SKYTEAM", "ONEWORLD"); null when empty
+segment[5]   airline / alliance exclude — same shape as [4]
 segment[6]   "YYYY-MM-DD"
-segment[7]   [max_duration_mins]            (M3)
+segment[7]   [max_duration_mins]; null when uncapped
 segment[8]   selected_flight — round-trip second phase. On the outbound
              segment only: [[ leg, leg, ... ]] where each leg is
              [origin, "YYYY-MM-DD", dest, null, carrier, flight_number].
              Nesting depth is structurally derived, not live-captured.
-segment[9]   layover airport include        (M3)
-segment[11]  min layover minutes            (M3)
-segment[12]  max layover minutes            (M3)
-segment[13]  [1] = less-emissions only      (M3)
+segment[9]   layover airport include — flat list of IATA codes; null when empty
+segment[11]  min layover minutes (scalar int; null when unset)
+segment[12]  max layover minutes (scalar int; null when unset)
+segment[13]  [1] = less-emissions only; null when off
 segment[14]  classifier: 3 = outbound / only leg, 1 = return leg of a round trip
 ```
+
+The exact shape of the M3 filter slots — [2], [4], [5], [7], [9], [11], [12],
+[13], main[7] and main[10] — is **structurally derived** from the index map
+above and from `fli`'s builder, not from a live capture: the endpoint refuses
+non-browser TLS clients, the same constraint that made the `tfs` and
+`segment[8]` goldens synthetic. Each is frozen in
+`internal/encoding/freq_test.go` (`goldenAllFiltersOneWay`); revisit against a
+real capture when a browser-grade transport lands.
 
 ## Response
 
@@ -78,6 +88,12 @@ Inside a chunk's inner JSON:
 
 ```text
 inner[0][4]              shopping session id (needed for GetBookingResults, M4)
+inner[1]                 airport directory. Nesting depth varies with trip type,
+                         so the decoder walks it by shape; each leaf entry is
+                         [[IATA, 0], "<airport name>", ["<mid>", "<city>", …],
+                         [lat, lng], "<country code>", bool, "<country>"].
+                         Only the searched endpoints appear — a connection
+                         airport's city comes from detail[13] instead.
 inner[2][0], inner[3][0] flight rows — concatenated in order
 
 row[0]  = detail          row[1]  = price block   row[8] = booking token
@@ -98,11 +114,22 @@ detail[22]  emissions block: [3] delta %, [7] this grams, [8] typical grams,
 
 leg[3]/[6]   dep / arr airport codes      leg[4]/[5]  dep / arr airport names
 leg[8]/[10]  dep / arr time [h, m]        leg[11]     duration (minutes)
-leg[12]      amenities (12 slots): [1] wifi, [5] power, [9] on-demand video,
+leg[12]      amenities (12 slots): [1] wifi, [5] in-seat AC power,
+             [7] USB power, [8] in-seat (seat-back) video,
+             [9] streaming / on-demand video,
              [11] legroom rating (2 normal / 3 extra)
+             — [5]/[9] were mapped in M1; the [7]/[8] split is structurally
+             derived (M3). Slot [10] is set in recorded fixtures but its
+             meaning is unidentified; slots [0], [2], [3], [4], [6] are always
+             null in every fixture. `decode.Amenities.Power` is the OR of
+             [5]|[7] and `.OnDemandVideo` the OR of [8]|[9], so the pre-M3
+             folded fields keep their meaning.
 leg[14]      legroom short   leg[17] aircraft   leg[19] overnight (bool)
 leg[20]/[21] dep / arr date [y, m, d]
-leg[22]      [airline, flight_no, operating_airline]
+leg[22]      [airline, flight_no, operating_airline, airline_name,
+             operating_flight_no] — index [4] is structurally derived; no
+             recorded fixture carries a codeshare, so [2] and [4] are null in
+             all of them
 leg[30]      legroom long (preferred over [14])   leg[31] CO2 grams
 ```
 

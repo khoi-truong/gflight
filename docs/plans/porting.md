@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1, M2 done; M3–M5 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1, M2, M3 done; M4–M5 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -303,15 +303,60 @@ named `f.req` index already documented in M1.
 
 Fold in here (see [Amendments](#amendments-2026-09-08-deep-analysis-review) A4):
 
-- **Sort mode** — the `Sort*` constants already exist in
-  `internal/encoding/freq.go` but are unreachable from `SearchRequest`.
-- **Infant passengers** — `SearchRequest` has only `Adults` / `Children`;
-  `main[6]` already sends `[adults, children, 0, 0]`. Add `InfantsInSeat` /
-  `InfantsOnLap`.
-- **Amenities** — split `usb_power` and `in_seat_video` out of the folded
-  `Power` / `OnDemandVideo` flags to match `fli`.
-- **Segment fields** — `OperatingFlightNumber` and segment-level airport `City`
-  (today only layovers carry a city).
+- [x] **Filter set** — `FreqRequest.MaxPrice` / `CheckedBags` / `CarryOnBags` /
+  `ExcludeBasicEconomy` (`main[7]`, `main[10]`, `main[28]`) and
+  `FreqSegment.IncludeAirlines` / `ExcludeAirlines` / `MaxDurationMins` /
+  `LayoverAirports` / `MinLayoverMins` / `MaxLayoverMins` / the four hour-window
+  fields / `LessEmissionsOnly` (`segment[4]`, `[5]`, `[7]`, `[9]`, `[11]`,
+  `[12]`, `[2]`, `[13]`). Every slot goes through a named index constant; every
+  zero value stays inert, so an unfiltered request encodes exactly as it did
+  before M3.
+- [x] **Sort mode** — public `SortOrder` (`SortBest` zero value, `SortCheapest`,
+  `SortDepartureTime`, `SortArrivalTime`, `SortDuration`) on `SearchRequest`,
+  mapped onto the existing `encoding.Sort*` constants by `sortToFreq`.
+- [x] **Infant passengers** — `InfantsOnLap` / `InfantsInSeat` on
+  `SearchRequest`, filling `main[6]` = `[adults, children, lap, seat]`.
+- [x] **Amenities** — `ACPower` / `USBPower` / `StreamingVideo` / `InSeatVideo`
+  added; `Power` and `OnDemandVideo` retained as the ORs of their pairs.
+- [x] **Segment fields** — `Segment.OperatingFlightNumber` (`leg[22][4]`) and
+  segment-level `Airport.City`, sourced from the `inner[1]` airport directory.
+- [x] **Tests** — `TestEncodeFreqFilters` (13 filters × set/inert),
+  `goldenAllFiltersOneWay` encoder golden, `TestSearchFiltersReachTheWire` /
+  `TestSearchUnfilteredStaysInert` request captures, decode tests for the
+  amenity split, airport city and operating flight number. Response goldens
+  regenerated for the new fields.
+- [x] **Docs** — `doc.go`, `README.md`, `types.go`,
+  `docs/wire/shopping-results.md`, this plan.
+
+### M3 implementation deviations
+
+- **The filter slot shapes are structurally derived, not live-captured.**
+  `segment[2]`, `[4]`, `[5]`, `[7]`, `[9]`, `[11]`, `[12]`, `[13]`, `main[7]`
+  and `main[10]` follow the M1 index map and `fli`'s builder; the endpoint still
+  refuses non-browser TLS clients, so none of them has been round-tripped
+  against a real capture. Frozen in `goldenAllFiltersOneWay`.
+- **The amenity split reuses slots 7/8, not 5/9.** No fixture ever sets slot 5,
+  while 1, 8, 9 and 10 carry booleans. Rather than repurpose the M1 mapping,
+  `[5]` and `[9]` keep their meaning (AC power, streaming video), `[7]`/`[8]`
+  were added for USB power and in-seat video, and `Power` / `OnDemandVideo` are
+  the logical ORs of each pair so pre-M3 callers see no behaviour change. The
+  `[7]`/`[8]` assignment is structurally derived. Slot `[10]` is set in the
+  fixtures but its meaning is still unidentified.
+- **`OperatingFlightNumber` has no fixture coverage.** Every recorded
+  `leg[22]` is `[code, number, null, name]` — no codeshare. It is mapped to
+  `leg[22][4]`, bounds-checked so it decodes to `""` today, and pinned by a
+  synthetic unit test that also proves index 3 (the airline name) is not
+  borrowed by mistake.
+- **`Airport.City` covers searched endpoints only.** `inner[1]` is an airport
+  directory whose nesting depth varies by trip type, so `airportCities` walks it
+  by shape with a depth cap instead of fixed indices. It lists only the searched
+  origin and destination, so a connection airport's leg usually has an empty
+  `City`; layover cities continue to come from `detail[13]`.
+- **`TimeWindow` uses a plain int pair, not pointers.** A zero `LatestHour`
+  means "no upper bound" rather than midnight, matching Google's own slider and
+  keeping "zero value = no constraint" true for the whole struct.
+- **Response goldens regenerated** with the documented `-update` flag to absorb
+  `City`, `OperatingFlightNumber` and the four new amenity fields.
 
 ### M4 — calendar graph + booking options · `feat: add price calendar and booking options`
 

@@ -5,10 +5,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "3430",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "BUF",
           "Name": "Buffalo Niagara International Airport",
-          "City": ""
+          "City": "Buffalo"
         },
         "Destination": {
           "Code": "IAD",
@@ -26,13 +27,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "982",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "IAD",
           "Name": "Dulles International Airport",
@@ -41,7 +47,7 @@
         "Destination": {
           "Code": "ATH",
           "Name": "Athens International Airport \"Eleftherios Venizelos\"",
-          "City": ""
+          "City": "Athens"
         },
         "DepartureTime": "2026-06-28T17:20:00Z",
         "ArrivalTime": "2026-06-29T10:00:00Z",
@@ -54,7 +60,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -96,10 +106,11 @@
         "Carrier": "DL",
         "OperatingCarrier": "",
         "FlightNumber": "1384",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "BUF",
           "Name": "Buffalo Niagara International Airport",
-          "City": ""
+          "City": "Buffalo"
         },
         "Destination": {
           "Code": "ATL",
@@ -116,14 +127,19 @@
         "Amenities": {
           "WiFi": true,
           "Power": null,
-          "OnDemandVideo": null,
-          "LegroomRating": 2
+          "OnDemandVideo": true,
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": true
         }
       },
       {
         "Carrier": "DL",
         "OperatingCarrier": "",
         "FlightNumber": "222",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ATL",
           "Name": "Hartsfield-Jackson Atlanta International Airport",
@@ -132,7 +148,7 @@
         "Destination": {
           "Code": "ATH",
           "Name": "Athens International Airport \"Eleftherios Venizelos\"",
-          "City": ""
+          "City": "Athens"
         },
         "DepartureTime": "2026-06-28T17:10:00Z",
         "ArrivalTime": "2026-06-29T11:00:00Z",
@@ -145,7 +161,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -187,10 +207,11 @@
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "1616",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "BUF",
           "Name": "Buffalo Niagara International Airport",
-          "City": ""
+          "City": "Buffalo"
         },
         "Destination": {
           "Code": "CLT",
@@ -208,13 +229,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 2
+          "LegroomRating": 2,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AA",
         "OperatingCarrier": "",
         "FlightNumber": "326",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "CLT",
           "Name": "Charlotte Douglas International Airport",
@@ -223,7 +249,7 @@
         "Destination": {
           "Code": "ATH",
           "Name": "Athens International Airport \"Eleftherios Venizelos\"",
-          "City": ""
+          "City": "Athens"
         },
         "DepartureTime": "2026-06-28T18:45:00Z",
         "ArrivalTime": "2026-06-29T12:15:00Z",
@@ -236,7 +262,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -278,10 +308,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "543",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "BUF",
           "Name": "Buffalo Niagara International Airport",
-          "City": ""
+          "City": "Buffalo"
         },
         "Destination": {
           "Code": "ORD",
@@ -299,13 +330,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AC",
         "OperatingCarrier": "",
         "FlightNumber": "8480",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -327,13 +363,18 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AC",
         "OperatingCarrier": "",
         "FlightNumber": "898",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "YUL",
           "Name": "Montréal-Pierre Elliott Trudeau International Airport",
@@ -342,7 +383,7 @@
         "Destination": {
           "Code": "ATH",
           "Name": "Athens International Airport \"Eleftherios Venizelos\"",
-          "City": ""
+          "City": "Athens"
         },
         "DepartureTime": "2026-06-28T18:10:00Z",
         "ArrivalTime": "2026-06-29T10:10:00Z",
@@ -355,7 +396,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -407,10 +452,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "543",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "BUF",
           "Name": "Buffalo Niagara International Airport",
-          "City": ""
+          "City": "Buffalo"
         },
         "Destination": {
           "Code": "ORD",
@@ -428,13 +474,18 @@
           "WiFi": null,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AC",
         "OperatingCarrier": "",
         "FlightNumber": "8480",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -456,13 +507,18 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AC",
         "OperatingCarrier": "",
         "FlightNumber": "922",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "YUL",
           "Name": "Montréal-Pierre Elliott Trudeau International Airport",
@@ -471,7 +527,7 @@
         "Destination": {
           "Code": "ATH",
           "Name": "Athens International Airport \"Eleftherios Venizelos\"",
-          "City": ""
+          "City": "Athens"
         },
         "DepartureTime": "2026-06-28T21:25:00Z",
         "ArrivalTime": "2026-06-29T13:25:00Z",
@@ -484,7 +540,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],
@@ -536,10 +596,11 @@
         "Carrier": "UA",
         "OperatingCarrier": "",
         "FlightNumber": "705",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "BUF",
           "Name": "Buffalo Niagara International Airport",
-          "City": ""
+          "City": "Buffalo"
         },
         "Destination": {
           "Code": "ORD",
@@ -557,13 +618,18 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": null,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AC",
         "OperatingCarrier": "",
         "FlightNumber": "8484",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "ORD",
           "Name": "Chicago O'Hare International Airport",
@@ -585,13 +651,18 @@
           "WiFi": null,
           "Power": true,
           "OnDemandVideo": null,
-          "LegroomRating": 0
+          "LegroomRating": 0,
+          "ACPower": true,
+          "USBPower": null,
+          "StreamingVideo": null,
+          "InSeatVideo": null
         }
       },
       {
         "Carrier": "AC",
         "OperatingCarrier": "",
         "FlightNumber": "922",
+        "OperatingFlightNumber": "",
         "Origin": {
           "Code": "YUL",
           "Name": "Montréal-Pierre Elliott Trudeau International Airport",
@@ -600,7 +671,7 @@
         "Destination": {
           "Code": "ATH",
           "Name": "Athens International Airport \"Eleftherios Venizelos\"",
-          "City": ""
+          "City": "Athens"
         },
         "DepartureTime": "2026-06-28T21:25:00Z",
         "ArrivalTime": "2026-06-29T13:25:00Z",
@@ -613,7 +684,11 @@
           "WiFi": true,
           "Power": null,
           "OnDemandVideo": true,
-          "LegroomRating": 3
+          "LegroomRating": 3,
+          "ACPower": null,
+          "USBPower": null,
+          "StreamingVideo": true,
+          "InSeatVideo": null
         }
       }
     ],

@@ -229,28 +229,67 @@ func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq enc
 }
 
 func (c *Client) buildFreq(req SearchRequest) encoding.FreqRequest {
-	seg := encoding.FreqSegment{
-		Origin:   req.Origin,
-		Dest:     req.Destination,
-		Date:     req.DepartDate,
-		MaxStops: req.MaxStops,
-	}
+	seg := segmentFilters(req)
+	seg.Origin = req.Origin
+	seg.Dest = req.Destination
+	seg.Date = req.DepartDate
+
 	fr := encoding.FreqRequest{
-		Segments: []encoding.FreqSegment{seg},
-		Adults:   req.Adults,
-		Children: req.Children,
-		Cabin:    cabinToFreq(req.Cabin),
+		Segments:            []encoding.FreqSegment{seg},
+		Adults:              req.Adults,
+		Children:            req.Children,
+		InfantsOnLap:        req.InfantsOnLap,
+		InfantsInSeat:       req.InfantsInSeat,
+		Cabin:               cabinToFreq(req.Cabin),
+		SortBy:              sortToFreq(req.SortBy),
+		MaxPrice:            req.MaxPrice,
+		CheckedBags:         req.CheckedBags,
+		CarryOnBags:         req.CarryOnBags,
+		ExcludeBasicEconomy: req.ExcludeBasicEconomy,
 	}
 	if !req.ReturnDate.IsZero() {
-		fr.Segments = append(fr.Segments, encoding.FreqSegment{
-			Origin:   req.Destination,
-			Dest:     req.Origin,
-			Date:     req.ReturnDate,
-			MaxStops: req.MaxStops,
-			IsReturn: true,
-		})
+		ret := segmentFilters(req)
+		ret.Origin = req.Destination
+		ret.Dest = req.Origin
+		ret.Date = req.ReturnDate
+		ret.IsReturn = true
+		fr.Segments = append(fr.Segments, ret)
 	}
 	return fr
+}
+
+// segmentFilters projects the per-segment filters of a request; they apply
+// identically to the outbound and the return leg.
+func segmentFilters(req SearchRequest) encoding.FreqSegment {
+	return encoding.FreqSegment{
+		MaxStops:          req.MaxStops,
+		IncludeAirlines:   req.IncludeAirlines,
+		ExcludeAirlines:   req.ExcludeAirlines,
+		MaxDurationMins:   int(req.MaxDuration.Minutes()),
+		LayoverAirports:   req.LayoverAirports,
+		MinLayoverMins:    int(req.MinLayover.Minutes()),
+		MaxLayoverMins:    int(req.MaxLayover.Minutes()),
+		DepEarliestHour:   req.DepartureWindow.EarliestHour,
+		DepLatestHour:     req.DepartureWindow.LatestHour,
+		ArrEarliestHour:   req.ArrivalWindow.EarliestHour,
+		ArrLatestHour:     req.ArrivalWindow.LatestHour,
+		LessEmissionsOnly: req.LessEmissionsOnly,
+	}
+}
+
+func sortToFreq(s SortOrder) int {
+	switch s {
+	case SortCheapest:
+		return encoding.SortCheapest
+	case SortDepartureTime:
+		return encoding.SortDepartureTime
+	case SortArrivalTime:
+		return encoding.SortArrivalTime
+	case SortDuration:
+		return encoding.SortDuration
+	default:
+		return encoding.SortBest
+	}
 }
 
 func cabinToFreq(c CabinClass) encoding.FreqCabin {
@@ -342,23 +381,28 @@ func toItinerary(f decode.Flight, fallbackCurrency string) Itinerary {
 
 	for _, leg := range f.Legs {
 		it.Segments = append(it.Segments, Segment{
-			Carrier:          leg.Carrier,
-			OperatingCarrier: leg.OperatingCarrier,
-			FlightNumber:     leg.FlightNumber,
-			Origin:           airport(leg.Origin),
-			Destination:      airport(leg.Dest),
-			DepartureTime:    leg.Departure,
-			ArrivalTime:      leg.Arrival,
-			Duration:         time.Duration(leg.DurationMin) * time.Minute,
-			Aircraft:         leg.Aircraft,
-			Legroom:          leg.Legroom,
-			Overnight:        leg.Overnight,
-			CO2Grams:         leg.CO2Grams,
+			Carrier:               leg.Carrier,
+			OperatingCarrier:      leg.OperatingCarrier,
+			FlightNumber:          leg.FlightNumber,
+			OperatingFlightNumber: leg.OperatingFlightNumber,
+			Origin:                airport(leg.Origin),
+			Destination:           airport(leg.Dest),
+			DepartureTime:         leg.Departure,
+			ArrivalTime:           leg.Arrival,
+			Duration:              time.Duration(leg.DurationMin) * time.Minute,
+			Aircraft:              leg.Aircraft,
+			Legroom:               leg.Legroom,
+			Overnight:             leg.Overnight,
+			CO2Grams:              leg.CO2Grams,
 			Amenities: Amenities{
-				WiFi:          leg.Amenities.Wifi,
-				Power:         leg.Amenities.Power,
-				OnDemandVideo: leg.Amenities.OnDemandVideo,
-				LegroomRating: leg.Amenities.LegroomRating,
+				WiFi:           leg.Amenities.Wifi,
+				Power:          leg.Amenities.Power,
+				OnDemandVideo:  leg.Amenities.OnDemandVideo,
+				LegroomRating:  leg.Amenities.LegroomRating,
+				ACPower:        leg.Amenities.ACPower,
+				USBPower:       leg.Amenities.USBPower,
+				StreamingVideo: leg.Amenities.StreamingVideo,
+				InSeatVideo:    leg.Amenities.InSeatVideo,
 			},
 		})
 	}
@@ -385,5 +429,5 @@ func toItinerary(f decode.Flight, fallbackCurrency string) Itinerary {
 }
 
 func airport(a decode.Airport) Airport {
-	return Airport{Code: a.Code, Name: a.Name}
+	return Airport{Code: a.Code, Name: a.Name, City: a.City}
 }

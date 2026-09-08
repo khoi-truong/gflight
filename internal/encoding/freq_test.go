@@ -3,6 +3,7 @@ package encoding
 import (
 	"encoding/json"
 	"net/url"
+	"reflect"
 	"testing"
 	"time"
 )
@@ -87,6 +88,220 @@ func TestEncodeFreqOneWay(t *testing.T) {
 	}
 	if seg[segClassifierIdx] != float64(segOutbound) {
 		t.Errorf("classifier = %v, want %d", seg[segClassifierIdx], segOutbound)
+	}
+}
+
+// filterCase asserts one filter's effect on a single f.req slot. want is
+// compared against the JSON-decoded value, so numbers are float64.
+type filterCase struct {
+	name string
+	// mutate applies the filter to an otherwise-plain one-way request.
+	mutate func(*FreqRequest)
+	// pick reads the slot under test out of the decoded filter array.
+	pick func(t *testing.T, filters []any) any
+	// want is the value with the filter set; inert is the value without it.
+	want  any
+	inert any
+}
+
+func mainSlot(i int) func(*testing.T, []any) any {
+	return func(t *testing.T, filters []any) any {
+		t.Helper()
+		main, ok := filters[1].([]any)
+		if !ok {
+			t.Fatalf("filters[1] not a list")
+		}
+		return main[i]
+	}
+}
+
+func segSlot(i int) func(*testing.T, []any) any {
+	return func(t *testing.T, filters []any) any {
+		t.Helper()
+		main, ok := filters[1].([]any)
+		if !ok {
+			t.Fatalf("filters[1] not a list")
+		}
+		segs, ok := main[mainSegmentsIdx].([]any)
+		if !ok || len(segs) == 0 {
+			t.Fatalf("no segments")
+		}
+		return segs[0].([]any)[i]
+	}
+}
+
+func plainRequest() FreqRequest {
+	return FreqRequest{
+		Segments: []FreqSegment{{
+			Origin: "JFK", Dest: "LAX",
+			Date: time.Date(2026, 6, 28, 0, 0, 0, 0, time.UTC),
+		}},
+	}
+}
+
+// TestEncodeFreqFilters walks every M3 filter: with the filter set the slot
+// carries the documented shape, and with it unset the slot keeps the inert form
+// M1 shipped.
+func TestEncodeFreqFilters(t *testing.T) {
+	t.Parallel()
+	cases := []filterCase{
+		{
+			name:   "max price",
+			mutate: func(r *FreqRequest) { r.MaxPrice = 700 },
+			pick:   mainSlot(mainMaxPriceIdx),
+			want:   []any{nil, float64(700)},
+		},
+		{
+			name:   "bags",
+			mutate: func(r *FreqRequest) { r.CheckedBags, r.CarryOnBags = 2, 1 },
+			pick:   mainSlot(mainBagsIdx),
+			want:   []any{float64(2), float64(1)},
+		},
+		{
+			name:   "exclude basic economy",
+			mutate: func(r *FreqRequest) { r.ExcludeBasicEconomy = true },
+			pick:   mainSlot(mainExcludeBasicEconomyIdx),
+			want:   float64(1),
+			inert:  float64(0),
+		},
+		{
+			name:   "infants",
+			mutate: func(r *FreqRequest) { r.Adults, r.InfantsOnLap, r.InfantsInSeat = 2, 1, 3 },
+			pick:   mainSlot(mainPassengersIdx),
+			want:   []any{float64(2), float64(0), float64(1), float64(3)},
+			inert:  []any{float64(1), float64(0), float64(0), float64(0)},
+		},
+		{
+			name:   "sort mode",
+			mutate: func(r *FreqRequest) { r.SortBy = SortCheapest },
+			pick:   func(_ *testing.T, filters []any) any { return filters[2] },
+			want:   float64(SortCheapest),
+			inert:  float64(SortBest),
+		},
+		{
+			name:   "airline include",
+			mutate: func(r *FreqRequest) { r.Segments[0].IncludeAirlines = []string{"B6", "AA"} },
+			pick:   segSlot(segAirlineIncludeIdx),
+			want:   []any{"B6", "AA"},
+		},
+		{
+			name:   "airline exclude",
+			mutate: func(r *FreqRequest) { r.Segments[0].ExcludeAirlines = []string{"NK"} },
+			pick:   segSlot(segAirlineExcludeIdx),
+			want:   []any{"NK"},
+		},
+		{
+			name:   "max duration",
+			mutate: func(r *FreqRequest) { r.Segments[0].MaxDurationMins = 480 },
+			pick:   segSlot(segMaxDurationIdx),
+			want:   []any{float64(480)},
+		},
+		{
+			name:   "layover airports",
+			mutate: func(r *FreqRequest) { r.Segments[0].LayoverAirports = []string{"DFW"} },
+			pick:   segSlot(segLayoverAirportsIdx),
+			want:   []any{"DFW"},
+		},
+		{
+			name:   "min layover",
+			mutate: func(r *FreqRequest) { r.Segments[0].MinLayoverMins = 90 },
+			pick:   segSlot(segMinLayoverIdx),
+			want:   float64(90),
+		},
+		{
+			name:   "max layover",
+			mutate: func(r *FreqRequest) { r.Segments[0].MaxLayoverMins = 300 },
+			pick:   segSlot(segMaxLayoverIdx),
+			want:   float64(300),
+		},
+		{
+			name:   "less emissions",
+			mutate: func(r *FreqRequest) { r.Segments[0].LessEmissionsOnly = true },
+			pick:   segSlot(segLessEmissionsIdx),
+			want:   []any{float64(1)},
+		},
+		{
+			name: "hour windows",
+			mutate: func(r *FreqRequest) {
+				s := &r.Segments[0]
+				s.DepEarliestHour, s.DepLatestHour = 6, 12
+				s.ArrEarliestHour, s.ArrLatestHour = 0, 22
+			},
+			pick: segSlot(segTimeWindowIdx),
+			want: []any{float64(6), float64(12), nil, float64(22)},
+		},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
+			req := plainRequest()
+			tc.mutate(&req)
+			enc, err := EncodeFreq(req)
+			if err != nil {
+				t.Fatalf("EncodeFreq: %v", err)
+			}
+			if got := tc.pick(t, decodeFreq(t, enc)); !reflect.DeepEqual(got, tc.want) {
+				t.Errorf("filtered slot = %#v, want %#v", got, tc.want)
+			}
+
+			base, err := EncodeFreq(plainRequest())
+			if err != nil {
+				t.Fatalf("EncodeFreq (unfiltered): %v", err)
+			}
+			if got := tc.pick(t, decodeFreq(t, base)); !reflect.DeepEqual(got, tc.inert) {
+				t.Errorf("unfiltered slot = %#v, want %#v", got, tc.inert)
+			}
+		})
+	}
+}
+
+// freqRequestAllFilters is a one-way JFK->LAX search with every M3 filter set,
+// so the golden below moves whenever any index or shape does.
+func freqRequestAllFilters() FreqRequest {
+	return FreqRequest{
+		Segments: []FreqSegment{{
+			Origin: "JFK", Dest: "LAX",
+			Date:              time.Date(2026, 6, 28, 0, 0, 0, 0, time.UTC),
+			MaxStops:          1,
+			IncludeAirlines:   []string{"B6", "AA"},
+			ExcludeAirlines:   []string{"NK"},
+			MaxDurationMins:   480,
+			LayoverAirports:   []string{"DFW"},
+			MinLayoverMins:    90,
+			MaxLayoverMins:    300,
+			DepEarliestHour:   6,
+			DepLatestHour:     12,
+			ArrLatestHour:     22,
+			LessEmissionsOnly: true,
+		}},
+		Adults:              2,
+		Children:            1,
+		InfantsOnLap:        1,
+		InfantsInSeat:       1,
+		Cabin:               FreqCabinPremiumEconomy,
+		SortBy:              SortCheapest,
+		MaxPrice:            700,
+		CheckedBags:         2,
+		CarryOnBags:         1,
+		ExcludeBasicEconomy: true,
+	}
+}
+
+// goldenAllFiltersOneWay freezes the fully-filtered body. Every slot's shape is
+// structurally derived from docs/wire/shopping-results.md, not from a live
+// capture — see docs/plans/porting.md deviations.
+const goldenAllFiltersOneWay = "%5Bnull%2C%22%5B%5B%5D%2C%5Bnull%2Cnull%2C2%2Cnull%2C%5B%5D%2C2%2C%5B2%2C1%2C1%2C1%5D%2C%5Bnull%2C700%5D%2Cnull%2Cnull%2C%5B2%2C1%5D%2Cnull%2Cnull%2C%5B%5B%5B%5B%5B%5C%22JFK%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22LAX%5C%22%2C0%5D%5D%5D%2C%5B6%2C12%2Cnull%2C22%5D%2C1%2C%5B%5C%22B6%5C%22%2C%5C%22AA%5C%22%5D%2C%5B%5C%22NK%5C%22%5D%2C%5C%222026-06-28%5C%22%2C%5B480%5D%2Cnull%2C%5B%5C%22DFW%5C%22%5D%2Cnull%2C90%2C300%2C%5B1%5D%2C3%5D%5D%2Cnull%2Cnull%2Cnull%2C1%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C1%5D%2C2%2C1%2C0%2C1%5D%22%5D"
+
+func TestEncodeFreqAllFiltersGolden(t *testing.T) {
+	t.Parallel()
+	got, err := EncodeFreq(freqRequestAllFilters())
+	if err != nil {
+		t.Fatalf("EncodeFreq: %v", err)
+	}
+	if got != goldenAllFiltersOneWay {
+		t.Errorf("f.req drift:\n got %q\nwant %q", got, goldenAllFiltersOneWay)
 	}
 }
 

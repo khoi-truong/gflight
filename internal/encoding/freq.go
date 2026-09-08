@@ -80,13 +80,42 @@ type FreqSelectedLeg struct {
 	FlightNumber string // Digits only, e.g. "123".
 }
 
-// FreqSegment is one leg of the requested journey.
+// FreqSegment is one leg of the requested journey. Every filter field is inert
+// at its zero value, so a segment built from origin, destination and date
+// encodes exactly the unfiltered body.
 type FreqSegment struct {
 	Origin   string
 	Dest     string
 	Date     time.Time
 	MaxStops int  // 0 = no constraint.
 	IsReturn bool // Sets the segment classifier to 1.
+
+	// IncludeAirlines / ExcludeAirlines fill segment[4] / segment[5] with
+	// IATA airline codes or alliance names. Empty = no constraint.
+	IncludeAirlines []string
+	ExcludeAirlines []string
+
+	// MaxDurationMins caps the total segment duration (segment[7]).
+	MaxDurationMins int
+
+	// LayoverAirports restricts connections to these IATA codes (segment[9]).
+	LayoverAirports []string
+
+	// MinLayoverMins / MaxLayoverMins bound each connection (segment[11] /
+	// segment[12]).
+	MinLayoverMins int
+	MaxLayoverMins int
+
+	// Hour-of-day buckets for segment[2], in the order
+	// [earliest_dep, latest_dep, earliest_arr, latest_arr]. A zero latest hour
+	// means "no upper bound"; a zero earliest hour is already unconstrained.
+	DepEarliestHour int
+	DepLatestHour   int
+	ArrEarliestHour int
+	ArrLatestHour   int
+
+	// LessEmissionsOnly sets segment[13] to [1].
+	LessEmissionsOnly bool
 
 	// Selected, when non-empty, fills segment[8] with the legs of an
 	// already-chosen outbound (round-trip phase 2). Set only on the outbound
@@ -95,13 +124,25 @@ type FreqSegment struct {
 }
 
 // FreqRequest is everything needed to build a one-way (or, later, round-trip)
-// GetShoppingResults body.
+// GetShoppingResults body. Every filter is inert at its zero value.
 type FreqRequest struct {
-	Segments []FreqSegment
-	Adults   int
-	Children int
-	Cabin    FreqCabin
-	SortBy   int // One of the Sort* constants; 0 defaults to SortBest.
+	Segments      []FreqSegment
+	Adults        int
+	Children      int
+	InfantsOnLap  int
+	InfantsInSeat int
+	Cabin         FreqCabin
+	SortBy        int // One of the Sort* constants; 0 defaults to SortBest.
+
+	// MaxPrice caps the itinerary price in the requested currency (main[7]).
+	MaxPrice int
+
+	// CheckedBags / CarryOnBags fill main[10]; 0 leaves the slot inert.
+	CheckedBags int
+	CarryOnBags int
+
+	// ExcludeBasicEconomy sets main[28] to 1.
+	ExcludeBasicEconomy bool
 }
 
 // EncodeFreq returns the percent-encoded value for the `f.req` form field.
@@ -162,10 +203,19 @@ func buildFilters(req FreqRequest) ([]any, error) {
 	main[mainTripTypeIdx] = trip
 	main[mainUnknown4Idx] = []any{} // rejects scalars; [] is the inert form.
 	main[mainCabinIdx] = req.Cabin.wire()
-	main[mainPassengersIdx] = []any{adults, req.Children, 0, 0} // [adults, children, infants_lap, infants_seat]
+	main[mainPassengersIdx] = []any{adults, req.Children, req.InfantsOnLap, req.InfantsInSeat}
+	if req.MaxPrice > 0 {
+		main[mainMaxPriceIdx] = []any{nil, req.MaxPrice}
+	}
+	if req.CheckedBags > 0 || req.CarryOnBags > 0 {
+		main[mainBagsIdx] = []any{req.CheckedBags, req.CarryOnBags}
+	}
 	main[mainSegmentsIdx] = segments
 	main[mainConstant17Idx] = 1 // hard-coded to 1 by the UI.
 	main[mainExcludeBasicEconomyIdx] = 0
+	if req.ExcludeBasicEconomy {
+		main[mainExcludeBasicEconomyIdx] = 1
+	}
 
 	// outer — the top-level 6-slot wrapper.
 	filters := []any{
@@ -185,6 +235,8 @@ const (
 	mainUnknown4Idx            = 4
 	mainCabinIdx               = 5
 	mainPassengersIdx          = 6
+	mainMaxPriceIdx            = 7
+	mainBagsIdx                = 10
 	mainSegmentsIdx            = 13
 	mainConstant17Idx          = 17
 	mainExcludeBasicEconomyIdx = 28
@@ -192,14 +244,51 @@ const (
 
 // segment[] index names.
 const (
-	segDepartureIdx      = 0
-	segArrivalIdx        = 1
-	segTimeWindowIdx     = 2
-	segMaxStopsIdx       = 3
-	segDateIdx           = 6
-	segSelectedFlightIdx = 8
-	segClassifierIdx     = 14
+	segDepartureIdx       = 0
+	segArrivalIdx         = 1
+	segTimeWindowIdx      = 2
+	segMaxStopsIdx        = 3
+	segAirlineIncludeIdx  = 4
+	segAirlineExcludeIdx  = 5
+	segDateIdx            = 6
+	segMaxDurationIdx     = 7
+	segSelectedFlightIdx  = 8
+	segLayoverAirportsIdx = 9
+	segMinLayoverIdx      = 11
+	segMaxLayoverIdx      = 12
+	segLessEmissionsIdx   = 13
+	segClassifierIdx      = 14
 )
+
+// codeList wraps a list of IATA airline / airport codes for the slots that take
+// one. Returns nil for an empty list so the slot stays inert.
+func codeList(codes []string) any {
+	if len(codes) == 0 {
+		return nil
+	}
+	out := make([]any, 0, len(codes))
+	for _, c := range codes {
+		out = append(out, c)
+	}
+	return out
+}
+
+// timeWindow builds segment[2] — [earliest_dep, latest_dep, earliest_arr,
+// latest_arr] in hours. An unset bound is null; an all-unset window is nil so
+// the slot keeps its inert form.
+func timeWindow(s FreqSegment) any {
+	hours := [4]int{s.DepEarliestHour, s.DepLatestHour, s.ArrEarliestHour, s.ArrLatestHour}
+	if hours == [4]int{} {
+		return nil
+	}
+	out := make([]any, len(hours))
+	for i, h := range hours {
+		if h > 0 {
+			out[i] = h
+		}
+	}
+	return out
+}
 
 // buildSelectedFlight encodes an already-chosen outbound for segment[8]. Each
 // leg is [origin, "YYYY-MM-DD", dest, null, carrier, flight_number] and the
@@ -237,13 +326,28 @@ func buildSegment(s FreqSegment) ([]any, error) {
 	// depth returns zero results with no error.
 	seg[segDepartureIdx] = []any{[]any{[]any{s.Origin, 0}}}
 	seg[segArrivalIdx] = []any{[]any{[]any{s.Dest, 0}}}
-	seg[segTimeWindowIdx] = nil
+	seg[segTimeWindowIdx] = timeWindow(s)
 	if s.MaxStops > 0 {
 		seg[segMaxStopsIdx] = s.MaxStops
 	} else {
 		seg[segMaxStopsIdx] = 0
 	}
+	seg[segAirlineIncludeIdx] = codeList(s.IncludeAirlines)
+	seg[segAirlineExcludeIdx] = codeList(s.ExcludeAirlines)
 	seg[segDateIdx] = s.Date.Format(tfsDateLayout)
+	if s.MaxDurationMins > 0 {
+		seg[segMaxDurationIdx] = []any{s.MaxDurationMins}
+	}
+	seg[segLayoverAirportsIdx] = codeList(s.LayoverAirports)
+	if s.MinLayoverMins > 0 {
+		seg[segMinLayoverIdx] = s.MinLayoverMins
+	}
+	if s.MaxLayoverMins > 0 {
+		seg[segMaxLayoverIdx] = s.MaxLayoverMins
+	}
+	if s.LessEmissionsOnly {
+		seg[segLessEmissionsIdx] = []any{1}
+	}
 	if len(s.Selected) > 0 {
 		sel, err := buildSelectedFlight(s.Selected)
 		if err != nil {

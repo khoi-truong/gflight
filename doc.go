@@ -30,8 +30,16 @@
 // recorded fixtures in the tests. Round-trip runs a phase-1 outbound search then
 // re-queries per selected outbound (segment[8]); its return prices are trip
 // totals. The exact segment[8] shape is structurally derived, not captured from
-// a live browser session — see docs/plans/porting.md. Calendar graphs, booking
-// options, and the full filter set are still to come. The undocumented upstream
+// a live browser session — see docs/plans/porting.md.
+//
+// [SearchRequest] carries the full filter set: sort order, cabin, passengers
+// (including infants), airline or alliance include/exclude, max price, bag
+// counts, max trip duration, layover airports and min/max layover, departure
+// and arrival hour windows, less-emissions-only and exclude-basic-economy.
+// Every filter is inert at its zero value. Their wire shapes are structurally
+// derived rather than browser-captured — see docs/wire/shopping-results.md.
+//
+// Calendar graphs and booking options are still to come. The undocumented upstream
 // can change shape without notice; a response whose rows no longer decode is
 // reported as [ErrUpstreamChanged].
 //

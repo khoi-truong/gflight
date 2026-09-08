@@ -55,27 +55,49 @@ const (
 	emTagIdx          = 11
 )
 
-// amenities[] slot map (slots = leg[12]).
+// amenities[] slot map (slots = leg[12], 12 slots). Slots 5/9 are the pair M1
+// mapped; 7/8 are the finer split (M3) and are structurally derived, not
+// live-captured. Slot 10 is observed set in recorded fixtures but its meaning
+// is unidentified — see docs/wire/shopping-results.md.
 const (
-	amWifiIdx          = 1
-	amPowerIdx         = 5
-	amOnDemandVideoIdx = 9
-	amLegroomRatingIdx = 11
+	amWifiIdx           = 1
+	amACPowerIdx        = 5
+	amUSBPowerIdx       = 7
+	amInSeatVideoIdx    = 8
+	amStreamingVideoIdx = 9
+	amLegroomRatingIdx  = 11
+)
+
+// carrier-info sub-index map (info = leg[22]).
+const (
+	carrierCodeIdx           = 0
+	carrierFlightNumberIdx   = 1
+	carrierOperatingCodeIdx  = 2
+	carrierOpFlightNumberIdx = 4
 )
 
 // Airport is one endpoint of a [Leg] or [Layover].
 type Airport struct {
 	Code string
 	Name string
+	City string
 }
 
 // Amenities is the subset of onboard-amenity flags Google exposes per leg. A
 // nil pointer means "unknown", distinct from an explicit false.
+//
+// Power and OnDemandVideo are folded flags kept for backwards compatibility:
+// each is the logical OR of the two finer-grained slots below it.
 type Amenities struct {
 	Wifi          *bool
 	Power         *bool
 	OnDemandVideo *bool
 	LegroomRating int // 0 = unknown; 2 or 3 observed.
+
+	ACPower        *bool
+	USBPower       *bool
+	StreamingVideo *bool
+	InSeatVideo    *bool
 }
 
 // Emissions holds the CO2 figures from detail[22]. HasData is false when the
@@ -99,19 +121,20 @@ type Layover struct {
 
 // Leg is one operated flight within a [Flight].
 type Leg struct {
-	Carrier          string
-	FlightNumber     string
-	OperatingCarrier string
-	Origin           Airport
-	Dest             Airport
-	Departure        time.Time
-	Arrival          time.Time
-	DurationMin      int
-	Aircraft         string
-	Legroom          string
-	Overnight        bool
-	CO2Grams         int
-	Amenities        Amenities
+	Carrier               string
+	FlightNumber          string
+	OperatingCarrier      string
+	OperatingFlightNumber string
+	Origin                Airport
+	Dest                  Airport
+	Departure             time.Time
+	Arrival               time.Time
+	DurationMin           int
+	Aircraft              string
+	Legroom               string
+	Overnight             bool
+	CO2Grams              int
+	Amenities             Amenities
 }
 
 // Flight is one priced itinerary.
@@ -169,11 +192,13 @@ func Flights(inner any) ([]Flight, error) {
 		return nil, nil
 	}
 
+	cities := airportCities(at(inner, innerAirportDirIdx))
+
 	out := make([]Flight, 0, len(rows))
 	var samples []string
 	var failed bool
 	for _, row := range rows {
-		f, err := parseRow(row)
+		f, err := parseRow(row, cities)
 		if err != nil {
 			failed = true
 			reason := err.Error()
@@ -191,7 +216,38 @@ func Flights(inner any) ([]Flight, error) {
 	return out, nil
 }
 
-func parseRow(row any) (Flight, error) {
+// innerAirportDirIdx is the airport directory Google ships alongside the rows.
+// Each leaf entry is [[IATA, 0], "<airport name>", ["<mid>", "<city>", ...],
+// ...]; only the searched origin and destination appear, so a connection
+// airport usually has no city here (detail[13] carries those).
+const innerAirportDirIdx = 1
+
+// airportCities walks the airport directory into an IATA code -> city map. The
+// nesting depth varies with trip type, so the walk is shape-driven rather than
+// index-driven; anything that does not look like an entry is skipped.
+func airportCities(dir any) map[string]string {
+	out := map[string]string{}
+	var walk func(v any, depth int)
+	walk = func(v any, depth int) {
+		s := sliceOf(v)
+		if s == nil || depth > 6 {
+			return
+		}
+		if code := asStr(path(s, 0, 0)); code != "" {
+			if city := asStr(path(s, 2, 1)); city != "" {
+				out[code] = city
+			}
+			return
+		}
+		for _, e := range s {
+			walk(e, depth+1)
+		}
+	}
+	walk(dir, 0)
+	return out
+}
+
+func parseRow(row any, cities map[string]string) (Flight, error) {
 	detail := at(row, rowDetailIdx)
 	if !isSlice(detail) {
 		return Flight{}, errors.New("row[0] not a list")
@@ -212,6 +268,8 @@ func parseRow(row any) (Flight, error) {
 		if err != nil {
 			return Flight{}, err
 		}
+		leg.Origin.City = cities[leg.Origin.Code]
+		leg.Dest.City = cities[leg.Dest.Code]
 		legs = append(legs, leg)
 	}
 
@@ -284,14 +342,15 @@ func parseLeg(fl any) (Leg, error) {
 
 	info := sliceOf(at(fl, legCarrierInfoIdx))
 	leg := Leg{
-		Carrier:          asStr(at(info, 0)),
-		FlightNumber:     asStr(at(info, 1)),
-		OperatingCarrier: asStr(at(info, 2)),
-		Origin:           Airport{Code: asStr(at(fl, legDepAirportIdx)), Name: asStr(at(fl, legDepNameIdx))},
-		Dest:             Airport{Code: asStr(at(fl, legArrAirportIdx)), Name: asStr(at(fl, legArrNameIdx))},
-		Departure:        dep,
-		Arrival:          arr,
-		Aircraft:         asStr(at(fl, legAircraftIdx)),
+		Carrier:               asStr(at(info, carrierCodeIdx)),
+		FlightNumber:          asStr(at(info, carrierFlightNumberIdx)),
+		OperatingCarrier:      asStr(at(info, carrierOperatingCodeIdx)),
+		OperatingFlightNumber: asStr(at(info, carrierOpFlightNumberIdx)),
+		Origin:                Airport{Code: asStr(at(fl, legDepAirportIdx)), Name: asStr(at(fl, legDepNameIdx))},
+		Dest:                  Airport{Code: asStr(at(fl, legArrAirportIdx)), Name: asStr(at(fl, legArrNameIdx))},
+		Departure:             dep,
+		Arrival:               arr,
+		Aircraft:              asStr(at(fl, legAircraftIdx)),
 	}
 	leg.DurationMin, _ = asNonNegInt(at(fl, legDurationIdx))
 	if lr := asStr(at(fl, legLegroomLongIdx)); lr != "" {
@@ -313,12 +372,33 @@ func parseAmenities(slots any) Amenities {
 		return Amenities{}
 	}
 	a := Amenities{
-		Wifi:          asBool(at(s, amWifiIdx)),
-		Power:         asBool(at(s, amPowerIdx)),
-		OnDemandVideo: asBool(at(s, amOnDemandVideoIdx)),
+		Wifi:           asBool(at(s, amWifiIdx)),
+		ACPower:        asBool(at(s, amACPowerIdx)),
+		USBPower:       asBool(at(s, amUSBPowerIdx)),
+		InSeatVideo:    asBool(at(s, amInSeatVideoIdx)),
+		StreamingVideo: asBool(at(s, amStreamingVideoIdx)),
 	}
+	a.Power = foldFlag(a.ACPower, a.USBPower)
+	a.OnDemandVideo = foldFlag(a.StreamingVideo, a.InSeatVideo)
 	a.LegroomRating, _ = asNonNegInt(at(s, amLegroomRatingIdx))
 	return a
+}
+
+// foldFlag ORs two tri-state flags: nil only when both are unknown, true when
+// either is true.
+func foldFlag(a, b *bool) *bool {
+	switch {
+	case a == nil && b == nil:
+		return nil
+	case a != nil && *a:
+		return a
+	case b != nil && *b:
+		return b
+	case a != nil:
+		return a
+	default:
+		return b
+	}
 }
 
 func parseEmissions(block any) Emissions {
