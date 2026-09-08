@@ -97,6 +97,35 @@ func WithMaxConcurrency(n int) Option {
 	}
 }
 
+// WithTransport sets the base [http.RoundTripper] for upstream requests — the
+// single seam for plugging in a browser-grade TLS stack (e.g. uTLS) or a proxy
+// without replacing the whole [http.Client]. It composes under [WithRetry]:
+// retry wraps the transport given here. A nil transport is ignored.
+//
+// [WithHTTPClient] wins if both are set and that client already has a
+// non-nil Transport.
+func WithTransport(rt http.RoundTripper) Option {
+	return func(c *Client) {
+		if rt != nil {
+			c.baseTransport = rt
+		}
+	}
+}
+
+// WithRetry installs a retrying [http.RoundTripper] in front of the base
+// transport. It retries connection errors and 408/425/429/500/502/503/504
+// with full-jitter exponential backoff, honouring a Retry-After header when the
+// upstream sends one. A policy with MaxAttempts below 2 is ignored (retrying
+// stays off, the default).
+func WithRetry(p RetryPolicy) Option {
+	return func(c *Client) {
+		if p.MaxAttempts >= 2 {
+			policy := p.withDefaults()
+			c.retry = &policy
+		}
+	}
+}
+
 // WithLogger attaches a logger. Library code logs nothing by default; without
 // this option the client discards every record.  A nil logger is ignored.
 func WithLogger(l *slog.Logger) Option {

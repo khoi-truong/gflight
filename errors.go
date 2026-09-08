@@ -3,6 +3,7 @@ package gflight
 import (
 	"errors"
 	"fmt"
+	"time"
 )
 
 // Sentinel errors returned by this package. Compare with [errors.Is].
@@ -46,3 +47,37 @@ func (e *HTTPError) Error() string {
 
 // Unwrap makes errors.Is(err, ErrBadResponse) true for any HTTPError.
 func (e *HTTPError) Unwrap() error { return ErrBadResponse }
+
+// BlockedError reports that the upstream refused the request for reasons
+// unrelated to its contents — a 429, a 403, a bot-detection interstitial, or a
+// consent wall. It unwraps to [ErrBlocked], so existing
+// errors.Is(err, ErrBlocked) checks keep working.
+//
+// When RetryAfter is non-zero the upstream asked callers to wait that long
+// before retrying. DeepLink, when set, is the [SearchURL] for the same query —
+// a blocked caller can fall back to opening it in a browser.
+type BlockedError struct {
+	// StatusCode is the HTTP status that triggered the block, or 0 when the
+	// block was inferred from a non-envelope response body.
+	StatusCode int
+	// RetryAfter is the delay the upstream requested via the Retry-After
+	// header, or 0 when it sent none.
+	RetryAfter time.Duration
+	// DeepLink is the browser URL reproducing this search, or "" when it
+	// could not be built.
+	DeepLink string
+}
+
+func (e *BlockedError) Error() string {
+	switch {
+	case e.StatusCode != 0 && e.RetryAfter > 0:
+		return fmt.Sprintf("gflight: request blocked upstream (status %d, retry after %s)", e.StatusCode, e.RetryAfter)
+	case e.StatusCode != 0:
+		return fmt.Sprintf("gflight: request blocked upstream (status %d)", e.StatusCode)
+	default:
+		return "gflight: request blocked upstream"
+	}
+}
+
+// Unwrap makes errors.Is(err, ErrBlocked) true for any BlockedError.
+func (e *BlockedError) Unwrap() error { return ErrBlocked }

@@ -44,7 +44,10 @@
 // reported as [ErrUpstreamChanged].
 //
 // Google fingerprints TLS clients: the default net/http transport may be met
-// with [ErrBlocked]. Plug a browser-grade transport into [WithHTTPClient] if so.
+// with a [*BlockedError] (which unwraps to [ErrBlocked] and carries the
+// Retry-After delay and a [SearchURL] deep-link fallback). Plug a browser-grade
+// transport in with [WithTransport], and enable [WithRetry] for transient
+// 429/5xx with full-jitter backoff that honours Retry-After.
 //
 // # Errors
 //

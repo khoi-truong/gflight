@@ -24,6 +24,12 @@ type Client struct {
 	country    string
 	logger     *slog.Logger
 
+	// baseTransport is the caller-supplied RoundTripper from [WithTransport];
+	// nil means "use the http.Client's own transport".
+	baseTransport http.RoundTripper
+	// retry, when non-nil, enables the retrying RoundTripper from [WithRetry].
+	retry *RetryPolicy
+
 	// maxConcurrency bounds phase-2 round-trip fan-out. Always >= 1.
 	maxConcurrency int
 
@@ -48,7 +54,31 @@ func New(opts ...Option) *Client {
 	for _, opt := range opts {
 		opt(c)
 	}
+	c.assembleTransport()
 	return c
+}
+
+// assembleTransport layers the RoundTripper stack onto a private copy of the
+// http.Client, so a caller's [WithHTTPClient] value is never mutated:
+//
+//	retry (WithRetry) -> base (WithTransport, else the client's own transport)
+func (c *Client) assembleTransport() {
+	if c.baseTransport == nil && c.retry == nil {
+		return
+	}
+	hc := *c.httpClient
+	base := hc.Transport
+	if c.baseTransport != nil {
+		base = c.baseTransport
+	}
+	if base == nil {
+		base = http.DefaultTransport
+	}
+	if c.retry != nil {
+		base = &retryTransport{next: base, policy: *c.retry, logger: c.logger}
+	}
+	hc.Transport = base
+	c.httpClient = &hc
 }
 
 // HTTPClient reports the [http.Client] used for upstream requests.

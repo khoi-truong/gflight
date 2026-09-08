@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1, M2, M3 done; M4–M5 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1–M3 done, M5a done; M4 and M5b–M5c pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -370,32 +370,57 @@ Pulled earlier than the original ordering implied — a 429/block-heavy upstream
 needs this before it needs calendar graphs. See
 [Amendments](#amendments-2026-09-08-deep-analysis-review) A2/A3/A5.
 
-- **Compose behaviour as layered `http.RoundTripper`s in `New()`** —
-  rate-limit → retry → logging → caller transport — so `search.go` stops doing a
-  raw `httpClient.Do()` and each concern is unit-testable in isolation.
-- **`WithRetry`** — hand-rolled stdlib retry RoundTripper. Full jitter
-  (`rand(0, min(cap, base·2^n))`), 3–4 attempts, retry only connection errors +
-  408/425/429/500/502/503/504. **Honour `Retry-After`** (delta-seconds and
-  HTTP-date) — today the header is dropped when 429 → `ErrBlocked`.
-- **`WithRateLimit(rps, burst)`** using `golang.org/x/time/rate` — the one
+M5 ships as three PRs (see deviations): **M5a** retry/transport stack (stdlib
+only), **M5b** rate limiting (adds `golang.org/x/time/rate`), **M5c**
+observability + live canary.
+
+- [x] **Compose behaviour as layered `http.RoundTripper`s in `New()`** (M5a) —
+  `assembleTransport()` stacks retry → base (`WithTransport`, else the client's
+  own transport) onto a private copy of the `http.Client`, so a caller's
+  `WithHTTPClient` value is never mutated. The retry/backoff concern now lives in
+  `transport.go`, unit-tested in isolation with `testing/synctest`.
+- [x] **`WithRetry(RetryPolicy)`** (M5a) — hand-rolled stdlib retry
+  RoundTripper. Full jitter (`rand(0, min(cap, base·2^(n-1)))`), `MaxAttempts`
+  total tries (`< 2` disables), retry only connection errors +
+  408/425/429/500/502/503/504. **Honours `Retry-After`** (delta-seconds and
+  HTTP-date) for its backoff.
+- [x] **`WithTransport(http.RoundTripper)`** (M5a) — next to `WithHTTPClient`,
+  the single anti-bot extension seam; retry layers on top of it. Bundles nothing.
+- [x] **`*BlockedError{StatusCode, RetryAfter, DeepLink}`** (M5a) — replaces the
+  bare `ErrBlocked` return (still `Unwrap`s to it); carries the parsed
+  `Retry-After` and the `SearchURL` deep link so a blocked caller degrades to
+  "open in browser".
+- **`WithRateLimit(rps, burst)`** (M5b) using `golang.org/x/time/rate` — the one
   near-stdlib dependency worth taking. `go.sum` stops being empty; note it in the
   README and the guardrails below. `fli`'s ceiling is ~10 req/s.
-- **`WithMaxConcurrency(n)`** (semaphore) — shared with M2's fan-out helper.
-- **`WithTransport(http.RoundTripper)`** next to `WithHTTPClient` — the single
-  anti-bot extension seam. Bundle nothing (no uTLS, no proxy SDK); document a
-  uTLS recipe in `examples/`.
-- **`*BlockedError{StatusCode, RetryAfter, DeepLink}`** replacing the bare
-  `ErrBlocked` sentinel (still `Unwrap`s to it) — carries the deep link from
-  `SearchURL` so a blocked caller degrades to "open in browser".
-- **Observability hook** — `WithObserver(o)` with `OnRetry` / `OnResponse` /
-  `OnParse(rows, failures)` callbacks; consumers wire Prometheus/OTel without the
-  library importing either. `OnParse` failure count is the drift canary.
-- **Tests** — a `decode(encode(x)) == x` fuzz for `internal/encoding`
-  (`FuzzChunks` / `FuzzDecodeRow` / `FuzzCurrencyToken` already landed in M1.1);
-  `testing/synctest` for
-  the backoff / rate-limiter / deadline tests; a `//go:build live` smoke test
-  (one canonical route, >0 rows, required fields non-zero) excluded from
-  `mise run ci` and run on a CI schedule; a goroutine-leak check.
+- **`WithMaxConcurrency(n)`** (semaphore) — shared with M2's fan-out helper,
+  landed in M2.
+- Document a uTLS recipe for `WithTransport` in `examples/` (M5c).
+- **Observability hook** (M5c) — `WithObserver(o)` with `OnRetry` / `OnResponse`
+  / `OnParse(rows, failures)` callbacks; consumers wire Prometheus/OTel without
+  the library importing either. `OnParse` failure count is the drift canary.
+- **Tests** — [x] `testing/synctest` backoff / `Retry-After` / deadline tests
+  for the retry transport (M5a). Pending: a `decode(encode(x)) == x` fuzz for
+  `internal/encoding` (M5c); a `//go:build live` smoke test (one canonical route,
+  >0 rows, required fields non-zero) excluded from `mise run ci` and run on a CI
+  schedule (M5c); a goroutine-leak check (M5c).
+
+### M5a implementation deviations
+
+- **M5 is split into three PRs.** M5a (this one) is stdlib-only, so `go.sum`
+  stays empty and the `golang.org/x/time/rate` decision is reviewed on its own
+  in M5b. M5c carries the observer hook, the encode round-trip fuzz, and the
+  live canary.
+- **No standalone logging RoundTripper.** The plan's four-layer stack collapsed
+  the logging layer into `retryTransport`, which emits one `Debug` record per
+  retry via the client's `*slog.Logger`. A dedicated layer buys nothing until
+  there is a second thing to log; revisit in M5c with `WithObserver`.
+- **`WithRetry` takes a `RetryPolicy` value, not variadic sub-options** —
+  `RetryPolicy{MaxAttempts, BaseDelay, MaxDelay}`, `MaxAttempts < 2` is the off
+  switch. New knobs are new struct fields, so it stays additive.
+- **`search.go` still issues one `httpClient.Do()`.** `Do()` _is_ the
+  RoundTripper entry point; the stack composes underneath it. Only the
+  retry/backoff logic moved out, into `transport.go`.
 
 ---
 
