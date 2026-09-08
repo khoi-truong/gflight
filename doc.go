@@ -25,11 +25,15 @@
 //
 // # Status
 //
-// One-way and round-trip [Client.Search] work end to end against Google's
-// undocumented FlightsFrontendService RPC, driven by recorded fixtures in the
-// tests. Calendar graphs, booking options, and the full filter set are not yet
-// implemented. The undocumented upstream can change shape without notice; a
-// response whose rows no longer decode is reported as [ErrUpstreamChanged].
+// One-way [Client.Search] works end to end against Google's undocumented
+// FlightsFrontendService RPC, driven by recorded fixtures in the tests.
+// Round-trip search is best-effort and unverified: setting
+// [SearchRequest.ReturnDate] adds a return segment to a single request, but the
+// two-phase selected-flight flow and round-trip price semantics are not yet
+// implemented or fixture-tested. Calendar graphs, booking options, and the full
+// filter set are also still to come. The undocumented upstream can change shape
+// without notice; a response whose rows no longer decode is reported as
+// [ErrUpstreamChanged].
 //
 // Google fingerprints TLS clients: the default net/http transport may be met
 // with [ErrBlocked]. Plug a browser-grade transport into [WithHTTPClient] if so.

@@ -20,8 +20,13 @@ import (
 // results. It is undocumented and unversioned.
 const rpcPath = "/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetShoppingResults"
 
-// Search executes a one-way or round-trip flight search and returns the
-// itineraries Google offers, cheapest-relevant first (Google's "best" order).
+// Search executes a flight search and returns the itineraries Google offers,
+// cheapest-relevant first (Google's "best" order).
+//
+// One-way search is fixture-verified. Setting [SearchRequest.ReturnDate] adds a
+// return segment to a single request, but this round-trip path is best-effort
+// and unverified: the two-phase selected-flight flow and round-trip price
+// semantics are not yet implemented.
 //
 // Errors: a cancelled ctx is returned as-is; a non-2xx reply as *[HTTPError]
 // (which unwraps to [ErrBadResponse]); a bot wall or rate limit as [ErrBlocked];

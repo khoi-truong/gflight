@@ -1,7 +1,10 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1 done; M2–M5 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
+**Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
+after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
+current Go + resilience best practices.
 
 ---
 
@@ -229,14 +232,36 @@ Each milestone is one PR with a conventional-commit title, squash-merged.
   package itself.
 - **`examples/search/main.go` honours `GFLIGHT_BASE_URL`** so `mise run example`
   can run offline against a local recording (plan Verification step 5).
+- **Round-trip shipped naive and undertested in M1.** `search.go` packs both
+  segments into one `f.req` (`buildFreq` appends the return segment with
+  `segment[14] = 1`). This is _not_ the two-phase `segment[8]` selected-flight
+  flow M2 specifies, there is no round-trip `Search` test or fixture, and yet
+  `doc.go` / `README.md` / `docs/plans/README.md` claim "one-way and round-trip
+  work end to end". **Done (M1.1):** every doc claim (`doc.go`, `README.md`,
+  `search.go`, `types.go`, `docs/plans/README.md`) downgraded to "one-way
+  verified; round-trip best-effort and unverified until M2". The real two-phase
+  flow still lands in M2. Tracked in
+  [Amendments](#amendments-2026-09-08-deep-analysis-review).
 
 ### M2 — round-trip · `feat: support round-trip search`
 
 Two-phase: search outbound, then for each of the top N outbounds re-POST with
 `segment[8]` = selected flight and `segment[14]` = 1 on the return segment.
 Needs a bounded-concurrency helper (`errgroup`-shaped, hand-rolled — stdlib
-only) and a `WithMaxConcurrency` option. Round-trip prices are **totals**, not
-per-leg — summing double-counts.
+only) and a `WithMaxConcurrency` option (default 2–4). Round-trip prices are
+**totals**, not per-leg — summing double-counts.
+
+Also in M2 (see [Amendments](#amendments-2026-09-08-deep-analysis-review) A1/A2):
+
+- **Return the session id on a value, not the `Client`.** The
+  `Client.lastSessionID` / `mu` pair is per-search mutable state on a shared
+  object — two concurrent searches race and a booking call can't tell which
+  search it belongs to. Add
+  `SearchResult{Itineraries []Itinerary; SessionID string}` and a method that
+  returns it; keep `Client.SessionID()` as a `// Deprecated:` shim.
+- Round-trip fan-out uses the M2 concurrency helper and propagates the caller's
+  `ctx` (subtract elapsed time — phase 2 does not get a fresh timeout).
+- Round-trip fixture + `Search` test land here (the M1 gap).
 
 ### M3 — filters · `feat: expose full search filters`
 
@@ -245,17 +270,139 @@ airports and min/max duration, departure/arrival hour windows, emissions,
 exclude-basic-economy, sort mode. All additive on `SearchRequest`; each maps to a
 named `f.req` index already documented in M1.
 
+Fold in here (see [Amendments](#amendments-2026-09-08-deep-analysis-review) A4):
+
+- **Sort mode** — the `Sort*` constants already exist in
+  `internal/encoding/freq.go` but are unreachable from `SearchRequest`.
+- **Infant passengers** — `SearchRequest` has only `Adults` / `Children`;
+  `main[6]` already sends `[adults, children, 0, 0]`. Add `InfantsInSeat` /
+  `InfantsOnLap`.
+- **Amenities** — split `usb_power` and `in_seat_video` out of the folded
+  `Power` / `OnDemandVideo` flags to match `fli`.
+- **Segment fields** — `OperatingFlightNumber` and segment-level airport `City`
+  (today only layovers carry a city).
+
 ### M4 — calendar graph + booking options · `feat: add price calendar and booking options`
 
 `GetCalendarGraph` (≤61 days per call, ≤305 days ahead — chunk and merge) and
 `GetBookingResults` (needs the session-anchored booking token; `internal/encoding`
 gains `bookingToken.go`). This is where the multi-chunk reader earns its keep.
 
-### M5 — hardening · `chore: harden upstream resilience`
+### M5 — resilience · `chore: harden upstream resilience`
 
-Retry with backoff on 429/5xx behind `WithRetry` (hand-rolled, stdlib), a
-documented rate-limit note (Google's ceiling is ~10 req/s), a build-tagged
-`//go:build live` smoke test excluded from `mise run ci`, and a `FuzzDecodeRow`.
+Pulled earlier than the original ordering implied — a 429/block-heavy upstream
+needs this before it needs calendar graphs. See
+[Amendments](#amendments-2026-09-08-deep-analysis-review) A2/A3/A5.
+
+- **Compose behaviour as layered `http.RoundTripper`s in `New()`** —
+  rate-limit → retry → logging → caller transport — so `search.go` stops doing a
+  raw `httpClient.Do()` and each concern is unit-testable in isolation.
+- **`WithRetry`** — hand-rolled stdlib retry RoundTripper. Full jitter
+  (`rand(0, min(cap, base·2^n))`), 3–4 attempts, retry only connection errors +
+  408/425/429/500/502/503/504. **Honour `Retry-After`** (delta-seconds and
+  HTTP-date) — today the header is dropped when 429 → `ErrBlocked`.
+- **`WithRateLimit(rps, burst)`** using `golang.org/x/time/rate` — the one
+  near-stdlib dependency worth taking. `go.sum` stops being empty; note it in the
+  README and the guardrails below. `fli`'s ceiling is ~10 req/s.
+- **`WithMaxConcurrency(n)`** (semaphore) — shared with M2's fan-out helper.
+- **`WithTransport(http.RoundTripper)`** next to `WithHTTPClient` — the single
+  anti-bot extension seam. Bundle nothing (no uTLS, no proxy SDK); document a
+  uTLS recipe in `examples/`.
+- **`*BlockedError{StatusCode, RetryAfter, DeepLink}`** replacing the bare
+  `ErrBlocked` sentinel (still `Unwrap`s to it) — carries the deep link from
+  `SearchURL` so a blocked caller degrades to "open in browser".
+- **Observability hook** — `WithObserver(o)` with `OnRetry` / `OnResponse` /
+  `OnParse(rows, failures)` callbacks; consumers wire Prometheus/OTel without the
+  library importing either. `OnParse` failure count is the drift canary.
+- **Tests** — a `decode(encode(x)) == x` fuzz for `internal/encoding`
+  (`FuzzChunks` / `FuzzDecodeRow` / `FuzzCurrencyToken` already landed in M1.1);
+  `testing/synctest` for
+  the backoff / rate-limiter / deadline tests; a `//go:build live` smoke test
+  (one canonical route, >0 rows, required fields non-zero) excluded from
+  `mise run ci` and run on a CI schedule; a goroutine-leak check.
+
+---
+
+## Amendments (2026-09-08 deep-analysis review)
+
+A review of the M1 code against `fli` (the reference RPC client), `krisukox`,
+`fast-flights`, and current Go + resilience practice. The plan's direction holds
+— these amend the milestone bodies above; nothing here is a new milestone.
+
+### Architecture — sound, do not restructure
+
+The flat root package + three-way `internal/` split (`encoding` build, `wire`
+framing, `decode` rows) is idiomatic and each layer is independently testable.
+The findings below are additive, not structural.
+
+- **A1 · Session id lives on the `Client`.** `lastSessionID` / `mu` is per-call
+  mutable state on a shared object. → M2: return `SearchResult{Itineraries,
+  SessionID}`; deprecate `Client.SessionID()`.
+- **A2 · No resilience layer at all.** No retry, no backoff, no rate limit, no
+  concurrency cap — for an upstream whose common failure is 429 / bot wall. →
+  M5, pulled earlier. Compose as layered `RoundTripper`s; honour `Retry-After`;
+  take `golang.org/x/time/rate` (this **relaxes the "empty `go.sum`" guardrail**
+  — a single, quasi-stdlib dependency, called out in the README).
+- **A3 · Anti-bot seam.** Only `WithHTTPClient` today. → M5 adds
+  `WithTransport(http.RoundTripper)`; document a uTLS recipe, bundle nothing.
+- **A5 · Two hand-rolled protobuf parsers** (`internal/encoding/protobuf.go` and
+  `internal/decode/currency.go`'s `uvarint` / `protoField`). → unify onto
+  `internal/encoding` and fuzz once (M5).
+- `toItinerary` duplicates `decode.Flight` field-for-field. Acceptable as an
+  anti-corruption boundary; revisit only if it becomes a maintenance drag.
+
+### Feature gaps vs `fli`
+
+- **A0 · Round-trip is overclaimed** — see the M1 deviation above. Fix the docs
+  or land the two-phase flow **before M2 proper**.
+- **A4 · Filters, sort, infants, richer amenities/segments** — all fold into M3;
+  every `f.req` index is already mapped in `docs/wire/shopping-results.md`.
+- Deferred, unchanged: multi-city, IATA dataset, CLI, MCP server (all remain out
+  of scope); calendar graph + booking options stay M4.
+- `SearchURL` (deep-link builder) is a strength — resilience practice
+  independently recommends "always be able to hand back a deep link". → wire it
+  into `*BlockedError` (M5, A2).
+
+### Tests — deepen
+
+- **Fuzzing — partly landed.** `FuzzChunks` (wire), `FuzzDecodeRow` and
+  `FuzzCurrencyToken` (decode) exist as of M1.1. Still missing: a
+  `decode(encode(x)) == x` round-trip fuzz for `internal/encoding`. → M5.
+- **Output assertions were too loose.** `Search` tests checked `len > 0` /
+  `price > 0`; a `leg[]` index swap would pass. **Done (M1.1):** golden-file
+  `fixture → []Itinerary` tests (`golden_test.go`, `-update` flag,
+  `internal/testdata/golden/`). Round-trip golden lands with its fixture in M2.
+- **No live canary.** → `//go:build live` smoke test, CI schedule, out of
+  `mise run ci` (M5).
+- **No partial-failure signal.** Rows that fail to parse while others succeed are
+  dropped silently. → `OnParse(rows, failures)` observer (M5, A2).
+- `testing/synctest` for the retry / backoff / deadline tests (M5).
+- `examples/search` is 0% covered — a test running `run()` against `httptest`
+  closes that and guards the quickstart.
+
+### Other
+
+- **Doc accuracy** — round-trip claim in `doc.go`, `README.md`, `search.go`,
+  `types.go`, `docs/plans/README.md` reconciled with reality in M1.1 (A0, done).
+- **`CHANGELOG.md`** — `errors.Is` targets and decoded struct fields are the
+  effective contract and both move with upstream; record every behaviour change.
+- **`gorelease` in CI** on release PRs (`golang.org/x/exp/cmd/gorelease`) to
+  catch accidental incompatible API diffs.
+- **Typed errors where structured context exists** — `*BlockedError` over the
+  bare `ErrBlocked` sentinel (A2).
+
+### Recommended sequencing
+
+1. **M1.1 (done):** round-trip doc claim downgraded; golden-file output tests
+   added; `FuzzDecodeRow` + `FuzzCurrencyToken` added (`FuzzChunks` already
+   existed).
+2. **M2:** real two-phase round-trip; `WithMaxConcurrency`; `SearchResult` +
+   session id; round-trip fixture.
+3. **M3:** full filter set + sort + infants + amenity/segment fields.
+4. **M5 (pulled ahead of M4):** retry / backoff / `Retry-After` /
+   `WithRateLimit` / `WithTransport` as composed RoundTrippers; live canary;
+   `synctest` tests; `*BlockedError`; observer hook.
+5. **M4:** calendar graph + booking options.
 
 ---
 
@@ -312,7 +459,9 @@ copyright headers go into `.go` files, since no source is copied verbatim.
 
 ### Must hold
 
-- `go.sum` stays empty. `go.mod` has no `require` block.
+- `go.sum` stays empty through M4. **Amended (A2):** M5 may add
+  `golang.org/x/time/rate` — one quasi-stdlib dependency, no transitive fan-out —
+  and nothing else. `google.golang.org/protobuf` and uTLS stay out.
 - No network in `go test`, ever. Every parser test is fixture-driven.
 - Every fixture is scrubbed per `.claude/skills/fixture-capture/SKILL.md` and
   carries a `_provenance` block. Raw RPC bodies are not JSON, so they land as

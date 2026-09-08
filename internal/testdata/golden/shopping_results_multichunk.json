@@ -1,0 +1,5382 @@
+[
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "172",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T15:55:00Z",
+        "ArrivalTime": "2026-07-12T17:20:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 47400000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 5100000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "833",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T17:10:00Z",
+        "ArrivalTime": "2026-07-12T18:35:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A319",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 155892,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 51900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 9600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "BookingToken": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5652000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "136",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:10:00Z",
+        "ArrivalTime": "2026-07-12T12:45:00Z",
+        "Duration": 38100000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5988108,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 38100000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxODoxMDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEyOjQ1OjAwKzAxOjAwKgJBQTIDMTM2OgJBQUIDMTM2SANSAzc3VxIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxODoxMDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEyOjQ1OjAwKzAxOjAwKgJBQTIDMTM2OgJBQUIDMTM2SANSAzc3VxIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5988000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -3,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "268",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:55:00Z",
+        "ArrivalTime": "2026-07-12T15:25:00Z",
+        "Duration": 37800000000000,
+        "Aircraft": "Airbus A380",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5647728,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37800000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQyMDo1NTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE1OjI1OjAwKzAxOjAwKgJCQTIDMjY4OgJBQUIENjk4M0gDUgMzODgSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQyMDo1NTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE1OjI1OjAwKzAxOjAwKgJCQTIDMjY4OgJBQUIENjk4M0gDUgMzODgSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5648000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "BA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "923",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T15:35:00Z",
+        "ArrivalTime": "2026-07-12T10:10:00Z",
+        "Duration": 38100000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4803456,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18323,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 38100000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECMPqbyKfAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNTozNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjEwOjAwKzAxOjAwKgJVQTIDOTIzOgJVQUIDOTIzSANSAzc4ORIECAMQAhIECAIQARgBKAAyMAoGVW5pdGVkCglMdWZ0aGFuc2EKCEF1c3RyaWFuChFCcnVzc2VscyBBaXJsaW5lcw\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECMPqbyKfAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNTozNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjEwOjAwKzAxOjAwKgJVQTIDOTIzOgJVQUIDOTIzSANSAzc4ORIECAMQAhIECAIQARgBKAAyMAoGVW5pdGVkCglMdWZ0aGFuc2EKCEF1c3RyaWFuChFCcnVzc2VscyBBaXJsaW5lcw\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4803000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -22,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "TK",
+        "OperatingCarrier": "",
+        "FlightNumber": "10",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IST",
+          "Name": "Istanbul Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T19:15:00Z",
+        "Duration": 47100000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 7729620,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "TK",
+        "OperatingCarrier": "",
+        "FlightNumber": "1987",
+        "Origin": {
+          "Code": "IST",
+          "Name": "Istanbul Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T20:25:00Z",
+        "ArrivalTime": "2026-07-12T22:25:00Z",
+        "Duration": 14400000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 863022,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 14863,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 65700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IST",
+          "Name": "Istanbul Airport",
+          "City": "Istanbul"
+        },
+        "Duration": 4200000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIvbWiLdAQq2AQpXCgNMQVgSGTIwMjYtMDctMTFUMjA6MTA6MDAtMDc6MDAaA0lTVCIZMjAyNi0wNy0xMlQxOToxNTowMCswMzowMCoCVEsyAjEwOgJUS0ICMTBIA1IDNzdXClsKA0lTVBIZMjAyNi0wNy0xMlQyMDoyNTowMCswMzowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjI1OjAwKzAxOjAwKgJUSzIEMTk4NzoCVEtCBDE5ODdIA1IDMzJREgQIAxACEgQIAhABGAEoADISChBUdXJraXNoIEFpcmxpbmVz\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIvbWiLdAQq2AQpXCgNMQVgSGTIwMjYtMDctMTFUMjA6MTA6MDAtMDc6MDAaA0lTVCIZMjAyNi0wNy0xMlQxOToxNTowMCswMzowMCoCVEsyAjEwOgJUS0ICMTBIA1IDNzdXClsKA0lTVBIZMjAyNi0wNy0xMlQyMDoyNTowMCswMzowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjI1OjAwKzAxOjAwKgJUSzIEMTk4NzoCVEtCBDE5ODdIA1IDMzJREgQIAxACEgQIAhABGAEoADISChBUdXJraXNoIEFpcmxpbmVz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 8593000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 39,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "TK"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AS",
+        "OperatingCarrier": "",
+        "FlightNumber": "1522",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T13:28:00Z",
+        "ArrivalTime": "2026-07-11T14:51:00Z",
+        "Duration": 4980000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 336822,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "LO",
+        "OperatingCarrier": "",
+        "FlightNumber": "38",
+        "Origin": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "WAW",
+          "Name": "Warsaw Frederic Chopin",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T22:15:00Z",
+        "ArrivalTime": "2026-07-12T18:30:00Z",
+        "Duration": 40500000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5059296,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 0
+        }
+      },
+      {
+        "Carrier": "LO",
+        "OperatingCarrier": "",
+        "FlightNumber": "285",
+        "Origin": {
+          "Code": "WAW",
+          "Name": "Warsaw Frederic Chopin",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T20:20:00Z",
+        "ArrivalTime": "2026-07-12T22:00:00Z",
+        "Duration": 9600000000000,
+        "Aircraft": "Boeing 737MAX 8 Passenger",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 513321,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 17541,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 88320000000000,
+    "Stops": 2,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": "San Francisco"
+        },
+        "Duration": 26640000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      },
+      {
+        "Airport": {
+          "Code": "WAW",
+          "Name": "Warsaw Frederic Chopin",
+          "City": "Warsaw"
+        },
+        "Duration": 6600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECN+HayKzAgqRAgpbCgNMQVgSGTIwMjYtMDctMTFUMTM6Mjg6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNDo1MTowMC0wNzowMCoCQVMyBDE1MjI6AkFTQgQxNTIySARSAzczSApXCgNTRk8SGTIwMjYtMDctMTFUMjI6MTU6MDAtMDc6MDAaA1dBVyIZMjAyNi0wNy0xMlQxODozMDowMCswMjowMCoCTE8yAjM4OgJMT0ICMzhIA1IDNzg5ClkKA1dBVxIZMjAyNi0wNy0xMlQyMDoyMDowMCswMjowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjAwOjAwKzAxOjAwKgJMTzIDMjg1OgJMT0IDMjg1SANSAzdNOBIECAMQAhIECAIQARgBKAAyDQoGQWxhc2thCgNMT1Q\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECN+HayKzAgqRAgpbCgNMQVgSGTIwMjYtMDctMTFUMTM6Mjg6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNDo1MTowMC0wNzowMCoCQVMyBDE1MjI6AkFTQgQxNTIySARSAzczSApXCgNTRk8SGTIwMjYtMDctMTFUMjI6MTU6MDAtMDc6MDAaA1dBVyIZMjAyNi0wNy0xMlQxODozMDowMCswMjowMCoCTE8yAjM4OgJMT0ICMzhIA1IDNzg5ClkKA1dBVxIZMjAyNi0wNy0xMlQyMDoyMDowMCswMjowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjAwOjAwKzAxOjAwKgJMTzIDMjg1OgJMT0IDMjg1SANSAzdNOBIECAMQAhIECAIQARgBKAAyDQoGQWxhc2thCgNMT1Q\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5909000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -4,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "282",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T15:50:00Z",
+        "ArrivalTime": "2026-07-12T10:15:00Z",
+        "Duration": 37500000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5753976,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37500000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJCQTIDMjgyOgJBQUIENjkzNUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJCQTIDMjgyOgJBQUIENjkzNUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5754000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -7,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "BA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "134",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:15:00Z",
+        "ArrivalTime": "2026-07-12T10:50:00Z",
+        "Duration": 38100000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4527492,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 38100000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNjoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjUwOjAwKzAxOjAwKgJBQTIDMTM0OgJBQUIDMTM0SANSAzc4ORIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNjoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjUwOjAwKzAxOjAwKgJBQTIDMTM0OgJBQUIDMTM0SANSAzc4ORIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4527000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -27,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "280",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T17:05:00Z",
+        "ArrivalTime": "2026-07-12T11:35:00Z",
+        "Duration": 37800000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5753976,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37800000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNzowNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDExOjM1OjAwKzAxOjAwKgJCQTIDMjgwOgJBQUIENjk5MUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNzowNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDExOjM1OjAwKzAxOjAwKgJCQTIDMjgwOgJBQUIENjk5MUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5754000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -7,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "BA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "307",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T08:30:00Z",
+        "ArrivalTime": "2026-07-11T17:09:00Z",
+        "Duration": 20340000000000,
+        "Aircraft": "Airbus A321 (Sharklets)",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2480925,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "100",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:05:00Z",
+        "ArrivalTime": "2026-07-12T06:25:00Z",
+        "Duration": 26400000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 3597840,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18299,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50100000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": "New York"
+        },
+        "Duration": 3360000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOPXbyLmAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMDg6MzA6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMVQxNzowOTowMC0wNDowMCoCQUEyAzMwNzoCQUFCAzMwN0gDUgMzMkIKWQoDSkZLEhkyMDI2LTA3LTExVDE4OjA1OjAwLTA0OjAwGgNMSFIiGTIwMjYtMDctMTJUMDY6MjU6MDArMDE6MDAqAkFBMgMxMDA6AkFBQgMxMDBIA1IDNzg5EgQIAxACEgQIAhABGAEoADIbCghBbWVyaWNhbgoPQnJpdGlzaCBBaXJ3YXlz\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOPXbyLmAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMDg6MzA6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMVQxNzowOTowMC0wNDowMCoCQUEyAzMwNzoCQUFCAzMwN0gDUgMzMkIKWQoDSkZLEhkyMDI2LTA3LTExVDE4OjA1OjAwLTA0OjAwGgNMSFIiGTIwMjYtMDctMTJUMDY6MjU6MDArMDE6MDAqAkFBMgMxMDA6AkFBQgMxMDBIA1IDNzg5EgQIAxACEgQIAhABGAEoADIbCghBbWVyaWNhbgoPQnJpdGlzaCBBaXJ3YXlz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6079000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -2,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "3164",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "PHL",
+          "Name": "Philadelphia International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T10:16:00Z",
+        "ArrivalTime": "2026-07-11T18:41:00Z",
+        "Duration": 19500000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 1160628,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "728",
+        "Origin": {
+          "Code": "PHL",
+          "Name": "Philadelphia International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T19:35:00Z",
+        "ArrivalTime": "2026-07-12T07:50:00Z",
+        "Duration": 26100000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 3761748,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18299,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48840000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "PHL",
+          "Name": "Philadelphia International Airport",
+          "City": "Philadelphia"
+        },
+        "Duration": 3240000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOPXbyLXAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6MTY6MDAtMDc6MDAaA1BITCIZMjAyNi0wNy0xMVQxODo0MTowMC0wNDowMCoCQUEyBDMxNjQ6AkFBQgQzMTY0SARSAzMyUQpZCgNQSEwSGTIwMjYtMDctMTFUMTk6MzU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNzo1MDowMCswMTowMCoCQUEyAzcyODoCQUFCAzcyOEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOPXbyLXAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6MTY6MDAtMDc6MDAaA1BITCIZMjAyNi0wNy0xMVQxODo0MTowMC0wNDowMCoCQUEyBDMxNjQ6AkFBQgQzMTY0SARSAzMyUQpZCgNQSEwSGTIwMjYtMDctMTFUMTk6MzU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNzo1MDowMCswMTowMCoCQUEyAzcyODoCQUFCAzcyOEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4922000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -20,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "30",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T22:23:00Z",
+        "ArrivalTime": "2026-07-12T07:00:00Z",
+        "Duration": 20220000000000,
+        "Aircraft": "Airbus A321 (Sharklets)",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2480925,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "178",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T07:50:00Z",
+        "ArrivalTime": "2026-07-12T19:45:00Z",
+        "Duration": 24900000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5102916,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18299,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48120000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": "New York"
+        },
+        "Duration": 3000000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOPXbyLlAQq1AQpXCgNMQVgSGTIwMjYtMDctMTFUMjI6MjM6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMlQwNzowMDowMC0wNDowMCoCQUEyAjMwOgJBQUICMzBIA1IDMzJCCloKA0pGSxIZMjAyNi0wNy0xMlQwNzo1MDowMC0wNDowMBoDTEhSIhkyMDI2LTA3LTEyVDE5OjQ1OjAwKzAxOjAwKgJCQTIDMTc4OgJBQUIENjkzOUgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhsKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXM\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOPXbyLlAQq1AQpXCgNMQVgSGTIwMjYtMDctMTFUMjI6MjM6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMlQwNzowMDowMC0wNDowMCoCQUEyAjMwOgJBQUICMzBIA1IDMzJCCloKA0pGSxIZMjAyNi0wNy0xMlQwNzo1MDowMC0wNDowMBoDTEhSIhkyMDI2LTA3LTEyVDE5OjQ1OjAwKzAxOjAwKgJCQTIDMTc4OgJBQUIENjkzOUgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhsKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 7584000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 23,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2743",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T07:00:00Z",
+        "ArrivalTime": "2026-07-11T15:37:00Z",
+        "Duration": 20220000000000,
+        "Aircraft": "Boeing 757",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 1834908,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "16",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T17:25:00Z",
+        "ArrivalTime": "2026-07-12T05:55:00Z",
+        "Duration": 27000000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4421028,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 53700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 6480000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLdAQq2AQpbCgNMQVgSGTIwMjYtMDctMTFUMDc6MDA6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxNTozNzowMC0wNDowMCoCVUEyBDI3NDM6AlVBQgQyNzQzSANSAzc1MgpXCgNFV1ISGTIwMjYtMDctMTFUMTc6MjU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNTo1NTowMCswMTowMCoCVUEyAjE2OgJVQUICMTZIA1IDNzYzEgQIAxACEgQIAhABGAEoADISCgZVbml0ZWQKCEF1c3RyaWFu\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLdAQq2AQpbCgNMQVgSGTIwMjYtMDctMTFUMDc6MDA6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxNTozNzowMC0wNDowMCoCVUEyBDI3NDM6AlVBQgQyNzQzSANSAzc1MgpXCgNFV1ISGTIwMjYtMDctMTFUMTc6MjU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNTo1NTowMCswMTowMCoCVUEyAjE2OgJVQUICMTZIA1IDNzYzEgQIAxACEgQIAhABGAEoADISCgZVbml0ZWQKCEF1c3RyaWFu\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6256000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 1,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1946",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T08:15:00Z",
+        "ArrivalTime": "2026-07-11T14:35:00Z",
+        "Duration": 15600000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 812670,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "929",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:30:00Z",
+        "ArrivalTime": "2026-07-12T06:45:00Z",
+        "Duration": 29700000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4551864,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 52200000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 6900000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMDg6MTU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNDozNTowMC0wNTowMCoCVUEyBDE5NDY6AlVBQgQxOTQ2SARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTY6MzA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNjo0NTowMCswMTowMCoCVUEyAzkyOToCVUFCAzkyOUgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMDg6MTU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNDozNTowMC0wNTowMCoCVUEyBDE5NDY6AlVBQgQxOTQ2SARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTY6MzA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNjo0NTowMCswMTowMCoCVUEyAzkyOToCVUFCAzkyOUgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5365000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "277",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IAH",
+          "Name": "George Bush Intercontinental Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T10:10:00Z",
+        "ArrivalTime": "2026-07-11T15:40:00Z",
+        "Duration": 12600000000000,
+        "Aircraft": "Boeing 737MAX 9 Passenger",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 666171,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "880",
+        "Origin": {
+          "Code": "IAH",
+          "Name": "George Bush Intercontinental Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:35:00Z",
+        "ArrivalTime": "2026-07-12T07:55:00Z",
+        "Duration": 33600000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 6090192,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 49500000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IAH",
+          "Name": "George Bush Intercontinental Airport",
+          "City": "Houston"
+        },
+        "Duration": 3300000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLTAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTA6MTA6MDAtMDc6MDAaA0lBSCIZMjAyNi0wNy0xMVQxNTo0MDowMC0wNTowMCoCVUEyAzI3NzoCVUFCAzI3N0gEUgM3TTkKWQoDSUFIEhkyMDI2LTA3LTExVDE2OjM1OjAwLTA1OjAwGgNMSFIiGTIwMjYtMDctMTJUMDc6NTU6MDArMDE6MDAqAlVBMgM4ODA6AlVBQgM4ODBIA1IDNzc3EgQIAxACEgQIAhABGAEoADIICgZVbml0ZWQ\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLTAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTA6MTA6MDAtMDc6MDAaA0lBSCIZMjAyNi0wNy0xMVQxNTo0MDowMC0wNTowMCoCVUEyAzI3NzoCVUFCAzI3N0gEUgM3TTkKWQoDSUFIEhkyMDI2LTA3LTExVDE2OjM1OjAwLTA1OjAwGgNMSFIiGTIwMjYtMDctMTJUMDc6NTU6MDArMDE6MDAqAlVBMgM4ODA6AlVBQgM4ODBIA1IDNzc3EgQIAxACEgQIAhABGAEoADIICgZVbml0ZWQ\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6756000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 9,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2113",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T10:45:00Z",
+        "ArrivalTime": "2026-07-11T17:04:00Z",
+        "Duration": 15540000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 812670,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "920",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:15:00Z",
+        "ArrivalTime": "2026-07-12T08:30:00Z",
+        "Duration": 29700000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4551864,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 49500000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 4260000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6NDU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNzowNDowMC0wNTowMCoCVUEyBDIxMTM6AlVBQgQyMTEzSARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTg6MTU6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwODozMDowMCswMTowMCoCVUEyAzkyMDoCVUFCAzkyMEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6NDU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNzowNDowMC0wNTowMCoCVUEyBDIxMTM6AlVBQgQyMTEzSARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTg6MTU6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwODozMDowMCswMTowMCoCVUEyAzkyMDoCVUFCAzkyMEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5365000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1981",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T11:15:00Z",
+        "ArrivalTime": "2026-07-11T19:30:00Z",
+        "Duration": 18900000000000,
+        "Aircraft": "Boeing 787-10",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2207040,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "940",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:50:00Z",
+        "ArrivalTime": "2026-07-12T09:20:00Z",
+        "Duration": 27000000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4421028,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 4800000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTE6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxOTozMDowMC0wNDowMCoCVUEyBDE5ODE6AlVBQgQxOTgxSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTFUMjA6NTA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwOToyMDowMCswMTowMCoCVUEyAzk0MDoCVUFCAzk0MEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTE6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxOTozMDowMC0wNDowMCoCVUEyBDE5ODE6AlVBQgQxOTgxSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTFUMjA6NTA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwOToyMDowMCswMTowMCoCVUEyAzk0MDoCVUFCAzk0MEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6628000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 7,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1635",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T12:43:00Z",
+        "ArrivalTime": "2026-07-11T20:48:00Z",
+        "Duration": 18300000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 1230378,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "924",
+        "Origin": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T22:15:00Z",
+        "ArrivalTime": "2026-07-12T10:40:00Z",
+        "Duration": 26700000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4964436,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50220000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": "Washington"
+        },
+        "Duration": 5220000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTI6NDM6MDAtMDc6MDAaA0lBRCIZMjAyNi0wNy0xMVQyMDo0ODowMC0wNDowMCoCVUEyBDE2MzU6AlVBQgQxNjM1SANSAzczOQpZCgNJQUQSGTIwMjYtMDctMTFUMjI6MTU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMDo0MDowMCswMTowMCoCVUEyAzkyNDoCVUFCAzkyNEgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTI6NDM6MDAtMDc6MDAaA0lBRCIZMjAyNi0wNy0xMVQyMDo0ODowMC0wNDowMCoCVUEyBDE2MzU6AlVBQgQxNjM1SANSAzczOQpZCgNJQUQSGTIwMjYtMDctMTFUMjI6MTU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMDo0MDowMCswMTowMCoCVUEyAzkyNDoCVUFCAzkyNEgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6195000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 0,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "360",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T12:46:00Z",
+        "ArrivalTime": "2026-07-11T16:16:00Z",
+        "Duration": 9000000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 463359,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "27",
+        "Origin": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T17:35:00Z",
+        "ArrivalTime": "2026-07-12T09:40:00Z",
+        "Duration": 32700000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5347860,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 46440000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": "Denver"
+        },
+        "Duration": 4740000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLRAQq0AQpZCgNMQVgSGTIwMjYtMDctMTFUMTI6NDY6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxNjoxNjowMC0wNjowMCoCVUEyAzM2MDoCVUFCAzM2MEgEUgMzMlEKVwoDREVOEhkyMDI2LTA3LTExVDE3OjM1OjAwLTA2OjAwGgNMSFIiGTIwMjYtMDctMTJUMDk6NDA6MDArMDE6MDAqAlVBMgIyNzoCVUFCAjI3SANSAzc4ORIECAMQAhIECAIQARgBKAAyCAoGVW5pdGVk\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLRAQq0AQpZCgNMQVgSGTIwMjYtMDctMTFUMTI6NDY6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxNjoxNjowMC0wNjowMCoCVUEyAzM2MDoCVUFCAzM2MEgEUgMzMlEKVwoDREVOEhkyMDI2LTA3LTExVDE3OjM1OjAwLTA2OjAwGgNMSFIiGTIwMjYtMDctMTJUMDk6NDA6MDArMDE6MDAqAlVBMgIyNzoCVUFCAjI3SANSAzc4ORIECAMQAhIECAIQARgBKAAyCAoGVW5pdGVk\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5811000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -6,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2487",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T14:26:00Z",
+        "ArrivalTime": "2026-07-11T20:40:00Z",
+        "Duration": 15240000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 812670,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "938",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T21:40:00Z",
+        "ArrivalTime": "2026-07-12T11:55:00Z",
+        "Duration": 29700000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4551864,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48540000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 3600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTQ6MjY6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQyMDo0MDowMC0wNTowMCoCVUEyBDI0ODc6AlVBQgQyNDg3SANSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMjE6NDA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMTo1NTowMCswMTowMCoCVUEyAzkzODoCVUFCAzkzOEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTQ6MjY6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQyMDo0MDowMC0wNTowMCoCVUEyBDI0ODc6AlVBQgQyNDg3SANSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMjE6NDA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMTo1NTowMCswMTowMCoCVUEyAzkzODoCVUFCAzkzOEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5365000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2146",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:10:00Z",
+        "ArrivalTime": "2026-07-11T19:41:00Z",
+        "Duration": 9060000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 463359,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "262",
+        "Origin": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:25:00Z",
+        "ArrivalTime": "2026-07-12T12:25:00Z",
+        "Duration": 32400000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5347860,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 44100000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": "Denver"
+        },
+        "Duration": 2640000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTA6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxOTo0MTowMC0wNjowMCoCVUEyBDIxNDY6AlVBQgQyMTQ2SARSAzMyUQpZCgNERU4SGTIwMjYtMDctMTFUMjA6MjU6MDAtMDY6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMjoyNTowMCswMTowMCoCVUEyAzI2MjoCVUFCAzI2MkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTA6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxOTo0MTowMC0wNjowMCoCVUEyBDIxNDY6AlVBQgQyMTQ2SARSAzMyUQpZCgNERU4SGTIwMjYtMDctMTFUMjA6MjU6MDAtMDY6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMjoyNTowMCswMTowMCoCVUEyAzI2MjoCVUFCAzI2MkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5811000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -6,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2019",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:14:00Z",
+        "ArrivalTime": "2026-07-11T17:42:00Z",
+        "Duration": 5280000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 302034,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "930",
+        "Origin": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T19:50:00Z",
+        "ArrivalTime": "2026-07-12T14:10:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5237016,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50160000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": "San Francisco"
+        },
+        "Duration": 7680000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTQ6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNzo0MjowMC0wNzowMCoCVUEyBDIwMTk6AlVBQgQyMDE5SARSAzczOApZCgNTRk8SGTIwMjYtMDctMTFUMTk6NTA6MDAtMDc6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNDoxMDowMCswMTowMCoCVUEyAzkzMDoCVUFCAzkzMEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTQ6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNzo0MjowMC0wNzowMCoCVUEyBDIwMTk6AlVBQgQyMDE5SARSAzczOApZCgNTRk8SGTIwMjYtMDctMTFUMTk6NTA6MDAtMDc6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNDoxMDowMCswMTowMCoCVUEyAzkzMDoCVUFCAzkzMEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5539000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -10,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2303",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T23:15:00Z",
+        "ArrivalTime": "2026-07-12T07:30:00Z",
+        "Duration": 18900000000000,
+        "Aircraft": "Boeing 787-10",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2207040,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "934",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T08:30:00Z",
+        "ArrivalTime": "2026-07-12T20:40:00Z",
+        "Duration": 25800000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4421028,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48300000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 3600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDg6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo0MDowMCswMTowMCoCVUEyAzkzNDoCVUFCAzkzNEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDg6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo0MDowMCswMTowMCoCVUEyAzkzNDoCVUFCAzkzNEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6628000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 7,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2303",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T23:15:00Z",
+        "ArrivalTime": "2026-07-12T07:30:00Z",
+        "Duration": 18900000000000,
+        "Aircraft": "Boeing 787-10",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2207040,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "122",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T09:30:00Z",
+        "ArrivalTime": "2026-07-12T21:20:00Z",
+        "Duration": 24600000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 3460896,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 7200000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDk6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMToyMDowMCswMTowMCoCVUEyAzEyMjoCVUFCAzEyMkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDk6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMToyMDowMCswMTowMCoCVUEyAzEyMjoCVUFCAzEyMkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5668000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -8,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "VS",
+        "OperatingCarrier": "",
+        "FlightNumber": "142",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:35:00Z",
+        "ArrivalTime": "2026-07-12T15:00:00Z",
+        "Duration": 37500000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4871256,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18353,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37500000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJmCcCJ8ClwKWgoDTEFYEhkyMDI2LTA3LTExVDIwOjM1OjAwLTA3OjAwGgNMSFIiGTIwMjYtMDctMTJUMTU6MDA6MDArMDE6MDAqAlZTMgMxNDI6AkRMQgQ1OTI1SANSAzc4ORIECAMQAhIECAIQARgBKAAyDAoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJmCcCJ8ClwKWgoDTEFYEhkyMDI2LTA3LTExVDIwOjM1OjAwLTA3OjAwGgNMSFIiGTIwMjYtMDctMTJUMTU6MDA6MDArMDE6MDAqAlZTMgMxNDI6AkRMQgQ1OTI1SANSAzc4ORIECAMQAhIECAIQARgBKAAyDAoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4871000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -21,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "VS"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "VS",
+        "OperatingCarrier": "",
+        "FlightNumber": "24",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T23:15:00Z",
+        "ArrivalTime": "2026-07-12T17:35:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4871256,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18353,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37200000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJmCcCKKAQpZClcKA0xBWBIZMjAyNi0wNy0xMVQyMzoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE3OjM1OjAwKzAxOjAwKgJWUzICMjQ6AlZTQgIyNEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMh0KD1ZpcmdpbiBBdGxhbnRpYwoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJmCcCKKAQpZClcKA0xBWBIZMjAyNi0wNy0xMVQyMzoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE3OjM1OjAwKzAxOjAwKgJWUzICMjQ6AlZTQgIyNEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMh0KD1ZpcmdpbiBBdGxhbnRpYwoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4871000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -21,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "VS"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "LH",
+        "OperatingCarrier": "",
+        "FlightNumber": "451",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "FRA",
+          "Name": "Frankfurt Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:40:00Z",
+        "ArrivalTime": "2026-07-12T14:35:00Z",
+        "Duration": 39300000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5910852,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "LH",
+        "OperatingCarrier": "",
+        "FlightNumber": "914",
+        "Origin": {
+          "Code": "FRA",
+          "Name": "Frankfurt Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T16:00:00Z",
+        "ArrivalTime": "2026-07-12T16:40:00Z",
+        "Duration": 6000000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "32 inches",
+        "Overnight": false,
+        "CO2Grams": 295185,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18460,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50400000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "FRA",
+          "Name": "Frankfurt Airport",
+          "City": "Frankfurt am Main"
+        },
+        "Duration": 5100000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECO/VcCLWAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTg6NDA6MDAtMDc6MDAaA0ZSQSIZMjAyNi0wNy0xMlQxNDozNTowMCswMjowMCoCTEgyAzQ1MToCTEhCAzQ1MUgDUgM3ODkKWQoDRlJBEhkyMDI2LTA3LTEyVDE2OjAwOjAwKzAyOjAwGgNMSFIiGTIwMjYtMDctMTJUMTY6NDA6MDArMDE6MDAqAkxIMgM5MTQ6AkxIQgM5MTRIA1IDMzJOEgQIAxACEgQIAhABGAEoADILCglMdWZ0aGFuc2E\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECO/VcCLWAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTg6NDA6MDAtMDc6MDAaA0ZSQSIZMjAyNi0wNy0xMlQxNDozNTowMCswMjowMCoCTEgyAzQ1MToCTEhCAzQ1MUgDUgM3ODkKWQoDRlJBEhkyMDI2LTA3LTEyVDE2OjAwOjAwKzAyOjAwGgNMSFIiGTIwMjYtMDctMTJUMTY6NDA6MDArMDE6MDAqAkxIMgM5MTQ6AkxIQgM5MTRIA1IDMzJOEgQIAxACEgQIAhABGAEoADILCglMdWZ0aGFuc2E\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6206000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 0,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "LH"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "VS",
+        "OperatingCarrier": "",
+        "FlightNumber": "8",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T15:50:00Z",
+        "ArrivalTime": "2026-07-12T10:15:00Z",
+        "Duration": 37500000000000,
+        "Aircraft": "Airbus A350",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4754904,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 22253,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37500000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoFCInphwEidQpaClgKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJWUzIBODoCRExCBDU5NzhIA1IDMzUxEgQIAxACEgQIAhABGAEoADIHCgVEZWx0YQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoFCInphwEidQpaClgKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJWUzIBODoCRExCBDU5NzhIA1IDMzUxEgQIAxACEgQIAhABGAEoADIHCgVEZWx0YQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4755000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -23,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "VS"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "172",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T15:55:00Z",
+        "ArrivalTime": "2026-07-12T17:20:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 47400000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 5100000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "833",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T17:10:00Z",
+        "ArrivalTime": "2026-07-12T18:35:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A319",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 155892,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 51900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 9600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "BookingToken": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5652000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "178",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T18:00:00Z",
+        "ArrivalTime": "2026-07-12T19:25:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 54900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 12600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTg6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxOToyNTowMCswMTowMCoCRUkyAzE3ODoCRUlCAzE3OEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTg6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxOToyNTowMCswMTowMCoCRUkyAzE3ODoCRUlCAzE3OEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "182",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T19:00:00Z",
+        "ArrivalTime": "2026-07-12T20:20:00Z",
+        "Duration": 4800000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 58200000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 16200000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDoyMDowMCswMTowMCoCRUkyAzE4MjoCRUlCAzE4MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDoyMDowMCswMTowMCoCRUkyAzE4MjoCRUlCAzE4MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "180",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T19:35:00Z",
+        "ArrivalTime": "2026-07-12T20:55:00Z",
+        "Duration": 4800000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 60300000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 18300000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MzU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo1NTowMCswMTowMCoCRUkyAzE4MDoCRUlCAzE4MEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MzU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo1NTowMCswMTowMCoCRUkyAzE4MDoCRUlCAzE4MEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "136",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:10:00Z",
+        "ArrivalTime": "2026-07-12T12:45:00Z",
+        "Duration": 38100000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5988108,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 38100000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxODoxMDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEyOjQ1OjAwKzAxOjAwKgJBQTIDMTM2OgJBQUIDMTM2SANSAzc3VxIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxODoxMDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEyOjQ1OjAwKzAxOjAwKgJBQTIDMTM2OgJBQUIDMTM2SANSAzc3VxIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5988000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -3,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "268",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:55:00Z",
+        "ArrivalTime": "2026-07-12T15:25:00Z",
+        "Duration": 37800000000000,
+        "Aircraft": "Airbus A380",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5647728,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37800000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQyMDo1NTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE1OjI1OjAwKzAxOjAwKgJCQTIDMjY4OgJBQUIENjk4M0gDUgMzODgSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQyMDo1NTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE1OjI1OjAwKzAxOjAwKgJCQTIDMjY4OgJBQUIENjk4M0gDUgMzODgSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5648000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "BA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "923",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T15:35:00Z",
+        "ArrivalTime": "2026-07-12T10:10:00Z",
+        "Duration": 38100000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4803456,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18323,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 38100000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECMPqbyKfAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNTozNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjEwOjAwKzAxOjAwKgJVQTIDOTIzOgJVQUIDOTIzSANSAzc4ORIECAMQAhIECAIQARgBKAAyMAoGVW5pdGVkCglMdWZ0aGFuc2EKCEF1c3RyaWFuChFCcnVzc2VscyBBaXJsaW5lcw\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECMPqbyKfAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNTozNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjEwOjAwKzAxOjAwKgJVQTIDOTIzOgJVQUIDOTIzSANSAzc4ORIECAMQAhIECAIQARgBKAAyMAoGVW5pdGVkCglMdWZ0aGFuc2EKCEF1c3RyaWFuChFCcnVzc2VscyBBaXJsaW5lcw\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4803000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -22,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "TK",
+        "OperatingCarrier": "",
+        "FlightNumber": "10",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IST",
+          "Name": "Istanbul Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T19:15:00Z",
+        "Duration": 47100000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 7729620,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "TK",
+        "OperatingCarrier": "",
+        "FlightNumber": "1987",
+        "Origin": {
+          "Code": "IST",
+          "Name": "Istanbul Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T20:25:00Z",
+        "ArrivalTime": "2026-07-12T22:25:00Z",
+        "Duration": 14400000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 863022,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 14863,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 65700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IST",
+          "Name": "Istanbul Airport",
+          "City": "Istanbul"
+        },
+        "Duration": 4200000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIvbWiLdAQq2AQpXCgNMQVgSGTIwMjYtMDctMTFUMjA6MTA6MDAtMDc6MDAaA0lTVCIZMjAyNi0wNy0xMlQxOToxNTowMCswMzowMCoCVEsyAjEwOgJUS0ICMTBIA1IDNzdXClsKA0lTVBIZMjAyNi0wNy0xMlQyMDoyNTowMCswMzowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjI1OjAwKzAxOjAwKgJUSzIEMTk4NzoCVEtCBDE5ODdIA1IDMzJREgQIAxACEgQIAhABGAEoADISChBUdXJraXNoIEFpcmxpbmVz\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIvbWiLdAQq2AQpXCgNMQVgSGTIwMjYtMDctMTFUMjA6MTA6MDAtMDc6MDAaA0lTVCIZMjAyNi0wNy0xMlQxOToxNTowMCswMzowMCoCVEsyAjEwOgJUS0ICMTBIA1IDNzdXClsKA0lTVBIZMjAyNi0wNy0xMlQyMDoyNTowMCswMzowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjI1OjAwKzAxOjAwKgJUSzIEMTk4NzoCVEtCBDE5ODdIA1IDMzJREgQIAxACEgQIAhABGAEoADISChBUdXJraXNoIEFpcmxpbmVz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 8593000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 39,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "TK"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AS",
+        "OperatingCarrier": "",
+        "FlightNumber": "1522",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T13:28:00Z",
+        "ArrivalTime": "2026-07-11T14:51:00Z",
+        "Duration": 4980000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 336822,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "LO",
+        "OperatingCarrier": "",
+        "FlightNumber": "38",
+        "Origin": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "WAW",
+          "Name": "Warsaw Frederic Chopin",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T22:15:00Z",
+        "ArrivalTime": "2026-07-12T18:30:00Z",
+        "Duration": 40500000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5059296,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 0
+        }
+      },
+      {
+        "Carrier": "LO",
+        "OperatingCarrier": "",
+        "FlightNumber": "285",
+        "Origin": {
+          "Code": "WAW",
+          "Name": "Warsaw Frederic Chopin",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T20:20:00Z",
+        "ArrivalTime": "2026-07-12T22:00:00Z",
+        "Duration": 9600000000000,
+        "Aircraft": "Boeing 737MAX 8 Passenger",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 513321,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 17541,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 88320000000000,
+    "Stops": 2,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": "San Francisco"
+        },
+        "Duration": 26640000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      },
+      {
+        "Airport": {
+          "Code": "WAW",
+          "Name": "Warsaw Frederic Chopin",
+          "City": "Warsaw"
+        },
+        "Duration": 6600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECN+HayKzAgqRAgpbCgNMQVgSGTIwMjYtMDctMTFUMTM6Mjg6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNDo1MTowMC0wNzowMCoCQVMyBDE1MjI6AkFTQgQxNTIySARSAzczSApXCgNTRk8SGTIwMjYtMDctMTFUMjI6MTU6MDAtMDc6MDAaA1dBVyIZMjAyNi0wNy0xMlQxODozMDowMCswMjowMCoCTE8yAjM4OgJMT0ICMzhIA1IDNzg5ClkKA1dBVxIZMjAyNi0wNy0xMlQyMDoyMDowMCswMjowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjAwOjAwKzAxOjAwKgJMTzIDMjg1OgJMT0IDMjg1SANSAzdNOBIECAMQAhIECAIQARgBKAAyDQoGQWxhc2thCgNMT1Q\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECN+HayKzAgqRAgpbCgNMQVgSGTIwMjYtMDctMTFUMTM6Mjg6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNDo1MTowMC0wNzowMCoCQVMyBDE1MjI6AkFTQgQxNTIySARSAzczSApXCgNTRk8SGTIwMjYtMDctMTFUMjI6MTU6MDAtMDc6MDAaA1dBVyIZMjAyNi0wNy0xMlQxODozMDowMCswMjowMCoCTE8yAjM4OgJMT0ICMzhIA1IDNzg5ClkKA1dBVxIZMjAyNi0wNy0xMlQyMDoyMDowMCswMjowMBoDTEhSIhkyMDI2LTA3LTEyVDIyOjAwOjAwKzAxOjAwKgJMTzIDMjg1OgJMT0IDMjg1SANSAzdNOBIECAMQAhIECAIQARgBKAAyDQoGQWxhc2thCgNMT1Q\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5909000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -4,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "282",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T15:50:00Z",
+        "ArrivalTime": "2026-07-12T10:15:00Z",
+        "Duration": 37500000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5753976,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37500000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJCQTIDMjgyOgJBQUIENjkzNUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJCQTIDMjgyOgJBQUIENjkzNUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5754000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -7,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "BA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "134",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:15:00Z",
+        "ArrivalTime": "2026-07-12T10:50:00Z",
+        "Duration": 38100000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4527492,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 38100000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNjoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjUwOjAwKzAxOjAwKgJBQTIDMTM0OgJBQUIDMTM0SANSAzc4ORIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKbAQpbClkKA0xBWBIZMjAyNi0wNy0xMVQxNjoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjUwOjAwKzAxOjAwKgJBQTIDMTM0OgJBQUIDMTM0SANSAzc4ORIECAMQAhIECAIQARgBKAAyLAoIQW1lcmljYW4KB0Zpbm5haXIKD0JyaXRpc2ggQWlyd2F5cwoGQWxhc2th\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4527000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -27,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "280",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T17:05:00Z",
+        "ArrivalTime": "2026-07-12T11:35:00Z",
+        "Duration": 37800000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5753976,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18286,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37800000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNzowNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDExOjM1OjAwKzAxOjAwKgJCQTIDMjgwOgJBQUIENjk5MUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJ3NbyKcAQpcCloKA0xBWBIZMjAyNi0wNy0xMVQxNzowNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDExOjM1OjAwKzAxOjAwKgJCQTIDMjgwOgJBQUIENjk5MUgDUgM3N1cSBAgDEAISBAgCEAEYASgAMiwKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXMKB0Zpbm5haXIKBkFsYXNrYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5754000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -7,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "BA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "307",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T08:30:00Z",
+        "ArrivalTime": "2026-07-11T17:09:00Z",
+        "Duration": 20340000000000,
+        "Aircraft": "Airbus A321 (Sharklets)",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2480925,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "100",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:05:00Z",
+        "ArrivalTime": "2026-07-12T06:25:00Z",
+        "Duration": 26400000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 3597840,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18299,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50100000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": "New York"
+        },
+        "Duration": 3360000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOPXbyLmAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMDg6MzA6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMVQxNzowOTowMC0wNDowMCoCQUEyAzMwNzoCQUFCAzMwN0gDUgMzMkIKWQoDSkZLEhkyMDI2LTA3LTExVDE4OjA1OjAwLTA0OjAwGgNMSFIiGTIwMjYtMDctMTJUMDY6MjU6MDArMDE6MDAqAkFBMgMxMDA6AkFBQgMxMDBIA1IDNzg5EgQIAxACEgQIAhABGAEoADIbCghBbWVyaWNhbgoPQnJpdGlzaCBBaXJ3YXlz\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOPXbyLmAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMDg6MzA6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMVQxNzowOTowMC0wNDowMCoCQUEyAzMwNzoCQUFCAzMwN0gDUgMzMkIKWQoDSkZLEhkyMDI2LTA3LTExVDE4OjA1OjAwLTA0OjAwGgNMSFIiGTIwMjYtMDctMTJUMDY6MjU6MDArMDE6MDAqAkFBMgMxMDA6AkFBQgMxMDBIA1IDNzg5EgQIAxACEgQIAhABGAEoADIbCghBbWVyaWNhbgoPQnJpdGlzaCBBaXJ3YXlz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6079000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -2,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "3164",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "PHL",
+          "Name": "Philadelphia International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T10:16:00Z",
+        "ArrivalTime": "2026-07-11T18:41:00Z",
+        "Duration": 19500000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 1160628,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "728",
+        "Origin": {
+          "Code": "PHL",
+          "Name": "Philadelphia International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T19:35:00Z",
+        "ArrivalTime": "2026-07-12T07:50:00Z",
+        "Duration": 26100000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 3761748,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18299,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48840000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "PHL",
+          "Name": "Philadelphia International Airport",
+          "City": "Philadelphia"
+        },
+        "Duration": 3240000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOPXbyLXAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6MTY6MDAtMDc6MDAaA1BITCIZMjAyNi0wNy0xMVQxODo0MTowMC0wNDowMCoCQUEyBDMxNjQ6AkFBQgQzMTY0SARSAzMyUQpZCgNQSEwSGTIwMjYtMDctMTFUMTk6MzU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNzo1MDowMCswMTowMCoCQUEyAzcyODoCQUFCAzcyOEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOPXbyLXAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6MTY6MDAtMDc6MDAaA1BITCIZMjAyNi0wNy0xMVQxODo0MTowMC0wNDowMCoCQUEyBDMxNjQ6AkFBQgQzMTY0SARSAzMyUQpZCgNQSEwSGTIwMjYtMDctMTFUMTk6MzU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNzo1MDowMCswMTowMCoCQUEyAzcyODoCQUFCAzcyOEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4922000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -20,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "30",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T22:23:00Z",
+        "ArrivalTime": "2026-07-12T07:00:00Z",
+        "Duration": 20220000000000,
+        "Aircraft": "Airbus A321 (Sharklets)",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2480925,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "178",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T07:50:00Z",
+        "ArrivalTime": "2026-07-12T19:45:00Z",
+        "Duration": 24900000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5102916,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18299,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48120000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": "New York"
+        },
+        "Duration": 3000000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOPXbyLlAQq1AQpXCgNMQVgSGTIwMjYtMDctMTFUMjI6MjM6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMlQwNzowMDowMC0wNDowMCoCQUEyAjMwOgJBQUICMzBIA1IDMzJCCloKA0pGSxIZMjAyNi0wNy0xMlQwNzo1MDowMC0wNDowMBoDTEhSIhkyMDI2LTA3LTEyVDE5OjQ1OjAwKzAxOjAwKgJCQTIDMTc4OgJBQUIENjkzOUgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhsKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXM\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOPXbyLlAQq1AQpXCgNMQVgSGTIwMjYtMDctMTFUMjI6MjM6MDAtMDc6MDAaA0pGSyIZMjAyNi0wNy0xMlQwNzowMDowMC0wNDowMCoCQUEyAjMwOgJBQUICMzBIA1IDMzJCCloKA0pGSxIZMjAyNi0wNy0xMlQwNzo1MDowMC0wNDowMBoDTEhSIhkyMDI2LTA3LTEyVDE5OjQ1OjAwKzAxOjAwKgJCQTIDMTc4OgJBQUIENjkzOUgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhsKCEFtZXJpY2FuCg9Ccml0aXNoIEFpcndheXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 7584000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 23,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2743",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T07:00:00Z",
+        "ArrivalTime": "2026-07-11T15:37:00Z",
+        "Duration": 20220000000000,
+        "Aircraft": "Boeing 757",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 1834908,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "16",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T17:25:00Z",
+        "ArrivalTime": "2026-07-12T05:55:00Z",
+        "Duration": 27000000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4421028,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 53700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 6480000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLdAQq2AQpbCgNMQVgSGTIwMjYtMDctMTFUMDc6MDA6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxNTozNzowMC0wNDowMCoCVUEyBDI3NDM6AlVBQgQyNzQzSANSAzc1MgpXCgNFV1ISGTIwMjYtMDctMTFUMTc6MjU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNTo1NTowMCswMTowMCoCVUEyAjE2OgJVQUICMTZIA1IDNzYzEgQIAxACEgQIAhABGAEoADISCgZVbml0ZWQKCEF1c3RyaWFu\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLdAQq2AQpbCgNMQVgSGTIwMjYtMDctMTFUMDc6MDA6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxNTozNzowMC0wNDowMCoCVUEyBDI3NDM6AlVBQgQyNzQzSANSAzc1MgpXCgNFV1ISGTIwMjYtMDctMTFUMTc6MjU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNTo1NTowMCswMTowMCoCVUEyAjE2OgJVQUICMTZIA1IDNzYzEgQIAxACEgQIAhABGAEoADISCgZVbml0ZWQKCEF1c3RyaWFu\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6256000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 1,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1946",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T08:15:00Z",
+        "ArrivalTime": "2026-07-11T14:35:00Z",
+        "Duration": 15600000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 812670,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "929",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:30:00Z",
+        "ArrivalTime": "2026-07-12T06:45:00Z",
+        "Duration": 29700000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4551864,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 52200000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 6900000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMDg6MTU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNDozNTowMC0wNTowMCoCVUEyBDE5NDY6AlVBQgQxOTQ2SARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTY6MzA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNjo0NTowMCswMTowMCoCVUEyAzkyOToCVUFCAzkyOUgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMDg6MTU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNDozNTowMC0wNTowMCoCVUEyBDE5NDY6AlVBQgQxOTQ2SARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTY6MzA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwNjo0NTowMCswMTowMCoCVUEyAzkyOToCVUFCAzkyOUgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5365000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "277",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IAH",
+          "Name": "George Bush Intercontinental Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T10:10:00Z",
+        "ArrivalTime": "2026-07-11T15:40:00Z",
+        "Duration": 12600000000000,
+        "Aircraft": "Boeing 737MAX 9 Passenger",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 666171,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "880",
+        "Origin": {
+          "Code": "IAH",
+          "Name": "George Bush Intercontinental Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:35:00Z",
+        "ArrivalTime": "2026-07-12T07:55:00Z",
+        "Duration": 33600000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 6090192,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 49500000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IAH",
+          "Name": "George Bush Intercontinental Airport",
+          "City": "Houston"
+        },
+        "Duration": 3300000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLTAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTA6MTA6MDAtMDc6MDAaA0lBSCIZMjAyNi0wNy0xMVQxNTo0MDowMC0wNTowMCoCVUEyAzI3NzoCVUFCAzI3N0gEUgM3TTkKWQoDSUFIEhkyMDI2LTA3LTExVDE2OjM1OjAwLTA1OjAwGgNMSFIiGTIwMjYtMDctMTJUMDc6NTU6MDArMDE6MDAqAlVBMgM4ODA6AlVBQgM4ODBIA1IDNzc3EgQIAxACEgQIAhABGAEoADIICgZVbml0ZWQ\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLTAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTA6MTA6MDAtMDc6MDAaA0lBSCIZMjAyNi0wNy0xMVQxNTo0MDowMC0wNTowMCoCVUEyAzI3NzoCVUFCAzI3N0gEUgM3TTkKWQoDSUFIEhkyMDI2LTA3LTExVDE2OjM1OjAwLTA1OjAwGgNMSFIiGTIwMjYtMDctMTJUMDc6NTU6MDArMDE6MDAqAlVBMgM4ODA6AlVBQgM4ODBIA1IDNzc3EgQIAxACEgQIAhABGAEoADIICgZVbml0ZWQ\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6756000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 9,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2113",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T10:45:00Z",
+        "ArrivalTime": "2026-07-11T17:04:00Z",
+        "Duration": 15540000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 812670,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "920",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:15:00Z",
+        "ArrivalTime": "2026-07-12T08:30:00Z",
+        "Duration": 29700000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4551864,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 49500000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 4260000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6NDU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNzowNDowMC0wNTowMCoCVUEyBDIxMTM6AlVBQgQyMTEzSARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTg6MTU6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwODozMDowMCswMTowMCoCVUEyAzkyMDoCVUFCAzkyMEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTA6NDU6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQxNzowNDowMC0wNTowMCoCVUEyBDIxMTM6AlVBQgQyMTEzSARSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMTg6MTU6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQwODozMDowMCswMTowMCoCVUEyAzkyMDoCVUFCAzkyMEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5365000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1981",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T11:15:00Z",
+        "ArrivalTime": "2026-07-11T19:30:00Z",
+        "Duration": 18900000000000,
+        "Aircraft": "Boeing 787-10",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2207040,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "940",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:50:00Z",
+        "ArrivalTime": "2026-07-12T09:20:00Z",
+        "Duration": 27000000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4421028,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 4800000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTE6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxOTozMDowMC0wNDowMCoCVUEyBDE5ODE6AlVBQgQxOTgxSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTFUMjA6NTA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwOToyMDowMCswMTowMCoCVUEyAzk0MDoCVUFCAzk0MEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTE6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMVQxOTozMDowMC0wNDowMCoCVUEyBDE5ODE6AlVBQgQxOTgxSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTFUMjA6NTA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQwOToyMDowMCswMTowMCoCVUEyAzk0MDoCVUFCAzk0MEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6628000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 7,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1635",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T12:43:00Z",
+        "ArrivalTime": "2026-07-11T20:48:00Z",
+        "Duration": 18300000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 1230378,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "924",
+        "Origin": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T22:15:00Z",
+        "ArrivalTime": "2026-07-12T10:40:00Z",
+        "Duration": 26700000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4964436,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50220000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": "Washington"
+        },
+        "Duration": 5220000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTI6NDM6MDAtMDc6MDAaA0lBRCIZMjAyNi0wNy0xMVQyMDo0ODowMC0wNDowMCoCVUEyBDE2MzU6AlVBQgQxNjM1SANSAzczOQpZCgNJQUQSGTIwMjYtMDctMTFUMjI6MTU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMDo0MDowMCswMTowMCoCVUEyAzkyNDoCVUFCAzkyNEgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTI6NDM6MDAtMDc6MDAaA0lBRCIZMjAyNi0wNy0xMVQyMDo0ODowMC0wNDowMCoCVUEyBDE2MzU6AlVBQgQxNjM1SANSAzczOQpZCgNJQUQSGTIwMjYtMDctMTFUMjI6MTU6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMDo0MDowMCswMTowMCoCVUEyAzkyNDoCVUFCAzkyNEgDUgM3NzcSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6195000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 0,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "360",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T12:46:00Z",
+        "ArrivalTime": "2026-07-11T16:16:00Z",
+        "Duration": 9000000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 463359,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "27",
+        "Origin": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T17:35:00Z",
+        "ArrivalTime": "2026-07-12T09:40:00Z",
+        "Duration": 32700000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5347860,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 46440000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": "Denver"
+        },
+        "Duration": 4740000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLRAQq0AQpZCgNMQVgSGTIwMjYtMDctMTFUMTI6NDY6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxNjoxNjowMC0wNjowMCoCVUEyAzM2MDoCVUFCAzM2MEgEUgMzMlEKVwoDREVOEhkyMDI2LTA3LTExVDE3OjM1OjAwLTA2OjAwGgNMSFIiGTIwMjYtMDctMTJUMDk6NDA6MDArMDE6MDAqAlVBMgIyNzoCVUFCAjI3SANSAzc4ORIECAMQAhIECAIQARgBKAAyCAoGVW5pdGVk\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLRAQq0AQpZCgNMQVgSGTIwMjYtMDctMTFUMTI6NDY6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxNjoxNjowMC0wNjowMCoCVUEyAzM2MDoCVUFCAzM2MEgEUgMzMlEKVwoDREVOEhkyMDI2LTA3LTExVDE3OjM1OjAwLTA2OjAwGgNMSFIiGTIwMjYtMDctMTJUMDk6NDA6MDArMDE6MDAqAlVBMgIyNzoCVUFCAjI3SANSAzc4ORIECAMQAhIECAIQARgBKAAyCAoGVW5pdGVk\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5811000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -6,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2487",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T14:26:00Z",
+        "ArrivalTime": "2026-07-11T20:40:00Z",
+        "Duration": 15240000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 812670,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "938",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T21:40:00Z",
+        "ArrivalTime": "2026-07-12T11:55:00Z",
+        "Duration": 29700000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4551864,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48540000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 3600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTQ6MjY6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQyMDo0MDowMC0wNTowMCoCVUEyBDI0ODc6AlVBQgQyNDg3SANSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMjE6NDA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMTo1NTowMCswMTowMCoCVUEyAzkzODoCVUFCAzkzOEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLgAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTQ6MjY6MDAtMDc6MDAaA09SRCIZMjAyNi0wNy0xMVQyMDo0MDowMC0wNTowMCoCVUEyBDI0ODc6AlVBQgQyNDg3SANSAzMyUQpZCgNPUkQSGTIwMjYtMDctMTFUMjE6NDA6MDAtMDU6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMTo1NTowMCswMTowMCoCVUEyAzkzODoCVUFCAzkzOEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5365000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2146",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:10:00Z",
+        "ArrivalTime": "2026-07-11T19:41:00Z",
+        "Duration": 9060000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 463359,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "262",
+        "Origin": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:25:00Z",
+        "ArrivalTime": "2026-07-12T12:25:00Z",
+        "Duration": 32400000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5347860,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 44100000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DEN",
+          "Name": "Denver International Airport",
+          "City": "Denver"
+        },
+        "Duration": 2640000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTA6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxOTo0MTowMC0wNjowMCoCVUEyBDIxNDY6AlVBQgQyMTQ2SARSAzMyUQpZCgNERU4SGTIwMjYtMDctMTFUMjA6MjU6MDAtMDY6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMjoyNTowMCswMTowMCoCVUEyAzI2MjoCVUFCAzI2MkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTA6MDAtMDc6MDAaA0RFTiIZMjAyNi0wNy0xMVQxOTo0MTowMC0wNjowMCoCVUEyBDIxNDY6AlVBQgQyMTQ2SARSAzMyUQpZCgNERU4SGTIwMjYtMDctMTFUMjA6MjU6MDAtMDY6MDAaA0xIUiIZMjAyNi0wNy0xMlQxMjoyNTowMCswMTowMCoCVUEyAzI2MjoCVUFCAzI2MkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5811000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -6,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2019",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T16:14:00Z",
+        "ArrivalTime": "2026-07-11T17:42:00Z",
+        "Duration": 5280000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 302034,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "930",
+        "Origin": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T19:50:00Z",
+        "ArrivalTime": "2026-07-12T14:10:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5237016,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50160000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "SFO",
+          "Name": "San Francisco International Airport",
+          "City": "San Francisco"
+        },
+        "Duration": 7680000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTQ6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNzo0MjowMC0wNzowMCoCVUEyBDIwMTk6AlVBQgQyMDE5SARSAzczOApZCgNTRk8SGTIwMjYtMDctMTFUMTk6NTA6MDAtMDc6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNDoxMDowMCswMTowMCoCVUEyAzkzMDoCVUFCAzkzMEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMTY6MTQ6MDAtMDc6MDAaA1NGTyIZMjAyNi0wNy0xMVQxNzo0MjowMC0wNzowMCoCVUEyBDIwMTk6AlVBQgQyMDE5SARSAzczOApZCgNTRk8SGTIwMjYtMDctMTFUMTk6NTA6MDAtMDc6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNDoxMDowMCswMTowMCoCVUEyAzkzMDoCVUFCAzkzMEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5539000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -10,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2303",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T23:15:00Z",
+        "ArrivalTime": "2026-07-12T07:30:00Z",
+        "Duration": 18900000000000,
+        "Aircraft": "Boeing 787-10",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2207040,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "934",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T08:30:00Z",
+        "ArrivalTime": "2026-07-12T20:40:00Z",
+        "Duration": 25800000000000,
+        "Aircraft": "Boeing 767",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4421028,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 48300000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 3600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDg6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo0MDowMCswMTowMCoCVUEyAzkzNDoCVUFCAzkzNEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDg6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo0MDowMCswMTowMCoCVUEyAzkzNDoCVUFCAzkzNEgDUgM3NjMSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6628000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 7,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "2303",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T23:15:00Z",
+        "ArrivalTime": "2026-07-12T07:30:00Z",
+        "Duration": 18900000000000,
+        "Aircraft": "Boeing 787-10",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 2207040,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "122",
+        "Origin": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T09:30:00Z",
+        "ArrivalTime": "2026-07-12T21:20:00Z",
+        "Duration": 24600000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 3460896,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18337,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50700000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "EWR",
+          "Name": "Newark Liberty International Airport",
+          "City": "Newark"
+        },
+        "Duration": 7200000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDk6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMToyMDowMCswMTowMCoCVUEyAzEyMjoCVUFCAzEyMkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECIn1byLVAQq4AQpbCgNMQVgSGTIwMjYtMDctMTFUMjM6MTU6MDAtMDc6MDAaA0VXUiIZMjAyNi0wNy0xMlQwNzozMDowMC0wNDowMCoCVUEyBDIzMDM6AlVBQgQyMzAzSANSAzc4MQpZCgNFV1ISGTIwMjYtMDctMTJUMDk6MzA6MDAtMDQ6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMToyMDowMCswMTowMCoCVUEyAzEyMjoCVUFCAzEyMkgDUgM3ODkSBAgDEAISBAgCEAEYASgAMggKBlVuaXRlZA\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5668000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -8,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "VS",
+        "OperatingCarrier": "",
+        "FlightNumber": "142",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:35:00Z",
+        "ArrivalTime": "2026-07-12T15:00:00Z",
+        "Duration": 37500000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4871256,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18353,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37500000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJmCcCJ8ClwKWgoDTEFYEhkyMDI2LTA3LTExVDIwOjM1OjAwLTA3OjAwGgNMSFIiGTIwMjYtMDctMTJUMTU6MDA6MDArMDE6MDAqAlZTMgMxNDI6AkRMQgQ1OTI1SANSAzc4ORIECAMQAhIECAIQARgBKAAyDAoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJmCcCJ8ClwKWgoDTEFYEhkyMDI2LTA3LTExVDIwOjM1OjAwLTA3OjAwGgNMSFIiGTIwMjYtMDctMTJUMTU6MDA6MDArMDE6MDAqAlZTMgMxNDI6AkRMQgQ1OTI1SANSAzc4ORIECAMQAhIECAIQARgBKAAyDAoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4871000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -21,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "VS"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "VS",
+        "OperatingCarrier": "",
+        "FlightNumber": "24",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T23:15:00Z",
+        "ArrivalTime": "2026-07-12T17:35:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4871256,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18353,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37200000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECJmCcCKKAQpZClcKA0xBWBIZMjAyNi0wNy0xMVQyMzoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE3OjM1OjAwKzAxOjAwKgJWUzICMjQ6AlZTQgIyNEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMh0KD1ZpcmdpbiBBdGxhbnRpYwoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECJmCcCKKAQpZClcKA0xBWBIZMjAyNi0wNy0xMVQyMzoxNTowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDE3OjM1OjAwKzAxOjAwKgJWUzICMjQ6AlZTQgIyNEgDUgM3ODkSBAgDEAISBAgCEAEYASgAMh0KD1ZpcmdpbiBBdGxhbnRpYwoFRGVsdGEKA0tMTQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4871000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -21,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "VS"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "LH",
+        "OperatingCarrier": "",
+        "FlightNumber": "451",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "FRA",
+          "Name": "Frankfurt Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T18:40:00Z",
+        "ArrivalTime": "2026-07-12T14:35:00Z",
+        "Duration": 39300000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5910852,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "LH",
+        "OperatingCarrier": "",
+        "FlightNumber": "914",
+        "Origin": {
+          "Code": "FRA",
+          "Name": "Frankfurt Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T16:00:00Z",
+        "ArrivalTime": "2026-07-12T16:40:00Z",
+        "Duration": 6000000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "32 inches",
+        "Overnight": false,
+        "CO2Grams": 295185,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 18460,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 50400000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "FRA",
+          "Name": "Frankfurt Airport",
+          "City": "Frankfurt am Main"
+        },
+        "Duration": 5100000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECO/VcCLWAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTg6NDA6MDAtMDc6MDAaA0ZSQSIZMjAyNi0wNy0xMlQxNDozNTowMCswMjowMCoCTEgyAzQ1MToCTEhCAzQ1MUgDUgM3ODkKWQoDRlJBEhkyMDI2LTA3LTEyVDE2OjAwOjAwKzAyOjAwGgNMSFIiGTIwMjYtMDctMTJUMTY6NDA6MDArMDE6MDAqAkxIMgM5MTQ6AkxIQgM5MTRIA1IDMzJOEgQIAxACEgQIAhABGAEoADILCglMdWZ0aGFuc2E\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECO/VcCLWAQq2AQpZCgNMQVgSGTIwMjYtMDctMTFUMTg6NDA6MDAtMDc6MDAaA0ZSQSIZMjAyNi0wNy0xMlQxNDozNTowMCswMjowMCoCTEgyAzQ1MToCTEhCAzQ1MUgDUgM3ODkKWQoDRlJBEhkyMDI2LTA3LTEyVDE2OjAwOjAwKzAyOjAwGgNMSFIiGTIwMjYtMDctMTJUMTY6NDA6MDArMDE6MDAqAkxIMgM5MTQ6AkxIQgM5MTRIA1IDMzJOEgQIAxACEgQIAhABGAEoADILCglMdWZ0aGFuc2E\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 6206000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": 0,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "LH"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "VS",
+        "OperatingCarrier": "",
+        "FlightNumber": "8",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T15:50:00Z",
+        "ArrivalTime": "2026-07-12T10:15:00Z",
+        "Duration": 37500000000000,
+        "Aircraft": "Airbus A350",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 4754904,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 22253,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 37500000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoFCInphwEidQpaClgKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJWUzIBODoCRExCBDU5NzhIA1IDMzUxEgQIAxACEgQIAhABGAEoADIHCgVEZWx0YQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoFCInphwEidQpaClgKA0xBWBIZMjAyNi0wNy0xMVQxNTo1MDowMC0wNzowMBoDTEhSIhkyMDI2LTA3LTEyVDEwOjE1OjAwKzAxOjAwKgJWUzIBODoCRExCBDU5NzhIA1IDMzUxEgQIAxACEgQIAhABGAEoADIHCgVEZWx0YQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 4755000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -23,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "VS"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "172",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T15:55:00Z",
+        "ArrivalTime": "2026-07-12T17:20:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 47400000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 5100000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "833",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T17:10:00Z",
+        "ArrivalTime": "2026-07-12T18:35:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A319",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 155892,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 51900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 9600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "BookingToken": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5652000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "178",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T18:00:00Z",
+        "ArrivalTime": "2026-07-12T19:25:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 54900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 12600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTg6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxOToyNTowMCswMTowMCoCRUkyAzE3ODoCRUlCAzE3OEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTg6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxOToyNTowMCswMTowMCoCRUkyAzE3ODoCRUlCAzE3OEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "182",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T19:00:00Z",
+        "ArrivalTime": "2026-07-12T20:20:00Z",
+        "Duration": 4800000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 58200000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 16200000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDoyMDowMCswMTowMCoCRUkyAzE4MjoCRUlCAzE4MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDoyMDowMCswMTowMCoCRUkyAzE4MjoCRUlCAzE4MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "180",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T19:35:00Z",
+        "ArrivalTime": "2026-07-12T20:55:00Z",
+        "Duration": 4800000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 60300000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 18300000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MzU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo1NTowMCswMTowMCoCRUkyAzE4MDoCRUlCAzE4MEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTk6MzU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQyMDo1NTowMCswMTowMCoCRUkyAzE4MDoCRUlCAzE4MEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  }
+]

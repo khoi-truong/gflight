@@ -19,7 +19,7 @@ type SearchRequest struct {
 	Origin      string     // IATA code, e.g. "SGN".
 	Destination string     // IATA code, e.g. "HAN".
 	DepartDate  time.Time  // Local departure date; only the date part is used.
-	ReturnDate  time.Time  // Zero for one-way.
+	ReturnDate  time.Time  // Zero for one-way; round-trip is best-effort, see [Client.Search].
 	Adults      int        // Defaults to 1 when zero.
 	Children    int        //
 	Cabin       CabinClass // Defaults to [CabinEconomy] when empty.

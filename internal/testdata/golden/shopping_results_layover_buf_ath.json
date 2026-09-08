@@ -1,0 +1,662 @@
+[
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "3430",
+        "Origin": {
+          "Code": "BUF",
+          "Name": "Buffalo Niagara International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T10:34:00Z",
+        "ArrivalTime": "2026-06-28T11:50:00Z",
+        "Duration": 4560000000000,
+        "Aircraft": "Embraer 175",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 78418,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "982",
+        "Origin": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATH",
+          "Name": "Athens International Airport \"Eleftherios Venizelos\"",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T17:20:00Z",
+        "ArrivalTime": "2026-06-29T10:00:00Z",
+        "Duration": 34800000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 422021,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 841,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 59160000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "IAD",
+          "Name": "Dulles International Airport",
+          "City": "Washington"
+        },
+        "Duration": 19800000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECISRBSLaAQq4AQpbCgNCVUYSGTIwMjYtMDYtMjhUMTA6MzQ6MDAtMDQ6MDAaA0lBRCIZMjAyNi0wNi0yOFQxMTo1MDowMC0wNDowMCoCVUEyBDM0MzA6AlVBQgQzNDMwSAFSA0U3VwpZCgNJQUQSGTIwMjYtMDYtMjhUMTc6MjA6MDAtMDQ6MDAaA0FUSCIZMjAyNi0wNi0yOVQxMDowMDowMCswMzowMCoCVUEyAzk4MjoCVUFCAzk4MkgBUgM3ODgSBAgDEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "BookingToken": "[\"CAISA1VTRBoECISRBSLaAQq4AQpbCgNCVUYSGTIwMjYtMDYtMjhUMTA6MzQ6MDAtMDQ6MDAaA0lBRCIZMjAyNi0wNi0yOFQxMTo1MDowMC0wNDowMCoCVUEyBDM0MzA6AlVBQgQzNDMwSAFSA0U3VwpZCgNJQUQSGTIwMjYtMDYtMjhUMTc6MjA6MDAtMDQ6MDAaA0FUSCIZMjAyNi0wNi0yOVQxMDowMDowMCswMzowMCoCVUEyAzk4MjoCVUFCAzk4MkgBUgM3ODgSBAgDEAEYASgAMhMKBlVuaXRlZAoJTHVmdGhhbnNh\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 500000,
+      "TypicalGrams": 533000,
+      "DeltaPercent": -6,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "UA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "DL",
+        "OperatingCarrier": "",
+        "FlightNumber": "1384",
+        "Origin": {
+          "Code": "BUF",
+          "Name": "Buffalo Niagara International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATL",
+          "Name": "Hartsfield-Jackson Atlanta International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T12:14:00Z",
+        "ArrivalTime": "2026-06-28T14:23:00Z",
+        "Duration": 7740000000000,
+        "Aircraft": "Airbus A321",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 115564,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "DL",
+        "OperatingCarrier": "",
+        "FlightNumber": "222",
+        "Origin": {
+          "Code": "ATL",
+          "Name": "Hartsfield-Jackson Atlanta International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATH",
+          "Name": "Athens International Airport \"Eleftherios Venizelos\"",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T17:10:00Z",
+        "ArrivalTime": "2026-06-29T11:00:00Z",
+        "Duration": 39000000000000,
+        "Aircraft": "Airbus A330-900neo",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 486994,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 874,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 56760000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ATL",
+          "Name": "Hartsfield-Jackson Atlanta International Airport",
+          "City": "Atlanta"
+        },
+        "Duration": 10020000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOiqBSLkAQq4AQpbCgNCVUYSGTIwMjYtMDYtMjhUMTI6MTQ6MDAtMDQ6MDAaA0FUTCIZMjAyNi0wNi0yOFQxNDoyMzowMC0wNDowMCoCREwyBDEzODQ6AkRMQgQxMzg0SAFSAzMyMQpZCgNBVEwSGTIwMjYtMDYtMjhUMTc6MTA6MDAtMDQ6MDAaA0FUSCIZMjAyNi0wNi0yOVQxMTowMDowMCswMzowMCoCREwyAzIyMjoCRExCAzIyMkgBUgMzMzkSBAgDEAEYASgAMh0KBURlbHRhCgNLTE0KD1ZpcmdpbiBBdGxhbnRpYw\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOiqBSLkAQq4AQpbCgNCVUYSGTIwMjYtMDYtMjhUMTI6MTQ6MDAtMDQ6MDAaA0FUTCIZMjAyNi0wNi0yOFQxNDoyMzowMC0wNDowMCoCREwyBDEzODQ6AkRMQgQxMzg0SAFSAzMyMQpZCgNBVEwSGTIwMjYtMDYtMjhUMTc6MTA6MDAtMDQ6MDAaA0FUSCIZMjAyNi0wNi0yOVQxMTowMDowMCswMzowMCoCREwyAzIyMjoCRExCAzIyMkgBUgMzMzkSBAgDEAEYASgAMh0KBURlbHRhCgNLTE0KD1ZpcmdpbiBBdGxhbnRpYw\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 603000,
+      "TypicalGrams": 533000,
+      "DeltaPercent": 13,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "DL"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1616",
+        "Origin": {
+          "Code": "BUF",
+          "Name": "Buffalo Niagara International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "CLT",
+          "Name": "Charlotte Douglas International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T13:46:00Z",
+        "ArrivalTime": "2026-06-28T15:45:00Z",
+        "Duration": 7140000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "30 inches",
+        "Overnight": false,
+        "CO2Grams": 94567,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "326",
+        "Origin": {
+          "Code": "CLT",
+          "Name": "Charlotte Douglas International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATH",
+          "Name": "Athens International Airport \"Eleftherios Venizelos\"",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T18:45:00Z",
+        "ArrivalTime": "2026-06-29T12:15:00Z",
+        "Duration": 37800000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 554958,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 874,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 55740000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "CLT",
+          "Name": "Charlotte Douglas International Airport",
+          "City": "Charlotte"
+        },
+        "Duration": 10800000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECOiqBSLRAQq4AQpbCgNCVUYSGTIwMjYtMDYtMjhUMTM6NDY6MDAtMDQ6MDAaA0NMVCIZMjAyNi0wNi0yOFQxNTo0NTowMC0wNDowMCoCQUEyBDE2MTY6AkFBQgQxNjE2SAFSAzczOApZCgNDTFQSGTIwMjYtMDYtMjhUMTg6NDU6MDAtMDQ6MDAaA0FUSCIZMjAyNi0wNi0yOVQxMjoxNTowMCswMzowMCoCQUEyAzMyNjoCQUFCAzMyNkgBUgM3NzISBAgDEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "BookingToken": "[\"CAISA1VTRBoECOiqBSLRAQq4AQpbCgNCVUYSGTIwMjYtMDYtMjhUMTM6NDY6MDAtMDQ6MDAaA0NMVCIZMjAyNi0wNi0yOFQxNTo0NTowMC0wNDowMCoCQUEyBDE2MTY6AkFBQgQxNjE2SAFSAzczOApZCgNDTFQSGTIwMjYtMDYtMjhUMTg6NDU6MDAtMDQ6MDAaA0FUSCIZMjAyNi0wNi0yOVQxMjoxNTowMCswMzowMCoCQUEyAzMyNjoCQUFCAzMyNkgBUgM3NzISBAgDEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 650000,
+      "TypicalGrams": 533000,
+      "DeltaPercent": 22,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "543",
+        "Origin": {
+          "Code": "BUF",
+          "Name": "Buffalo Niagara International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T07:00:00Z",
+        "ArrivalTime": "2026-06-28T07:59:00Z",
+        "Duration": 7140000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "30 inches",
+        "Overnight": false,
+        "CO2Grams": 84711,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "AC",
+        "OperatingCarrier": "",
+        "FlightNumber": "8480",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T11:05:00Z",
+        "ArrivalTime": "2026-06-28T14:28:00Z",
+        "Duration": 8580000000000,
+        "Aircraft": "Canadair RJ 900",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 168959,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      },
+      {
+        "Carrier": "AC",
+        "OperatingCarrier": "",
+        "FlightNumber": "898",
+        "Origin": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATH",
+          "Name": "Athens International Airport \"Eleftherios Venizelos\"",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T18:10:00Z",
+        "ArrivalTime": "2026-06-29T10:10:00Z",
+        "Duration": 32400000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 496678,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 845,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 72600000000000,
+    "Stops": 2,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 11160000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      },
+      {
+        "Airport": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": "Montreal"
+        },
+        "Duration": 13320000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECNiTBSKvAgqUAgpaCgNCVUYSGTIwMjYtMDYtMjhUMDc6MDA6MDAtMDQ6MDAaA09SRCIZMjAyNi0wNi0yOFQwNzo1OTowMC0wNTowMCoCVUEyAzU0MzoCQUNCBDUyOTVIAVIDNzM5ClsKA09SRBIZMjAyNi0wNi0yOFQxMTowNTowMC0wNTowMBoDWVVMIhkyMDI2LTA2LTI4VDE0OjI4OjAwLTA0OjAwKgJBQzIEODQ4MDoCQUNCBDg0ODBIAVIDQ1I5ClkKA1lVTBIZMjAyNi0wNi0yOFQxODoxMDowMC0wNDowMBoDQVRIIhkyMDI2LTA2LTI5VDEwOjEwOjAwKzAzOjAwKgJBQzIDODk4OgJBQ0IDODk4SAFSAzc3VxIECAMQARgBKAAyDAoKQWlyIENhbmFkYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECNiTBSKvAgqUAgpaCgNCVUYSGTIwMjYtMDYtMjhUMDc6MDA6MDAtMDQ6MDAaA09SRCIZMjAyNi0wNi0yOFQwNzo1OTowMC0wNTowMCoCVUEyAzU0MzoCQUNCBDUyOTVIAVIDNzM5ClsKA09SRBIZMjAyNi0wNi0yOFQxMTowNTowMC0wNTowMBoDWVVMIhkyMDI2LTA2LTI4VDE0OjI4OjAwLTA0OjAwKgJBQzIEODQ4MDoCQUNCBDg0ODBIAVIDQ1I5ClkKA1lVTBIZMjAyNi0wNi0yOFQxODoxMDowMC0wNDowMBoDQVRIIhkyMDI2LTA2LTI5VDEwOjEwOjAwKzAzOjAwKgJBQzIDODk4OgJBQ0IDODk4SAFSAzc3VxIECAMQARgBKAAyDAoKQWlyIENhbmFkYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 750000,
+      "TypicalGrams": 533000,
+      "DeltaPercent": 41,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "543",
+        "Origin": {
+          "Code": "BUF",
+          "Name": "Buffalo Niagara International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T07:00:00Z",
+        "ArrivalTime": "2026-06-28T07:59:00Z",
+        "Duration": 7140000000000,
+        "Aircraft": "Boeing 737",
+        "Legroom": "30 inches",
+        "Overnight": false,
+        "CO2Grams": 84711,
+        "Amenities": {
+          "WiFi": null,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "AC",
+        "OperatingCarrier": "",
+        "FlightNumber": "8480",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T11:05:00Z",
+        "ArrivalTime": "2026-06-28T14:28:00Z",
+        "Duration": 8580000000000,
+        "Aircraft": "Canadair RJ 900",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 168959,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      },
+      {
+        "Carrier": "AC",
+        "OperatingCarrier": "",
+        "FlightNumber": "922",
+        "Origin": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATH",
+          "Name": "Athens International Airport \"Eleftherios Venizelos\"",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T21:25:00Z",
+        "ArrivalTime": "2026-06-29T13:25:00Z",
+        "Duration": 32400000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 412168,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 845,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 84300000000000,
+    "Stops": 2,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 11160000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      },
+      {
+        "Airport": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": "Montreal"
+        },
+        "Duration": 25020000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECNiTBSKvAgqUAgpaCgNCVUYSGTIwMjYtMDYtMjhUMDc6MDA6MDAtMDQ6MDAaA09SRCIZMjAyNi0wNi0yOFQwNzo1OTowMC0wNTowMCoCVUEyAzU0MzoCQUNCBDUyOTVIAVIDNzM5ClsKA09SRBIZMjAyNi0wNi0yOFQxMTowNTowMC0wNTowMBoDWVVMIhkyMDI2LTA2LTI4VDE0OjI4OjAwLTA0OjAwKgJBQzIEODQ4MDoCQUNCBDg0ODBIAVIDQ1I5ClkKA1lVTBIZMjAyNi0wNi0yOFQyMToyNTowMC0wNDowMBoDQVRIIhkyMDI2LTA2LTI5VDEzOjI1OjAwKzAzOjAwKgJBQzIDOTIyOgJBQ0IDOTIySAFSAzc4ORIECAMQARgBKAAyDAoKQWlyIENhbmFkYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECNiTBSKvAgqUAgpaCgNCVUYSGTIwMjYtMDYtMjhUMDc6MDA6MDAtMDQ6MDAaA09SRCIZMjAyNi0wNi0yOFQwNzo1OTowMC0wNTowMCoCVUEyAzU0MzoCQUNCBDUyOTVIAVIDNzM5ClsKA09SRBIZMjAyNi0wNi0yOFQxMTowNTowMC0wNTowMBoDWVVMIhkyMDI2LTA2LTI4VDE0OjI4OjAwLTA0OjAwKgJBQzIEODQ4MDoCQUNCBDg0ODBIAVIDQ1I5ClkKA1lVTBIZMjAyNi0wNi0yOFQyMToyNTowMC0wNDowMBoDQVRIIhkyMDI2LTA2LTI5VDEzOjI1OjAwKzAzOjAwKgJBQzIDOTIyOgJBQ0IDOTIySAFSAzc4ORIECAMQARgBKAAyDAoKQWlyIENhbmFkYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 666000,
+      "TypicalGrams": 533000,
+      "DeltaPercent": 25,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "UA",
+        "OperatingCarrier": "",
+        "FlightNumber": "705",
+        "Origin": {
+          "Code": "BUF",
+          "Name": "Buffalo Niagara International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T10:57:00Z",
+        "ArrivalTime": "2026-06-28T11:57:00Z",
+        "Duration": 7200000000000,
+        "Aircraft": "Airbus A319",
+        "Legroom": "30 inches",
+        "Overnight": false,
+        "CO2Grams": 101385,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      },
+      {
+        "Carrier": "AC",
+        "OperatingCarrier": "",
+        "FlightNumber": "8484",
+        "Origin": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T15:40:00Z",
+        "ArrivalTime": "2026-06-28T19:03:00Z",
+        "Duration": 8580000000000,
+        "Aircraft": "Canadair RJ 900",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 168959,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      },
+      {
+        "Carrier": "AC",
+        "OperatingCarrier": "",
+        "FlightNumber": "922",
+        "Origin": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "ATH",
+          "Name": "Athens International Airport \"Eleftherios Venizelos\"",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T21:25:00Z",
+        "ArrivalTime": "2026-06-29T13:25:00Z",
+        "Duration": 32400000000000,
+        "Aircraft": "Boeing 787",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 412168,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 845,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 70080000000000,
+    "Stops": 2,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "ORD",
+          "Name": "Chicago O'Hare International Airport",
+          "City": "Chicago"
+        },
+        "Duration": 13380000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      },
+      {
+        "Airport": {
+          "Code": "YUL",
+          "Name": "Montréal-Pierre Elliott Trudeau International Airport",
+          "City": "Montreal"
+        },
+        "Duration": 8520000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAISA1VTRBoECNiTBSKvAgqUAgpaCgNCVUYSGTIwMjYtMDYtMjhUMTA6NTc6MDAtMDQ6MDAaA09SRCIZMjAyNi0wNi0yOFQxMTo1NzowMC0wNTowMCoCVUEyAzcwNToCQUNCBDUyMTVIAVIDMzE5ClsKA09SRBIZMjAyNi0wNi0yOFQxNTo0MDowMC0wNTowMBoDWVVMIhkyMDI2LTA2LTI4VDE5OjAzOjAwLTA0OjAwKgJBQzIEODQ4NDoCQUNCBDg0ODRIAVIDQ1I5ClkKA1lVTBIZMjAyNi0wNi0yOFQyMToyNTowMC0wNDowMBoDQVRIIhkyMDI2LTA2LTI5VDEzOjI1OjAwKzAzOjAwKgJBQzIDOTIyOgJBQ0IDOTIySAFSAzc4ORIECAMQARgBKAAyDAoKQWlyIENhbmFkYQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECNiTBSKvAgqUAgpaCgNCVUYSGTIwMjYtMDYtMjhUMTA6NTc6MDAtMDQ6MDAaA09SRCIZMjAyNi0wNi0yOFQxMTo1NzowMC0wNTowMCoCVUEyAzcwNToCQUNCBDUyMTVIAVIDMzE5ClsKA09SRBIZMjAyNi0wNi0yOFQxNTo0MDowMC0wNTowMBoDWVVMIhkyMDI2LTA2LTI4VDE5OjAzOjAwLTA0OjAwKgJBQzIEODQ4NDoCQUNCBDg0ODRIAVIDQ1I5ClkKA1lVTBIZMjAyNi0wNi0yOFQyMToyNTowMC0wNDowMBoDQVRIIhkyMDI2LTA2LTI5VDEzOjI1OjAwKzAzOjAwKgJBQzIDOTIyOgJBQ0IDOTIySAFSAzc4ORIECAMQARgBKAAyDAoKQWlyIENhbmFkYQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 683000,
+      "TypicalGrams": 533000,
+      "DeltaPercent": 28,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  }
+]
