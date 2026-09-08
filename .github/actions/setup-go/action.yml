@@ -21,6 +21,10 @@ runs:
     - name: Install tools with mise
       uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
       with:
+        # Pin the bootstrapper: mise-action resolves "latest" from a channel that
+        # can point at a tag whose release assets are not published yet (v2026.9.3
+        # 404'd on linux-x64). Bump deliberately. Tool versions still live in mise.toml.
+        version: 2026.9.2
         experimental: true
         cache: true
         install_args: ${{ inputs.install-args }}
