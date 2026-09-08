@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1 done; M2–M5 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1, M2 done; M3–M5 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -251,17 +251,48 @@ Needs a bounded-concurrency helper (`errgroup`-shaped, hand-rolled — stdlib
 only) and a `WithMaxConcurrency` option (default 2–4). Round-trip prices are
 **totals**, not per-leg — summing double-counts.
 
-Also in M2 (see [Amendments](#amendments-2026-09-08-deep-analysis-review) A1/A2):
+- [x] **`SearchResult` by value** — `SearchResults` returns
+  `SearchResult{Itineraries, SessionID}`; `Client.SessionID()` kept as a
+  `// Deprecated:` shim (landed in `bce7c32`).
+- [x] **`mapConcurrent` + `WithMaxConcurrency`** — hand-rolled bounded fan-out
+  helper (`fanout.go`), default `DefaultMaxConcurrency = 3` (landed in
+  `a4e2ad9`/`bce7c32`).
+- [x] **`internal/encoding` segment[8]** — `FreqSelectedLeg` +
+  `FreqSegment.Selected`; `buildSelectedFlight` fills `segment[8]` on the
+  outbound. Structural test + encoder golden (`goldenSelectedFlightRT`).
+- [x] **Two-phase flow** — `search.go` splits `executeFreq` out of
+  `SearchResults`; `RoundTripTopN(ctx, req, n)` runs phase 1 then fans phase 2
+  out over `mapConcurrent`, propagating the caller's `ctx`. New public
+  `RoundTrip{Outbound, Return}` type; `DefaultRoundTripTopN = 3`.
+- [x] **Round-trip fixture + test** — `roundtrip_test.go`: `RoundTripTopN`
+  behaviour, `n` clamping, request-assertion that phase-2 bodies carry the
+  pinned outbound in `segment[8]` and phase-1 does not. Phase-2 responses reuse
+  the shopping-results fixtures (identical wire shape).
+- [x] **Docs** — `doc.go`, `README.md`, `types.go`, `search.go`,
+  `docs/wire/shopping-results.md`, this plan.
 
-- **Return the session id on a value, not the `Client`.** The
-  `Client.lastSessionID` / `mu` pair is per-search mutable state on a shared
-  object — two concurrent searches race and a booking call can't tell which
-  search it belongs to. Add
-  `SearchResult{Itineraries []Itinerary; SessionID string}` and a method that
-  returns it; keep `Client.SessionID()` as a `// Deprecated:` shim.
-- Round-trip fan-out uses the M2 concurrency helper and propagates the caller's
-  `ctx` (subtract elapsed time — phase 2 does not get a fresh timeout).
-- Round-trip fixture + `Search` test land here (the M1 gap).
+### M2 implementation deviations
+
+- **`segment[8]` shape is structurally derived, not live-captured.** Google's
+  endpoint is unreachable for a browser-grade capture (same constraint as the
+  `tfs` golden). `buildSelectedFlight` encodes each outbound leg as
+  `[origin, "YYYY-MM-DD", dest, null, carrier, flight_number]` wrapped one level
+  deep, matching `fli`'s selected-flight builder. Frozen in
+  `goldenSelectedFlightRT`; revisit against a real capture when a browser
+  transport lands.
+- **No dedicated round-trip response fixture.** Phase-2 replies are
+  GetShoppingResults rows — byte-identical in shape to phase 1 — so
+  `roundtrip_test.go` reuses `shopping_results_oneway_jfk_lax.txt` for both
+  phases rather than adding a near-duplicate fixture. The phase-2 *request* is
+  asserted explicitly with a request capture.
+- **`RoundTripTopN` returns `[]RoundTrip`, not a `RoundTripResult` wrapper.**
+  The session id is still reachable via phase 1's `SearchResults` /
+  `Client.SessionID()`; a value-typed round-trip result can be added additively
+  in M4 if booking options need it.
+- **Partial phase-2 failure is tolerated** — an outbound whose phase-2 call
+  fails is dropped; the error surfaces only when every phase-2 call fails. A
+  genuinely empty return set (`ErrNoResults`) yields a `RoundTrip` with a nil
+  `Return`.
 
 ### M3 — filters · `feat: expose full search filters`
 
