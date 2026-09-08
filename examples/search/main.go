@@ -22,9 +22,15 @@ func run(ctx context.Context) error {
 	ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
 	defer cancel()
 
-	client := gflight.New()
+	var opts []gflight.Option
+	// Google fingerprints TLS clients, so the live endpoint often answers the
+	// stock transport with ErrBlocked. Point GFLIGHT_BASE_URL at a recorded
+	// httptest server (see search_test.go) to run this offline.
+	if base := os.Getenv("GFLIGHT_BASE_URL"); base != "" {
+		opts = append(opts, gflight.WithBaseURL(base))
+	}
+	client := gflight.New(opts...)
 
-	//nolint:staticcheck // SA4023: Search is a stub that always fails today; the check below is real once it is implemented.
 	itineraries, err := client.Search(ctx, gflight.SearchRequest{
 		Origin:      "SGN",
 		Destination: "HAN",
@@ -33,13 +39,16 @@ func run(ctx context.Context) error {
 		Cabin:       gflight.CabinEconomy,
 		Currency:    "VND",
 	})
-	//nolint:staticcheck // SA4023: Search is a stub that always fails today; the check is real once it is implemented.
 	if err != nil {
 		return err
 	}
 
 	for _, it := range itineraries {
-		fmt.Printf("%.0f %s · %d stop(s) · %s\n", it.Price.Amount, it.Price.Currency, it.Stops, it.Duration)
+		price := fmt.Sprintf("%.0f %s", it.Price.Amount, it.Price.Currency)
+		if it.Price.Unknown {
+			price = "price on request"
+		}
+		fmt.Printf("%s · %d stop(s) · %s\n", price, it.Stops, it.Duration)
 	}
 	return nil
 }

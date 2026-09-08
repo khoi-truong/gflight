@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "JFK->LAX one-way, 1 adult, economy, USD, non-stop",
+    "scrubbed": true,
+    "notes": "Derived from a real Google Flights response (punitarani/fli test fixtures, MIT). Trimmed to 4 itineraries; session id scrubbed."
+  }
+}

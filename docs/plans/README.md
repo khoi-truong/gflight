@@ -11,4 +11,4 @@ Reverse-engineering field maps are not plans; they live in `docs/wire/`.
 | Plan | Status | PR | Hook |
 | --- | --- | --- | --- |
 | [scaffold.md](scaffold.md) | implemented (`3e2f6ae`) | — | Dev-infra spine: mise, golangci-lint v2, hardened Actions, `mise run ci` green |
-| [porting.md](porting.md) | in progress | — | Port a real Google Flights client: `FlightsFrontendService` RPC, stdlib-only, fixture-driven |
+| [porting.md](porting.md) | in progress (M1 done) | — | Port a real Google Flights client: `FlightsFrontendService` RPC, stdlib-only, fixture-driven |

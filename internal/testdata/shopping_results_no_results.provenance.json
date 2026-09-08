@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "route with no matching itineraries",
+    "scrubbed": true,
+    "notes": "Real Google envelope (fli fixtures, MIT) with the flight-row arrays emptied. Session id scrubbed."
+  }
+}

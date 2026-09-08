@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "connection dropped mid-stream",
+    "scrubbed": true,
+    "notes": "Real chunk (fli fixtures, MIT) truncated at the byte midpoint: length header promises more bytes than follow. Session id scrubbed."
+  }
+}

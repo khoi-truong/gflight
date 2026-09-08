@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "rate-limited request",
+    "scrubbed": true,
+    "notes": "Synthetic: shape of Google's wrb.fr error envelope. Served by the test with HTTP 429."
+  }
+}

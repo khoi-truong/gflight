@@ -17,6 +17,17 @@ var (
 
 	// ErrNoResults means the search completed but matched no itineraries.
 	ErrNoResults = errors.New("gflight: no results")
+
+	// ErrBlocked means the upstream refused the request for reasons unrelated
+	// to its contents — a 429, a bot-detection interstitial, or a consent
+	// wall. Retrying immediately will not help; a different network path or a
+	// browser-grade TLS client via [WithHTTPClient] usually will.
+	ErrBlocked = errors.New("gflight: request blocked upstream")
+
+	// ErrUpstreamChanged means every row in an otherwise-valid response failed
+	// to decode, which almost always means Google changed the undocumented
+	// wire shape. It wraps [ErrBadResponse].
+	ErrUpstreamChanged = fmt.Errorf("gflight: upstream wire format changed: %w", ErrBadResponse)
 )
 
 // HTTPError reports a non-2xx reply from an upstream endpoint. It unwraps to
