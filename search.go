@@ -21,7 +21,18 @@ import (
 const rpcPath = "/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetShoppingResults"
 
 // Search executes a flight search and returns the itineraries Google offers,
-// cheapest-relevant first (Google's "best" order).
+// cheapest-relevant first (Google's "best" order). It is [Client.SearchResults]
+// without the session id — see there for the round-trip and error semantics.
+func (c *Client) Search(ctx context.Context, req SearchRequest) ([]Itinerary, error) {
+	res, err := c.SearchResults(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	return res.Itineraries, nil
+}
+
+// SearchResults executes a flight search and returns the itineraries alongside
+// the shopping-session id a later booking-results call needs.
 //
 // One-way search is fixture-verified. Setting [SearchRequest.ReturnDate] adds a
 // return segment to a single request, but this round-trip path is best-effort
@@ -32,21 +43,21 @@ const rpcPath = "/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFronte
 // (which unwraps to [ErrBadResponse]); a bot wall or rate limit as [ErrBlocked];
 // a response whose every row failed to decode as [ErrUpstreamChanged]; and a
 // search that genuinely matched nothing as [ErrNoResults].
-func (c *Client) Search(ctx context.Context, req SearchRequest) ([]Itinerary, error) {
+func (c *Client) SearchResults(ctx context.Context, req SearchRequest) (SearchResult, error) {
 	if err := ctx.Err(); err != nil {
-		return nil, err
+		return SearchResult{}, err
 	}
 	if req.Origin == "" || req.Destination == "" {
-		return nil, fmt.Errorf("gflight: search needs origin and destination: %w", ErrBadResponse)
+		return SearchResult{}, fmt.Errorf("gflight: search needs origin and destination: %w", ErrBadResponse)
 	}
 	if req.DepartDate.IsZero() {
-		return nil, fmt.Errorf("gflight: search needs a departure date: %w", ErrBadResponse)
+		return SearchResult{}, fmt.Errorf("gflight: search needs a departure date: %w", ErrBadResponse)
 	}
 
 	freqReq := c.buildFreq(req)
 	body, err := encoding.EncodeFreq(freqReq)
 	if err != nil {
-		return nil, fmt.Errorf("gflight: encode request: %w", err)
+		return SearchResult{}, fmt.Errorf("gflight: encode request: %w", err)
 	}
 
 	currency := c.currency
@@ -56,60 +67,67 @@ func (c *Client) Search(ctx context.Context, req SearchRequest) ([]Itinerary, er
 
 	endpoint, err := c.rpcEndpoint(currency)
 	if err != nil {
-		return nil, err
+		return SearchResult{}, err
 	}
 
 	raw, err := c.post(ctx, endpoint, "f.req="+body)
 	if err != nil {
-		return nil, err
+		return SearchResult{}, err
 	}
 
 	payloads, err := wire.Payloads(raw)
 	if err != nil {
 		var se *wire.StatusError
 		if errors.As(err, &se) {
-			return nil, fmt.Errorf("gflight: upstream status %d: %w", se.Code, ErrBlocked)
+			return SearchResult{}, fmt.Errorf("gflight: upstream status %d: %w", se.Code, ErrBlocked)
 		}
 		if errors.Is(err, wire.ErrNoEnvelope) {
-			return nil, fmt.Errorf("gflight: response was not a batchexecute envelope: %w", ErrBlocked)
+			return SearchResult{}, fmt.Errorf("gflight: response was not a batchexecute envelope: %w", ErrBlocked)
 		}
-		return nil, fmt.Errorf("gflight: read response: %w", errors.Join(err, ErrBadResponse))
+		return SearchResult{}, fmt.Errorf("gflight: read response: %w", errors.Join(err, ErrBadResponse))
 	}
 
-	var flights []decode.Flight
+	var (
+		flights   []decode.Flight
+		sessionID string
+	)
 	for _, p := range payloads {
 		var inner any
 		if err := json.Unmarshal(p, &inner); err != nil {
-			return nil, fmt.Errorf("gflight: decode payload: %w", errors.Join(err, ErrBadResponse))
+			return SearchResult{}, fmt.Errorf("gflight: decode payload: %w", errors.Join(err, ErrBadResponse))
 		}
 		if sid := decode.SessionID(inner); sid != "" {
-			c.mu.Lock()
-			c.lastSessionID = sid
-			c.mu.Unlock()
+			sessionID = sid
 		}
 		fs, err := decode.Flights(inner)
 		if err != nil {
 			var allFailed *decode.AllRowsFailedError
 			if errors.As(err, &allFailed) {
-				return nil, fmt.Errorf("gflight: %s: %w", allFailed.Error(), ErrUpstreamChanged)
+				return SearchResult{}, fmt.Errorf("gflight: %s: %w", allFailed.Error(), ErrUpstreamChanged)
 			}
 			if errors.Is(err, decode.ErrShapeChanged) {
-				return nil, fmt.Errorf("gflight: %w", ErrUpstreamChanged)
+				return SearchResult{}, fmt.Errorf("gflight: %w", ErrUpstreamChanged)
 			}
-			return nil, fmt.Errorf("gflight: decode flights: %w", errors.Join(err, ErrBadResponse))
+			return SearchResult{}, fmt.Errorf("gflight: decode flights: %w", errors.Join(err, ErrBadResponse))
 		}
 		flights = append(flights, fs...)
 	}
 
+	if sessionID != "" {
+		c.mu.Lock()
+		c.lastSessionID = sessionID
+		c.mu.Unlock()
+	}
+
 	if len(flights) == 0 {
-		return nil, ErrNoResults
+		return SearchResult{}, ErrNoResults
 	}
 
 	out := make([]Itinerary, 0, len(flights))
 	for _, f := range flights {
 		out = append(out, toItinerary(f, currency))
 	}
-	return out, nil
+	return SearchResult{Itineraries: out, SessionID: sessionID}, nil
 }
 
 func (c *Client) buildFreq(req SearchRequest) encoding.FreqRequest {

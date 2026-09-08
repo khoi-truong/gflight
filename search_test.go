@@ -80,6 +80,30 @@ func TestSearchOneWay(t *testing.T) {
 	}
 }
 
+func TestSearchResults(t *testing.T) {
+	t.Parallel()
+	c := serveFixture(t, "shopping_results_oneway_jfk_lax.txt", http.StatusOK)
+
+	res, err := c.SearchResults(t.Context(), sampleRequest())
+	if err != nil {
+		t.Fatalf("SearchResults: %v", err)
+	}
+	if res.SessionID == "" {
+		t.Error("SearchResult carried no session id")
+	}
+	if len(res.Itineraries) == 0 {
+		t.Fatal("no itineraries")
+	}
+
+	its, err := c.Search(t.Context(), sampleRequest())
+	if err != nil {
+		t.Fatalf("Search: %v", err)
+	}
+	if len(its) != len(res.Itineraries) {
+		t.Errorf("Search returned %d itineraries, SearchResults %d", len(its), len(res.Itineraries))
+	}
+}
+
 func TestSearchNoPrice(t *testing.T) {
 	t.Parallel()
 	c := serveFixture(t, "shopping_results_no_price.txt", http.StatusOK)

@@ -17,6 +17,10 @@ const (
 	DefaultCountry  = "US"
 )
 
+// DefaultMaxConcurrency bounds the phase-2 requests a round-trip search fans
+// out when [SearchRequest.ReturnDate] is set. Override with [WithMaxConcurrency].
+const DefaultMaxConcurrency = 3
+
 // Option customises a [Client]. Options are applied in order by [New].
 type Option func(*Client)
 
@@ -78,6 +82,17 @@ func WithCountry(code string) Option {
 	return func(c *Client) {
 		if code != "" {
 			c.country = strings.ToUpper(code)
+		}
+	}
+}
+
+// WithMaxConcurrency caps the number of in-flight phase-2 requests a round-trip
+// search issues (one per selected outbound). Values below 1 are ignored, so the
+// client always makes progress. Defaults to [DefaultMaxConcurrency].
+func WithMaxConcurrency(n int) Option {
+	return func(c *Client) {
+		if n >= 1 {
+			c.maxConcurrency = n
 		}
 	}
 }
