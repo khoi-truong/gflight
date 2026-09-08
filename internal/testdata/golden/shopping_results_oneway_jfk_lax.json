@@ -1,0 +1,418 @@
+[
+  {
+    "Segments": [
+      {
+        "Carrier": "B6",
+        "OperatingCarrier": "",
+        "FlightNumber": "123",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T06:00:00Z",
+        "ArrivalTime": "2026-06-28T08:52:00Z",
+        "Duration": 21120000000000,
+        "Aircraft": "Airbus A320",
+        "Legroom": "33 inches",
+        "Overnight": false,
+        "CO2Grams": 407055,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 289,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 21120000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECKjhASJyClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA2OjAwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMDg6NTI6MDAtMDc6MDAqAkI2MgMxMjM6AkI2QgMxMjNIAVIDMzJTEgQIAxABGAEoADIJCgdKZXRCbHVl\"]",
+    "BookingToken": "[\"CAISA1VTRBoECKjhASJyClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA2OjAwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMDg6NTI6MDAtMDc6MDAqAkI2MgMxMjM6AkI2QgMxMjNIAVIDMzJTEgQIAxABGAEoADIJCgdKZXRCbHVl\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 407000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": 15,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "B6"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "B6",
+        "OperatingCarrier": "",
+        "FlightNumber": "923",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T21:43:00Z",
+        "ArrivalTime": "2026-06-29T00:55:00Z",
+        "Duration": 22320000000000,
+        "Aircraft": "Airbus A320",
+        "Legroom": "33 inches",
+        "Overnight": false,
+        "CO2Grams": 407055,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 289,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 22320000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECKjhASJyClsKWQoDSkZLEhkyMDI2LTA2LTI4VDIxOjQzOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjlUMDA6NTU6MDAtMDc6MDAqAkI2MgM5MjM6AkI2QgM5MjNIAVIDMzJTEgQIAxABGAEoADIJCgdKZXRCbHVl\"]",
+    "BookingToken": "[\"CAISA1VTRBoECKjhASJyClsKWQoDSkZLEhkyMDI2LTA2LTI4VDIxOjQzOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjlUMDA6NTU6MDAtMDc6MDAqAkI2MgM5MjM6AkI2QgM5MjNIAVIDMzJTEgQIAxABGAEoADIJCgdKZXRCbHVl\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 407000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": 15,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "B6"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "300",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T21:30:00Z",
+        "ArrivalTime": "2026-06-29T00:56:00Z",
+        "Duration": 23160000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 316117,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 329,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 23160000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECMiAAiJzClsKWQoDSkZLEhkyMDI2LTA2LTI4VDIxOjMwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjlUMDA6NTY6MDAtMDc6MDAqAkFBMgMzMDA6AkFBQgMzMDBIAVIDMzJREgQIAxABGAEoADIKCghBbWVyaWNhbg\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECMiAAiJzClsKWQoDSkZLEhkyMDI2LTA2LTI4VDIxOjMwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjlUMDA6NTY6MDAtMDc6MDAqAkFBMgMzMDA6AkFBQgMzMDBIAVIDMzJREgQIAxABGAEoADIKCghBbWVyaWNhbg\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 316000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": -11,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "DL",
+        "OperatingCarrier": "",
+        "FlightNumber": "742",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T07:00:00Z",
+        "ArrivalTime": "2026-06-28T10:00:00Z",
+        "Duration": 21600000000000,
+        "Aircraft": "Airbus A330-900neo",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 250526,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 339,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 21600000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECLGIAiJwClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA3OjAwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTA6MDA6MDAtMDc6MDAqAkRMMgM3NDI6AkRMQgM3NDJIAVIDMzM5EgQIAxABGAEoADIHCgVEZWx0YQ\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECLGIAiJwClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA3OjAwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTA6MDA6MDAtMDc6MDAqAkRMMgM3NDI6AkRMQgM3NDJIAVIDMzM5EgQIAxABGAEoADIHCgVEZWx0YQ\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 251000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": -29,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "DL"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "171",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T06:00:00Z",
+        "ArrivalTime": "2026-06-28T09:17:00Z",
+        "Duration": 22620000000000,
+        "Aircraft": "Airbus A321 (Sharklets)",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 543120,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 304,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 22620000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECITtASJzClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA2OjAwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMDk6MTc6MDAtMDc6MDAqAkFBMgMxNzE6AkFBQgMxNzFIAVIDMzJCEgQIAxABGAEoADIKCghBbWVyaWNhbg\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECITtASJzClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA2OjAwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMDk6MTc6MDAtMDc6MDAqAkFBMgMxNzE6AkFBQgMxNzFIAVIDMzJCEgQIAxABGAEoADIKCghBbWVyaWNhbg\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 543000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": 53,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "1",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T07:05:00Z",
+        "ArrivalTime": "2026-06-28T10:22:00Z",
+        "Duration": 22620000000000,
+        "Aircraft": "Airbus A321neo",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 316117,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 304,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 22620000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECITtASJvClcKVQoDSkZLEhkyMDI2LTA2LTI4VDA3OjA1OjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTA6MjI6MDAtMDc6MDAqAkFBMgExOgJBQUIBMUgBUgMzMlESBAgDEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "BookingToken": "[\"CAISA1VTRBoECITtASJvClcKVQoDSkZLEhkyMDI2LTA2LTI4VDA3OjA1OjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTA6MjI6MDAtMDc6MDAqAkFBMgExOgJBQUIBMUgBUgMzMlESBAgDEAEYASgAMgoKCEFtZXJpY2Fu\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 316000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": -11,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "AA",
+        "OperatingCarrier": "",
+        "FlightNumber": "255",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T08:05:00Z",
+        "ArrivalTime": "2026-06-28T11:22:00Z",
+        "Duration": 22620000000000,
+        "Aircraft": "Boeing 777",
+        "Legroom": "31 inches",
+        "Overnight": false,
+        "CO2Grams": 276671,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 359,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 22620000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECICYAiJzClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA4OjA1OjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTE6MjI6MDAtMDc6MDAqAkFBMgMyNTU6AkFBQgMyNTVIAVIDNzcyEgQIAxABGAEoADIKCghBbWVyaWNhbg\\u003d\\u003d\"]",
+    "BookingToken": "[\"CAISA1VTRBoECICYAiJzClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA4OjA1OjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTE6MjI6MDAtMDc6MDAqAkFBMgMyNTU6AkFBQgMyNTVIAVIDNzcyEgQIAxABGAEoADIKCghBbWVyaWNhbg\\u003d\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 277000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": -22,
+      "Tag": "lower"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "AA"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "B6",
+        "OperatingCarrier": "",
+        "FlightNumber": "223",
+        "Origin": {
+          "Code": "JFK",
+          "Name": "John F. Kennedy International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-06-28T07:30:00Z",
+        "ArrivalTime": "2026-06-28T10:21:00Z",
+        "Duration": 21060000000000,
+        "Aircraft": "Airbus A320",
+        "Legroom": "33 inches",
+        "Overnight": false,
+        "CO2Grams": 407055,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": null,
+          "LegroomRating": 2
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 374,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "Duration": 21060000000000,
+    "Stops": 0,
+    "Layovers": null,
+    "BookingID": "[\"CAISA1VTRBoECNyjAiJyClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA3OjMwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTA6MjE6MDAtMDc6MDAqAkI2MgMyMjM6AkI2QgMyMjNIAVIDMzJTEgQIAxABGAEoADIJCgdKZXRCbHVl\"]",
+    "BookingToken": "[\"CAISA1VTRBoECNyjAiJyClsKWQoDSkZLEhkyMDI2LTA2LTI4VDA3OjMwOjAwLTA0OjAwGgNMQVgiGTIwMjYtMDYtMjhUMTA6MjE6MDAtMDc6MDAqAkI2MgMyMjM6AkI2QgMyMjNIAVIDMzJTEgQIAxABGAEoADIJCgdKZXRCbHVl\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 407000,
+      "TypicalGrams": 355000,
+      "DeltaPercent": 15,
+      "Tag": "higher"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "B6"
+  }
+]

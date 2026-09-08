@@ -16,9 +16,10 @@ can change or disappear at any time, which will break this library without
 notice. You are responsible for your own use of it, including compliance with
 Google's Terms of Service and any applicable rate limits. Use at your own risk.
 
-> **Status:** one-way and round-trip `Client.Search` work end to end against
-> Google's undocumented RPC, driven by recorded fixtures in the tests. Price
-> calendars, booking options, and the full filter set are still to come.
+> **Status:** one-way `Client.Search` works end to end against Google's
+> undocumented RPC, driven by recorded fixtures in the tests. Round-trip is
+> best-effort and unverified until the two-phase selected-flight flow lands;
+> price calendars, booking options, and the full filter set are still to come.
 >
 > Google fingerprints TLS clients — the stock `net/http` transport is often met
 > with `ErrBlocked`. Plug a browser-grade transport into `WithHTTPClient` when

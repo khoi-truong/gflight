@@ -1,0 +1,275 @@
+[
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "172",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T15:55:00Z",
+        "ArrivalTime": "2026-07-12T17:20:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 47400000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 5100000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTU6NTU6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxNzoyMDowMCswMTowMCoCRUkyAzE3MjoCRUlCAzE3MkgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "BA",
+        "OperatingCarrier": "",
+        "FlightNumber": "833",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T17:10:00Z",
+        "ArrivalTime": "2026-07-12T18:35:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A319",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 155892,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 3
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 51900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 9600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "BookingToken": "[\"CAASABoCCAAi1gEKtQEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpaCgNEVUISGTIwMjYtMDctMTJUMTc6MTA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxODozNTowMCswMTowMCoCQkEyAzgzMzoCRUlCBDgzMzNIAVIDMzE5EgQIAxACEgQIAhABGAEoADIMCgpBZXIgTGluZ3Vz\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5652000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "multi"
+  },
+  {
+    "Segments": [
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "68",
+        "Origin": {
+          "Code": "LAX",
+          "Name": "Los Angeles International Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-11T20:10:00Z",
+        "ArrivalTime": "2026-07-12T14:30:00Z",
+        "Duration": 37200000000000,
+        "Aircraft": "Airbus A330",
+        "Legroom": "",
+        "Overnight": false,
+        "CO2Grams": 5496588,
+        "Amenities": {
+          "WiFi": true,
+          "Power": null,
+          "OnDemandVideo": true,
+          "LegroomRating": 2
+        }
+      },
+      {
+        "Carrier": "EI",
+        "OperatingCarrier": "",
+        "FlightNumber": "178",
+        "Origin": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": ""
+        },
+        "Destination": {
+          "Code": "LHR",
+          "Name": "Heathrow Airport",
+          "City": ""
+        },
+        "DepartureTime": "2026-07-12T18:00:00Z",
+        "ArrivalTime": "2026-07-12T19:25:00Z",
+        "Duration": 5100000000000,
+        "Aircraft": "Airbus A320neo",
+        "Legroom": "29 inches",
+        "Overnight": false,
+        "CO2Grams": 156201,
+        "Amenities": {
+          "WiFi": null,
+          "Power": true,
+          "OnDemandVideo": null,
+          "LegroomRating": 0
+        }
+      }
+    ],
+    "Price": {
+      "Amount": 0,
+      "Currency": "USD",
+      "Unknown": true
+    },
+    "Duration": 54900000000000,
+    "Stops": 1,
+    "Layovers": [
+      {
+        "Airport": {
+          "Code": "DUB",
+          "Name": "Dublin Airport",
+          "City": "Dublin"
+        },
+        "Duration": 12600000000000,
+        "Overnight": false,
+        "ChangeOfAirport": false
+      }
+    ],
+    "BookingID": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTg6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxOToyNTowMCswMTowMCoCRUkyAzE3ODoCRUlCAzE3OEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "BookingToken": "[\"CAASABoCCAAi1QEKtAEKVwoDTEFYEhkyMDI2LTA3LTExVDIwOjEwOjAwLTA3OjAwGgNEVUIiGTIwMjYtMDctMTJUMTQ6MzA6MDArMDE6MDAqAkVJMgI2ODoCRUlCAjY4SANSAzMzMwpZCgNEVUISGTIwMjYtMDctMTJUMTg6MDA6MDArMDE6MDAaA0xIUiIZMjAyNi0wNy0xMlQxOToyNTowMCswMTowMCoCRUkyAzE3ODoCRUlCAzE3OEgCUgMzMk4SBAgDEAISBAgCEAEYASgAMgwKCkFlciBMaW5ndXM\\u003d\"]",
+    "Emissions": {
+      "Present": true,
+      "Grams": 5653000,
+      "TypicalGrams": 6179000,
+      "DeltaPercent": -9,
+      "Tag": "typical"
+    },
+    "SelfTransfer": false,
+    "MixedCabin": false,
+    "PrimaryCarrier": "EI"
+  }
+]
