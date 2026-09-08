@@ -69,6 +69,17 @@ func (c FreqCabin) wire() int {
 	}
 }
 
+// FreqSelectedLeg pins one leg of an already-chosen outbound itinerary into
+// segment[8] for the round-trip second phase, so Google returns only the return
+// options compatible with that outbound.
+type FreqSelectedLeg struct {
+	Origin       string
+	Dest         string
+	Date         time.Time
+	Carrier      string // IATA airline code, e.g. "B6".
+	FlightNumber string // Digits only, e.g. "123".
+}
+
 // FreqSegment is one leg of the requested journey.
 type FreqSegment struct {
 	Origin   string
@@ -76,6 +87,11 @@ type FreqSegment struct {
 	Date     time.Time
 	MaxStops int  // 0 = no constraint.
 	IsReturn bool // Sets the segment classifier to 1.
+
+	// Selected, when non-empty, fills segment[8] with the legs of an
+	// already-chosen outbound (round-trip phase 2). Set only on the outbound
+	// segment.
+	Selected []FreqSelectedLeg
 }
 
 // FreqRequest is everything needed to build a one-way (or, later, round-trip)
@@ -176,13 +192,37 @@ const (
 
 // segment[] index names.
 const (
-	segDepartureIdx  = 0
-	segArrivalIdx    = 1
-	segTimeWindowIdx = 2
-	segMaxStopsIdx   = 3
-	segDateIdx       = 6
-	segClassifierIdx = 14
+	segDepartureIdx      = 0
+	segArrivalIdx        = 1
+	segTimeWindowIdx     = 2
+	segMaxStopsIdx       = 3
+	segDateIdx           = 6
+	segSelectedFlightIdx = 8
+	segClassifierIdx     = 14
 )
+
+// buildSelectedFlight encodes an already-chosen outbound for segment[8]. Each
+// leg is [origin, "YYYY-MM-DD", dest, null, carrier, flight_number] and the
+// list of legs is wrapped one level deep, mirroring how departure/arrival wrap
+// their airport lists. The exact nesting is not verified against a live capture
+// — see docs/plans/porting.md deviations.
+func buildSelectedFlight(legs []FreqSelectedLeg) (any, error) {
+	encoded := make([]any, 0, len(legs))
+	for _, l := range legs {
+		if l.Origin == "" || l.Dest == "" || l.Date.IsZero() {
+			return nil, errors.New("gflight/encoding: selected-flight leg missing origin, destination or date")
+		}
+		encoded = append(encoded, []any{
+			l.Origin,
+			l.Date.Format(tfsDateLayout),
+			l.Dest,
+			nil,
+			l.Carrier,
+			l.FlightNumber,
+		})
+	}
+	return []any{encoded}, nil
+}
 
 func buildSegment(s FreqSegment) ([]any, error) {
 	if s.Origin == "" || s.Dest == "" {
@@ -204,6 +244,13 @@ func buildSegment(s FreqSegment) ([]any, error) {
 		seg[segMaxStopsIdx] = 0
 	}
 	seg[segDateIdx] = s.Date.Format(tfsDateLayout)
+	if len(s.Selected) > 0 {
+		sel, err := buildSelectedFlight(s.Selected)
+		if err != nil {
+			return nil, err
+		}
+		seg[segSelectedFlightIdx] = sel
+	}
 	if s.IsReturn {
 		seg[segClassifierIdx] = segReturn
 	} else {

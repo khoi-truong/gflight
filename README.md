@@ -16,10 +16,11 @@ can change or disappear at any time, which will break this library without
 notice. You are responsible for your own use of it, including compliance with
 Google's Terms of Service and any applicable rate limits. Use at your own risk.
 
-> **Status:** one-way `Client.Search` works end to end against Google's
-> undocumented RPC, driven by recorded fixtures in the tests. Round-trip is
-> best-effort and unverified until the two-phase selected-flight flow lands;
-> price calendars, booking options, and the full filter set are still to come.
+> **Status:** one-way `Client.Search` and two-phase round-trip
+> `Client.RoundTripTopN` work end to end against Google's undocumented RPC,
+> driven by recorded fixtures in the tests. The round-trip `segment[8]` shape is
+> structurally derived, not browser-captured. Price calendars, booking options,
+> and the full filter set are still to come.
 >
 > Google fingerprints TLS clients — the stock `net/http` transport is often met
 > with `ErrBlocked`. Plug a browser-grade transport into `WithHTTPClient` when
@@ -70,6 +71,12 @@ Run it with `mise run example`. Because Google often blocks non-browser TLS,
 the example honours `GFLIGHT_BASE_URL` so it can be pointed at a local
 recording; production callers supply a browser-grade transport via
 `WithHTTPClient`.
+
+For round trips, set `ReturnDate` and call `RoundTripTopN(ctx, req, n)`: it
+searches outbound options, then re-queries Google once per top-`n` outbound to
+get returns priced against it (bounded by `WithMaxConcurrency`). Each
+`RoundTrip` holds the `Outbound` itinerary and its `Return` list; return prices
+are trip totals.
 
 Locale defaults to `USD` / `en` / `US`; override with `WithCurrency`,
 `WithLanguage`, `WithCountry`, or per call with `SearchRequest.Currency`.

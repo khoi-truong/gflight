@@ -45,7 +45,10 @@ segment[4]   airline / alliance include     (M3)
 segment[5]   airline / alliance exclude     (M3)
 segment[6]   "YYYY-MM-DD"
 segment[7]   [max_duration_mins]            (M3)
-segment[8]   selected_flight — round-trip second phase (M2)
+segment[8]   selected_flight — round-trip second phase. On the outbound
+             segment only: [[ leg, leg, ... ]] where each leg is
+             [origin, "YYYY-MM-DD", dest, null, carrier, flight_number].
+             Nesting depth is structurally derived, not live-captured.
 segment[9]   layover airport include        (M3)
 segment[11]  min layover minutes            (M3)
 segment[12]  max layover minutes            (M3)

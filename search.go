@@ -34,10 +34,10 @@ func (c *Client) Search(ctx context.Context, req SearchRequest) ([]Itinerary, er
 // SearchResults executes a flight search and returns the itineraries alongside
 // the shopping-session id a later booking-results call needs.
 //
-// One-way search is fixture-verified. Setting [SearchRequest.ReturnDate] adds a
-// return segment to a single request, but this round-trip path is best-effort
-// and unverified: the two-phase selected-flight flow and round-trip price
-// semantics are not yet implemented.
+// With [SearchRequest.ReturnDate] set it returns the outbound options of a
+// round trip in a single request. To get return itineraries priced against a
+// chosen outbound, use [Client.RoundTripTopN], which runs the two-phase
+// selected-flight flow.
 //
 // Errors: a cancelled ctx is returned as-is; a non-2xx reply as *[HTTPError]
 // (which unwraps to [ErrBadResponse]); a bot wall or rate limit as [ErrBlocked];
@@ -54,7 +54,105 @@ func (c *Client) SearchResults(ctx context.Context, req SearchRequest) (SearchRe
 		return SearchResult{}, fmt.Errorf("gflight: search needs a departure date: %w", ErrBadResponse)
 	}
 
+	return c.executeFreq(ctx, req, c.buildFreq(req))
+}
+
+// DefaultRoundTripTopN is how many outbound itineraries [Client.RoundTripTopN]
+// expands into phase-2 return searches when the caller passes n <= 0.
+const DefaultRoundTripTopN = 3
+
+// RoundTrip pairs one chosen outbound itinerary with the return itineraries
+// Google offers once that outbound is selected. Return prices are trip totals,
+// not per-leg — do not add them to the outbound price.
+type RoundTrip struct {
+	Outbound Itinerary
+	Return   []Itinerary
+}
+
+// RoundTripTopN runs the real two-phase round-trip search. Phase 1 fetches
+// outbound options for req (which must set [SearchRequest.ReturnDate]); phase 2
+// re-queries Google once per outbound, with that outbound pinned into
+// segment[8], to collect its compatible return itineraries.
+//
+// n bounds how many outbounds are expanded and is clamped to the number
+// returned; n <= 0 uses [DefaultRoundTripTopN]. Phase-2 requests run
+// concurrently, capped by [WithMaxConcurrency]. The caller's ctx deadline spans
+// both phases — phase 2 does not get a fresh timeout.
+//
+// An outbound whose phase-2 call fails is dropped; the error is only returned
+// when every phase-2 call fails. Errors otherwise match [Client.SearchResults].
+func (c *Client) RoundTripTopN(ctx context.Context, req SearchRequest, n int) ([]RoundTrip, error) {
+	if req.ReturnDate.IsZero() {
+		return nil, fmt.Errorf("gflight: round-trip search needs a return date: %w", ErrBadResponse)
+	}
+
+	phase1, err := c.SearchResults(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	if n <= 0 {
+		n = DefaultRoundTripTopN
+	}
+	n = min(n, len(phase1.Itineraries))
+	outbounds := phase1.Itineraries[:n]
+
+	trips, errs := mapConcurrent(ctx, c.maxConcurrency, outbounds,
+		func(ctx context.Context, ob Itinerary) (RoundTrip, error) {
+			ret, err := c.returnOptions(ctx, req, ob)
+			if err != nil {
+				return RoundTrip{}, err
+			}
+			return RoundTrip{Outbound: ob, Return: ret}, nil
+		})
+
+	out := make([]RoundTrip, 0, len(trips))
+	var firstErr error
+	for i, tr := range trips {
+		if errs[i] != nil {
+			if firstErr == nil {
+				firstErr = errs[i]
+			}
+			continue
+		}
+		out = append(out, tr)
+	}
+	if len(out) == 0 && firstErr != nil {
+		return nil, firstErr
+	}
+	return out, nil
+}
+
+// returnOptions runs one phase-2 request: the same round-trip body as phase 1
+// with the chosen outbound pinned into the outbound segment's segment[8]. A
+// genuinely empty return set is reported as no error and a nil slice.
+func (c *Client) returnOptions(ctx context.Context, req SearchRequest, outbound Itinerary) ([]Itinerary, error) {
+	sel := make([]encoding.FreqSelectedLeg, 0, len(outbound.Segments))
+	for _, s := range outbound.Segments {
+		sel = append(sel, encoding.FreqSelectedLeg{
+			Origin:       s.Origin.Code,
+			Dest:         s.Destination.Code,
+			Date:         s.DepartureTime,
+			Carrier:      s.Carrier,
+			FlightNumber: s.FlightNumber,
+		})
+	}
+
 	freqReq := c.buildFreq(req)
+	freqReq.Segments[0].Selected = sel
+
+	res, err := c.executeFreq(ctx, req, freqReq)
+	if errors.Is(err, ErrNoResults) {
+		return nil, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	return res.Itineraries, nil
+}
+
+// executeFreq encodes freqReq, POSTs it, and decodes the shopping response —
+// the shared body of every GetShoppingResults call, one-way or round-trip.
+func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq encoding.FreqRequest) (SearchResult, error) {
 	body, err := encoding.EncodeFreq(freqReq)
 	if err != nil {
 		return SearchResult{}, fmt.Errorf("gflight: encode request: %w", err)

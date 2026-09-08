@@ -120,6 +120,83 @@ func TestEncodeFreqRoundTripClassifier(t *testing.T) {
 	}
 }
 
+// goldenSelectedFlightRT freezes the phase-2 round-trip body: SGN->HAN on
+// 2026-10-01 with the outbound pinned to VN 245, HAN->SGN return open on
+// 2026-10-08. Structurally verified by TestEncodeFreqSelectedFlight; not a live
+// capture — see docs/plans/porting.md deviations.
+const goldenSelectedFlightRT = "%5Bnull%2C%22%5B%5B%5D%2C%5Bnull%2Cnull%2C1%2Cnull%2C%5B%5D%2C1%2C%5B1%2C0%2C0%2C0%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5B%5B%5B%5B%5C%22SGN%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22HAN%5C%22%2C0%5D%5D%5D%2Cnull%2C0%2Cnull%2Cnull%2C%5C%222026-10-01%5C%22%2Cnull%2C%5B%5B%5B%5C%22SGN%5C%22%2C%5C%222026-10-01%5C%22%2C%5C%22HAN%5C%22%2Cnull%2C%5C%22VN%5C%22%2C%5C%22245%5C%22%5D%5D%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C3%5D%2C%5B%5B%5B%5B%5C%22HAN%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22SGN%5C%22%2C0%5D%5D%5D%2Cnull%2C0%2Cnull%2Cnull%2C%5C%222026-10-08%5C%22%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C1%5D%5D%2Cnull%2Cnull%2Cnull%2C1%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C0%5D%2C1%2C1%2C0%2C1%5D%22%5D"
+
+func TestEncodeFreqSelectedFlightGolden(t *testing.T) {
+	t.Parallel()
+	got, err := EncodeFreq(freqRequestSelectedFlight(t))
+	if err != nil {
+		t.Fatalf("EncodeFreq: %v", err)
+	}
+	if got != goldenSelectedFlightRT {
+		t.Errorf("f.req drift:\n got %q\nwant %q", got, goldenSelectedFlightRT)
+	}
+}
+
+func freqRequestSelectedFlight(t *testing.T) FreqRequest {
+	t.Helper()
+	d1 := time.Date(2026, 10, 1, 0, 0, 0, 0, time.UTC)
+	d2 := time.Date(2026, 10, 8, 0, 0, 0, 0, time.UTC)
+	return FreqRequest{
+		Segments: []FreqSegment{
+			{
+				Origin: "SGN", Dest: "HAN", Date: d1,
+				Selected: []FreqSelectedLeg{
+					{Origin: "SGN", Dest: "HAN", Date: d1, Carrier: "VN", FlightNumber: "245"},
+				},
+			},
+			{Origin: "HAN", Dest: "SGN", Date: d2, IsReturn: true},
+		},
+	}
+}
+
+func TestEncodeFreqSelectedFlight(t *testing.T) {
+	t.Parallel()
+	enc, err := EncodeFreq(freqRequestSelectedFlight(t))
+	if err != nil {
+		t.Fatalf("EncodeFreq: %v", err)
+	}
+	segs := decodeFreq(t, enc)[1].([]any)[mainSegmentsIdx].([]any)
+	outbound := segs[0].([]any)
+
+	sel, ok := outbound[segSelectedFlightIdx].([]any)
+	if !ok || len(sel) != 1 {
+		t.Fatalf("segment[8] = %v", outbound[segSelectedFlightIdx])
+	}
+	legs := sel[0].([]any)
+	if len(legs) != 1 {
+		t.Fatalf("want 1 selected leg, got %d", len(legs))
+	}
+	leg := legs[0].([]any)
+	want := []any{"SGN", "2026-10-01", "HAN", nil, "VN", "245"}
+	for i := range want {
+		if leg[i] != want[i] {
+			t.Errorf("selected leg[%d] = %v, want %v", i, leg[i], want[i])
+		}
+	}
+	if segs[1].([]any)[segSelectedFlightIdx] != nil {
+		t.Error("return segment[8] should be nil")
+	}
+}
+
+func TestEncodeFreqSelectedFlightErrors(t *testing.T) {
+	t.Parallel()
+	d := time.Now()
+	_, err := EncodeFreq(FreqRequest{
+		Segments: []FreqSegment{
+			{Origin: "SGN", Dest: "HAN", Date: d, Selected: []FreqSelectedLeg{{Origin: "SGN", Carrier: "VN"}}},
+			{Origin: "HAN", Dest: "SGN", Date: d, IsReturn: true},
+		},
+	})
+	if err == nil {
+		t.Error("want error for selected leg missing dest/date")
+	}
+}
+
 func TestEncodeFreqDefaultsAdultsToOne(t *testing.T) {
 	t.Parallel()
 	enc, err := EncodeFreq(FreqRequest{
