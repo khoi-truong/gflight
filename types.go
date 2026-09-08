@@ -90,6 +90,13 @@ type Emissions struct {
 	Tag          string // "lower", "typical", "higher", or "".
 }
 
+// SearchResult is the outcome of one search, including the shopping-session id
+// a later booking-results call needs.
+type SearchResult struct {
+	Itineraries []Itinerary
+	SessionID   string // inner[0][4]; "" when upstream omitted it.
+}
+
 // Itinerary is one priced journey made of one or more [Segment]s.
 type Itinerary struct {
 	Segments []Segment

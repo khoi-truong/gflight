@@ -24,6 +24,9 @@ type Client struct {
 	country    string
 	logger     *slog.Logger
 
+	// maxConcurrency bounds phase-2 round-trip fan-out. Always >= 1.
+	maxConcurrency int
+
 	mu sync.Mutex
 	// lastSessionID is inner[0][4] from the most recent successful search —
 	// the shopping-session id a future booking-results call needs.
@@ -33,13 +36,14 @@ type Client struct {
 // New returns a Client configured with the given options.
 func New(opts ...Option) *Client {
 	c := &Client{
-		httpClient: &http.Client{Timeout: 30 * time.Second},
-		baseURL:    DefaultBaseURL,
-		userAgent:  DefaultUserAgent,
-		currency:   DefaultCurrency,
-		language:   DefaultLanguage,
-		country:    DefaultCountry,
-		logger:     slog.New(slog.DiscardHandler),
+		httpClient:     &http.Client{Timeout: 30 * time.Second},
+		baseURL:        DefaultBaseURL,
+		userAgent:      DefaultUserAgent,
+		currency:       DefaultCurrency,
+		language:       DefaultLanguage,
+		country:        DefaultCountry,
+		logger:         slog.New(slog.DiscardHandler),
+		maxConcurrency: DefaultMaxConcurrency,
 	}
 	for _, opt := range opts {
 		opt(c)
@@ -62,6 +66,9 @@ func (c *Client) Currency() string { return c.currency }
 // SessionID reports the shopping-session id captured from the most recent
 // successful [Client.Search], or "" if none. It authenticates a follow-up
 // booking-results call.
+//
+// Deprecated: use [SearchResult.SessionID] from [Client.SearchResults]. This
+// accessor is per-Client mutable state and races across concurrent searches.
 func (c *Client) SessionID() string {
 	c.mu.Lock()
 	defer c.mu.Unlock()
