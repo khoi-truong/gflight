@@ -16,8 +16,13 @@ can change or disappear at any time, which will break this library without
 notice. You are responsible for your own use of it, including compliance with
 Google's Terms of Service and any applicable rate limits. Use at your own risk.
 
-> **Status:** scaffold. `Client.Search` currently returns `ErrNotImplemented` —
-> the API shape is settled, the transport is not.
+> **Status:** one-way and round-trip `Client.Search` work end to end against
+> Google's undocumented RPC, driven by recorded fixtures in the tests. Price
+> calendars, booking options, and the full filter set are still to come.
+>
+> Google fingerprints TLS clients — the stock `net/http` transport is often met
+> with `ErrBlocked`. Plug a browser-grade transport into `WithHTTPClient` when
+> that happens.
 
 ## Install
 
@@ -31,24 +36,6 @@ The snippet below is [`examples/search/main.go`](examples/search/main.go), so
 CI proves it compiles.
 
 ```go
-package main
-
-import (
- "context"
- "fmt"
- "os"
- "time"
-
- "github.com/khoi-truong/gflight"
-)
-
-func main() {
- if err := run(context.Background()); err != nil {
-  fmt.Fprintln(os.Stderr, "search failed:", err)
-  os.Exit(1)
- }
-}
-
 func run(ctx context.Context) error {
  ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
  defer cancel()
@@ -68,20 +55,38 @@ func run(ctx context.Context) error {
  }
 
  for _, it := range itineraries {
-  fmt.Printf("%.0f %s · %d stop(s) · %s
-", it.Price.Amount, it.Price.Currency, it.Stops, it.Duration)
+  price := fmt.Sprintf("%.0f %s", it.Price.Amount, it.Price.Currency)
+  if it.Price.Unknown {
+   price = "price on request"
+  }
+  fmt.Printf("%s · %d stop(s) · %s\n", price, it.Stops, it.Duration)
  }
  return nil
 }
 ```
 
-Run it with `mise run example`.
+Run it with `mise run example`. Because Google often blocks non-browser TLS,
+the example honours `GFLIGHT_BASE_URL` so it can be pointed at a local
+recording; production callers supply a browser-grade transport via
+`WithHTTPClient`.
+
+Locale defaults to `USD` / `en` / `US`; override with `WithCurrency`,
+`WithLanguage`, `WithCountry`, or per call with `SearchRequest.Currency`.
+`SearchURL(req)` returns a shareable google.com/travel/flights deep link
+without any network I/O.
 
 ## Errors
 
-Compare with `errors.Is` against `ErrNotImplemented`, `ErrBadResponse`, and
-`ErrNoResults`; a non-2xx reply carries an `*HTTPError` reachable with
-`errors.As` that unwraps to `ErrBadResponse`. Never match on message text.
+Compare with `errors.Is` against `ErrBadResponse`, `ErrNoResults`, `ErrBlocked`
+(429 or a bot wall), and `ErrUpstreamChanged` (every response row failed to
+decode — Google moved the wire format). A non-2xx reply carries an `*HTTPError`
+reachable with `errors.As` that unwraps to `ErrBadResponse`. Never match on
+message text.
+
+## Acknowledgements
+
+The reverse-engineered protocol knowledge this client depends on is not ours —
+see [`docs/ACKNOWLEDGEMENTS.md`](docs/ACKNOWLEDGEMENTS.md).
 
 ## Stability
 

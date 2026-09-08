@@ -175,42 +175,60 @@ Each milestone is one PR with a conventional-commit title, squash-merged.
 
 ### M1 — one-way search end-to-end · `feat: implement one-way flight search`
 
-1. **`internal/encoding/protobuf.go`** — `varint`, `tag(field, wire)`,
-   `lengthDelim(field, payload)`, `varintField(field, v)`, plus a `reader` for
-   round-trip tests. Table-driven tests against known-good vectors decoded from
-   real Google URLs.
-2. **`internal/encoding/tfs.go`** — build the `tfs` token per the spec above.
-   Verified by a golden test: a token we generate must byte-match one captured
-   from a live Google Flights URL for the same query.
-3. **`url.go`** — public `SearchURL(req SearchRequest) (string, error)`.
-   Network-free, so it is fully unit-tested and useful on its own.
-4. **`internal/encoding/freq.go`** — the `f.req` builder. The index map above
-   becomes **named constants**, not magic numbers; every `null` slot carries the
-   comment explaining it was probed and had no observable effect.
-5. **`internal/wire/chunks.go`** — the byte-accurate multi-chunk reader.
-   Handles both the headerless single-chunk shape and the length-prefixed
-   multi-chunk shape. Add `FuzzChunks` — this parses untrusted upstream bytes.
-6. **`internal/decode/flight.go`** — row → `Itinerary`. Defensive accessors
-   (`safeIndex`, `asString`, `asInt`, `asBool` — fli's `_helpers.py` pattern) so
-   the decoder reads as a list of position lookups. A row that fails to decode is
-   **skipped**; if _every_ row fails, return `ErrUpstreamChanged` wrapping
-   `ErrBadResponse` with up to three sample reasons — do not silently return
-   empty.
-7. **Widen `types.go`** — `Layover`, `Amenities`, `Emissions`; add
-   `Itinerary.BookingToken`, `.Layovers`, `.Emissions`, `.SelfTransfer`,
-   `.MixedCabin`, `.PrimaryCarrier`; add `Segment.Aircraft` (exists),
-   `.Legroom`, `.OperatingCarrier`, `.Amenities`, `.Overnight`, `.CO2Grams`.
-   **`Price.Amount` must become a pointer or gain `Price.Unknown bool`** —
-   `[[], "token"]` means Google declined to price the row (routine for
-   premium-cabin round trips) and must not decode to `0`.
-8. **`search.go`** — wire it together: build `f.req`, POST, read chunks, decode
-   rows, capture the session id on the `Client` for M4. Non-2xx → `*HTTPError`;
-   429 or a consent interstitial → `ErrBlocked`; zero rows → `ErrNoResults`.
-9. **Fixtures + tests** — `httptest.Server` serving recorded bodies via
-   `WithBaseURL`. Cases: `oneway_sgn_han`, `oneway_no_price`, `no_results`,
-   `error_429`, `truncated_chunk`. Remove the two `//nolint:staticcheck` in
-   `examples/search/main.go`.
-10. **Docs** — `doc.go` status paragraph, README quickstart, disclaimer intact.
+- [x] **`internal/encoding/protobuf.go`** — `appendVarint`, `appendTag`,
+   `appendVarintField`, `appendLengthDelim`, plus `parseMessage` for round-trip
+   tests. Table-driven varint / message tests.
+- [x] **`internal/encoding/tfs.go`** — builds the `tfs` token per the spec.
+   Golden test freezes a structurally round-trip-verified token (see deviations
+   — no live byte capture available).
+- [x] **`url.go`** — public `SearchURL(req SearchRequest) (string, error)`,
+   network-free, unit-tested.
+- [x] **`internal/encoding/freq.go`** — the `f.req` builder, index map as named
+   constants, every inert slot commented.
+- [x] **`internal/wire/chunks.go`** — byte-accurate reader for both the bare
+   single-chunk and length-prefixed multi-chunk shapes, with `FuzzChunks`.
+- [x] **`internal/decode/`** (`accessors.go`, `currency.go`, `flight.go`) —
+   row → `Flight` via defensive `at` / `asStr` / `asInt` / `asBool` accessors. A
+   bad row is skipped; if every row fails, `AllRowsFailedError` (≤3 sample
+   reasons) → `search.go` maps it to `ErrUpstreamChanged` wrapping
+   `ErrBadResponse`.
+- [x] **Widen `types.go`** — `Layover`, `Amenities`, `Emissions`;
+   `Itinerary.BookingToken` / `.Layovers` / `.Emissions` / `.SelfTransfer` /
+   `.MixedCabin` / `.PrimaryCarrier`; `Segment.Legroom` / `.OperatingCarrier` /
+   `.Amenities` / `.Overnight` / `.CO2Grams`. `Price` gains `Unknown bool`.
+- [x] **`search.go`** — build `f.req`, POST, read chunks, decode rows, capture
+   the session id on the `Client` (`SessionID()`). Non-2xx → `*HTTPError`;
+   429 / bot wall / non-envelope body → `ErrBlocked`; zero rows → `ErrNoResults`.
+- [x] **Fixtures + tests** — `httptest.Server` via `WithBaseURL`. Cases:
+   `oneway_jfk_lax`, `no_price`, `no_results`, `error_429`, `truncated_chunk`,
+   `multichunk`, `layover_buf_ath`. The two `//nolint:staticcheck` in
+   `examples/search/main.go` are removed.
+- [x] **Docs** — `doc.go` status paragraph, README quickstart, disclaimer
+   intact, `docs/ACKNOWLEDGEMENTS.md`, `docs/wire/shopping-results.md`,
+   `docs/wire/tfs.md`.
+
+### Implementation deviations from the plan
+
+- **No live verification (plan Verification step 6, Risk #1).** Google answers
+  this RPC approach with an upstream `[13]` status for every non-browser TLS
+  client — `fli` included. M1 therefore ships fixture-driven, with `ErrBlocked`
+  making the live failure legible and a `WithHTTPClient` recipe in the docs. The
+  one live manual check is deferred until a browser-grade transport is wired.
+- **`tfs` golden is synthetic.** `tfs_test.go` freezes a token verified by
+  decoding it back to the expected protobuf structure and by matching `fli`'s
+  `build_tfs_token` algorithm byte for byte — not by comparison against a
+  browser-captured URL, which needs a reachable endpoint.
+- **Fixture names.** `oneway_jfk_lax` (not `oneway_sgn_han`) and an extra
+  `no_price` / `multichunk` / `layover_buf_ath` triplet, matching the recorded
+  `fli` bodies actually available.
+- **`internal/decode` is three files, not one** (`accessors.go` / `currency.go`
+  / `flight.go`) — the currency-token protobuf walk and the position accessors
+  are independently testable.
+- **`ErrNotImplemented` retained.** Still exported (it shipped in `3e2f6ae`);
+  removing it would break the additive-only contract. It is now unused by the
+  package itself.
+- **`examples/search/main.go` honours `GFLIGHT_BASE_URL`** so `mise run example`
+  can run offline against a local recording (plan Verification step 5).
 
 ### M2 — round-trip · `feat: support round-trip search`
 

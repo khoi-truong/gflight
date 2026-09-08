@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "LAX->LHR round-trip, 2 adults + 1 child, business, USD",
+    "scrubbed": true,
+    "notes": "Real Google response (fli fixtures, MIT). Premium-cabin RT rows Google declines to price: row[1] head is []. Trimmed to 3 rows; session id scrubbed."
+  }
+}

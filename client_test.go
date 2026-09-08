@@ -63,20 +63,6 @@ func TestNewAppliesOptions(t *testing.T) {
 	}
 }
 
-func TestSearchNotImplemented(t *testing.T) {
-	t.Parallel()
-
-	c := gflight.New()
-
-	got, err := c.Search(t.Context(), gflight.SearchRequest{Origin: "SGN", Destination: "HAN"})
-	if got != nil {
-		t.Errorf("Search() itineraries = %v, want nil", got)
-	}
-	if !errors.Is(err, gflight.ErrNotImplemented) {
-		t.Fatalf("Search() error = %v, want %v", err, gflight.ErrNotImplemented)
-	}
-}
-
 func TestSearchHonoursCancelledContext(t *testing.T) {
 	t.Parallel()
 

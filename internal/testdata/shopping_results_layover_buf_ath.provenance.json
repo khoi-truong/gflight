@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "BUF->ATH one-way, 1 adult, economy, USD, min layover 120m",
+    "scrubbed": true,
+    "notes": "Real Google response (fli fixtures, MIT). Two-leg itineraries with detail[13] layover block. Trimmed to 3 rows; session id scrubbed."
+  }
+}

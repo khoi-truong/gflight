@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-05-29",
+    "endpoint": "GetShoppingResults",
+    "request": "LAX->LHR round-trip (multi-chunk envelope)",
+    "scrubbed": true,
+    "notes": "Real Google response (fli fixtures, MIT), 3 length-prefixed wrb.fr chunks. First chunk trimmed to 2 rows; session id scrubbed."
+  }
+}

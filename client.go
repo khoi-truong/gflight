@@ -3,6 +3,7 @@ package gflight
 import (
 	"log/slog"
 	"net/http"
+	"sync"
 	"time"
 )
 
@@ -18,7 +19,15 @@ type Client struct {
 	httpClient *http.Client
 	baseURL    string
 	userAgent  string
+	currency   string
+	language   string
+	country    string
 	logger     *slog.Logger
+
+	mu sync.Mutex
+	// lastSessionID is inner[0][4] from the most recent successful search —
+	// the shopping-session id a future booking-results call needs.
+	lastSessionID string
 }
 
 // New returns a Client configured with the given options.
@@ -27,6 +36,9 @@ func New(opts ...Option) *Client {
 		httpClient: &http.Client{Timeout: 30 * time.Second},
 		baseURL:    DefaultBaseURL,
 		userAgent:  DefaultUserAgent,
+		currency:   DefaultCurrency,
+		language:   DefaultLanguage,
+		country:    DefaultCountry,
 		logger:     slog.New(slog.DiscardHandler),
 	}
 	for _, opt := range opts {
@@ -43,3 +55,15 @@ func (c *Client) BaseURL() string { return c.baseURL }
 
 // UserAgent reports the User-Agent header sent upstream.
 func (c *Client) UserAgent() string { return c.userAgent }
+
+// Currency reports the default ISO 4217 currency code.
+func (c *Client) Currency() string { return c.currency }
+
+// SessionID reports the shopping-session id captured from the most recent
+// successful [Client.Search], or "" if none. It authenticates a follow-up
+// booking-results call.
+func (c *Client) SessionID() string {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	return c.lastSessionID
+}

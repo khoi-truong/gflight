@@ -25,9 +25,14 @@
 //
 // # Status
 //
-// The client is a scaffold: [Client.Search] currently returns
-// [ErrNotImplemented]. The exported types and the context-first signatures are
-// stable enough to build against; the transport internals are not.
+// One-way and round-trip [Client.Search] work end to end against Google's
+// undocumented FlightsFrontendService RPC, driven by recorded fixtures in the
+// tests. Calendar graphs, booking options, and the full filter set are not yet
+// implemented. The undocumented upstream can change shape without notice; a
+// response whose rows no longer decode is reported as [ErrUpstreamChanged].
+//
+// Google fingerprints TLS clients: the default net/http transport may be met
+// with [ErrBlocked]. Plug a browser-grade transport into [WithHTTPClient] if so.
 //
 // # Errors
 //
