@@ -4,6 +4,8 @@ import (
 	"log/slog"
 	"net/http"
 	"strings"
+
+	"golang.org/x/time/rate"
 )
 
 // DefaultCurrency is the ISO 4217 code sent when neither [WithCurrency] nor
@@ -123,6 +125,28 @@ func WithRetry(p RetryPolicy) Option {
 			policy := p.withDefaults()
 			c.retry = &policy
 		}
+	}
+}
+
+// WithRateLimit paces every upstream request through a token bucket of rps
+// requests per second with the given burst — retries included, since the
+// limiter sits below the retrying transport. Wait time counts against the
+// caller's context: a request that expires while queued — or that could not be
+// sent before its deadline — fails with the matching context error and never
+// reaches the network.
+//
+// Google has no published quota; comparable clients settle around 10 req/s.
+// Rate limiting is off by default. An rps of zero or less is ignored; a burst
+// below 1 is raised to 1 so the client always makes progress.
+func WithRateLimit(rps float64, burst int) Option {
+	return func(c *Client) {
+		if rps <= 0 {
+			return
+		}
+		if burst < 1 {
+			burst = 1
+		}
+		c.limiter = rate.NewLimiter(rate.Limit(rps), burst)
 	}
 }
 
