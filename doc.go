@@ -46,9 +46,17 @@
 // Google fingerprints TLS clients: the default net/http transport may be met
 // with a [*BlockedError] (which unwraps to [ErrBlocked] and carries the
 // Retry-After delay and a [SearchURL] deep-link fallback). Plug a browser-grade
-// transport in with [WithTransport], enable [WithRetry] for transient
-// 429/5xx with full-jitter backoff that honours Retry-After, and pace requests
-// with [WithRateLimit] to stay under the (unpublished) upstream quota.
+// transport in with [WithTransport] (recipe in examples/utls), enable
+// [WithRetry] for transient 429/5xx with full-jitter backoff that honours
+// Retry-After, and pace requests with [WithRateLimit] to stay under the
+// (unpublished) upstream quota.
+//
+// # Observability
+//
+// [WithObserver] reports retries, per-attempt responses, and per-payload decode
+// counts to callbacks a consumer supplies, so metrics or tracing wire up
+// without this library importing any telemetry package. The [ParseEvent]
+// failure count is the drift canary: it rises before decoding fails outright.
 //
 // # Errors
 //

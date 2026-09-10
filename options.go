@@ -159,3 +159,17 @@ func WithLogger(l *slog.Logger) Option {
 		}
 	}
 }
+
+// WithObserver routes retry, response, and parse events to o so a consumer can
+// export metrics or traces without this library depending on any telemetry
+// package. A nil observer is ignored; so is a nil callback within it.
+//
+// Callbacks run inline on the goroutine that produced the event and must not
+// block — see [Observer].
+func WithObserver(o *Observer) Option {
+	return func(c *Client) {
+		if o != nil {
+			c.observer = o
+		}
+	}
+}

@@ -13,5 +13,6 @@ rules:
   self-repository:
     ignore:
       - check-code-quality.yml
+      - live-canary.yml
       - release.yml
       - test.yml

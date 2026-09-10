@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1–M3 done, M5a–M5b done; M4 and M5c pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1–M3 done, M5a–M5c done; M4 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -395,15 +395,48 @@ observability + live canary.
   the README and the guardrails below. `fli`'s ceiling is ~10 req/s.
 - **`WithMaxConcurrency(n)`** (semaphore) — shared with M2's fan-out helper,
   landed in M2.
-- Document a uTLS recipe for `WithTransport` in `examples/` (M5c).
-- **Observability hook** (M5c) — `WithObserver(o)` with `OnRetry` / `OnResponse`
-  / `OnParse(rows, failures)` callbacks; consumers wire Prometheus/OTel without
-  the library importing either. `OnParse` failure count is the drift canary.
+- [x] **uTLS recipe for `WithTransport`** (M5c) — `examples/utls/README.md`,
+  documentation only: compiling it would put uTLS in every consumer's `go.mod`.
+- [x] **Observability hook** (M5c) — `WithObserver(*Observer)` with `OnRetry` /
+  `OnResponse` / `OnParse` callbacks; consumers wire Prometheus/OTel without
+  the library importing either. `ParseEvent.Failures` is the drift canary.
 - **Tests** — [x] `testing/synctest` backoff / `Retry-After` / deadline tests
-  for the retry transport (M5a). Pending: a `decode(encode(x)) == x` fuzz for
-  `internal/encoding` (M5c); a `//go:build live` smoke test (one canonical route,
-  >0 rows, required fields non-zero) excluded from `mise run ci` and run on a CI
-  schedule (M5c); a goroutine-leak check (M5c).
+  for the retry transport (M5a); [x] `decode(encode(x)) == x` fuzz for
+  `internal/encoding` (M5c); [x] a `//go:build live` smoke test (one canonical
+  route, >0 rows, required fields non-zero) excluded from `mise run ci` and run
+  on a CI schedule (M5c); [x] a goroutine-leak check (M5c).
+
+### M5c implementation deviations
+
+- **`Observer` is a struct of func fields, not an interface.** An interface
+  would force a consumer who wants one hook to implement three. The struct is
+  additive-first the same way `Option` is: a new event arrives as a new field
+  and keyed literals keep compiling. Every field is optional and nil-safe.
+- **`OnResponse` fires per network attempt, from the bottom of the stack.** The
+  observing RoundTripper sits directly above the base transport
+  (`retry -> rate limit -> observe -> base`), so a retried request emits one
+  event per try and `Duration` excludes rate-limiter queueing — the shape a
+  latency histogram wants. `OnRetry` remains the one event per retry *decision*.
+- **`internal/decode.Flights` now returns `(flights, Stats, error)`.** `OnParse`
+  needs the row and failure counts on the success path too, and
+  `AllRowsFailedError` only carried them when *every* row failed. Internal
+  package, so no public API moved.
+- **The fuzz targets live in `internal/encoding/fuzz_test.go`,** reusing the
+  `parseMessage` reader that already existed for the round-trip tests:
+  `FuzzEncodeTFSRoundTrip` asserts leg fields survive the protobuf byte-for-byte,
+  `FuzzEncodeFreqRoundTrip` asserts `f.req` is always percent-encoded JSON whose
+  inner element re-parses. Seed corpora only in CI; `-fuzz` is manual.
+- **The live canary is `mise run test:live`,** a `//go:build live` file excluded
+  from `go test ./...` and therefore from `mise run ci`, run daily by
+  `.github/workflows/live-canary.yml` (and on `workflow_dispatch`). It reports a
+  `*BlockedError` distinctly from a decode failure — a blocked runner is not a
+  wire-format regression. `.github/zizmor.yml` gains the workflow to the
+  `self-repository` ignore list, like every other workflow using the local
+  composite action.
+- **The goroutine-leak check is stdlib.** `leak_test.go` warms the connection
+  pool, then compares a settled `runtime.NumGoroutine()` against the baseline
+  after repeated round-trip and cancelled-context fan-outs. It deliberately does
+  not call `t.Parallel` — the count is process-global. No `goleak` dependency.
 
 ### M5b implementation deviations
 
@@ -520,7 +553,7 @@ The findings below are additive, not structural.
 4. **M5 (pulled ahead of M4):** retry / backoff / `Retry-After` /
    `WithRateLimit` / `WithTransport` as composed RoundTrippers; live canary;
    `synctest` tests; `*BlockedError`; observer hook.
-5. **M4:** calendar graph + booking options.
+5. **M4 (next):** calendar graph + booking options.
 
 ---
 

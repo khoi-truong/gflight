@@ -102,7 +102,8 @@ reachable with `errors.As` that unwraps to `ErrBadResponse`. A block carries a
 connection errors and 408/425/429/500/502/503/504 are retried with full-jitter
 exponential backoff, and a `Retry-After` header overrides the computed wait.
 `WithTransport` sets the base `http.RoundTripper` for slotting in a uTLS or
-proxy stack without replacing the whole `http.Client`.
+proxy stack without replacing the whole `http.Client` — recipe in
+[`examples/utls`](examples/utls/README.md).
 `WithRateLimit(rps, burst)` paces every request through a token bucket —
 retries included, since the limiter sits below retry. A request that cannot be
 sent before its context deadline fails with the context error instead of
@@ -110,6 +111,30 @@ queueing. Google publishes no quota; comparable clients settle around 10 req/s.
 
 All three are off by default. Rate limiting is the library's one dependency,
 `golang.org/x/time/rate`; nothing else is imported outside the stdlib.
+
+## Observability
+
+`WithObserver(&gflight.Observer{...})` hands retries, per-attempt responses, and
+per-payload decode counts to callbacks you supply, so Prometheus or OTel wire up
+without this library importing either. Every callback is optional and runs
+inline on the goroutine that produced the event, so keep them non-blocking.
+
+```go
+client := gflight.New(gflight.WithObserver(&gflight.Observer{
+    OnResponse: func(e gflight.ResponseEvent) {
+        requests.WithLabelValues(strconv.Itoa(e.StatusCode)).Observe(e.Duration.Seconds())
+    },
+    OnParse: func(e gflight.ParseEvent) {
+        // Rising failures mean Google moved the wire format.
+        rowFailures.Add(float64(e.Failures))
+    },
+}))
+```
+
+`ParseEvent.Failures` is the drift canary — it climbs before decoding breaks
+outright and the client starts returning `ErrUpstreamChanged`. The same signal
+runs daily in CI as a live smoke test (`mise run test:live`, behind the `live`
+build tag and excluded from `mise run ci`).
 
 ## Acknowledgements
 
