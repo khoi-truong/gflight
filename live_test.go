@@ -94,3 +94,71 @@ func TestLiveSearchSmoke(t *testing.T) {
 		t.Errorf("none of %d itineraries carried a price: the price shape likely changed", len(its))
 	}
 }
+
+// TestLiveBookingSmoke resolves the real fares behind one live itinerary. It
+// depends on a live search first, so a bot wall in either phase is reported the
+// same way: look at upstream, not at the last commit.
+func TestLiveBookingSmoke(t *testing.T) {
+	ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
+	defer cancel()
+
+	c := gflight.New(
+		gflight.WithRetry(gflight.RetryPolicy{MaxAttempts: 3}),
+		gflight.WithRateLimit(2, 1),
+	)
+
+	req := gflight.SearchRequest{
+		Origin:      "JFK",
+		Destination: "LAX",
+		DepartDate:  time.Now().AddDate(0, 0, 30),
+		Adults:      1,
+		Cabin:       gflight.CabinEconomy,
+		Currency:    "USD",
+	}
+
+	its, err := c.Search(ctx, req)
+	if err != nil {
+		failLive(t, "live Search", err)
+	}
+	if len(its) == 0 {
+		t.Fatal("live Search returned 0 itineraries for JFK->LAX")
+	}
+	if its[0].BookingToken == "" {
+		t.Fatal("itinerary 0 has no booking token: row[8] likely moved")
+	}
+
+	opts, err := c.BookingOptions(ctx, req, its[0])
+	if err != nil {
+		failLive(t, "live BookingOptions", err)
+	}
+	if len(opts) == 0 {
+		t.Fatal("live BookingOptions returned 0 options: the wire shape likely changed")
+	}
+
+	for i, o := range opts {
+		if o.Vendor == "" && o.VendorCode == "" {
+			t.Errorf("option %d has no vendor", i)
+		}
+		if o.URL == "" {
+			t.Errorf("option %d has no booking URL", i)
+		}
+		if o.Price.Amount <= 0 {
+			t.Errorf("option %d: Price.Amount = %v, want > 0", i, o.Price.Amount)
+		}
+		if o.Price.Currency == "" {
+			t.Errorf("option %d: empty Price.Currency", i)
+		}
+	}
+}
+
+// failLive reports err as a fatal test failure, distinguishing an upstream bot
+// wall from a genuine wire-format break.
+func failLive(t *testing.T, what string, err error) {
+	t.Helper()
+	var blocked *gflight.BlockedError
+	if errors.As(err, &blocked) {
+		t.Fatalf("upstream blocked this runner (status %d, retry after %s) — "+
+			"not a wire-format failure: %v", blocked.StatusCode, blocked.RetryAfter, err)
+	}
+	t.Fatalf("%s: %v", what, err)
+}

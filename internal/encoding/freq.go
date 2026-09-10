@@ -220,7 +220,7 @@ func buildFilters(req FreqRequest) ([]any, error) {
 	// outer — the top-level 6-slot wrapper.
 	filters := []any{
 		[]any{}, // outer[0]: always empty.
-		main,    // outer[1]: the main settings block.
+		main,    // outer[outerMainIdx]: the main settings block.
 		sortBy,  // outer[2]: sort mode.
 		1,       // outer[3]: 1 = all results (0 caps at ~30).
 		0,       // outer[4]: probed, inert.
@@ -228,6 +228,11 @@ func buildFilters(req FreqRequest) ([]any, error) {
 	}
 	return filters, nil
 }
+
+// outer[] index names.
+const (
+	outerMainIdx = 1
+)
 
 // main[] index names.
 const (

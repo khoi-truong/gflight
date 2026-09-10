@@ -6,14 +6,17 @@ import (
 )
 
 // currencyFromToken extracts the ISO 4217 code from a Google Flights price
-// token. The token is base64url (sometimes unpadded) protobuf; the currency is
-// at field 3 → nested field 3. Returns "" on any decode failure — the currency
-// is optional metadata and never worth failing a row over.
+// token. The token is unpadded base64 protobuf; the currency is at field 3 →
+// nested field 3. Returns "" on any decode failure — the currency is optional
+// metadata and never worth failing a row over.
+//
+// Shopping tokens use the URL-safe alphabet, booking tokens the standard one
+// (they contain "+"), so both are tried.
 func currencyFromToken(token string) string {
 	if token == "" {
 		return ""
 	}
-	raw, err := base64.RawURLEncoding.DecodeString(strings.TrimRight(token, "="))
+	raw, err := decodeBase64Any(strings.TrimRight(token, "="))
 	if err != nil {
 		return ""
 	}
@@ -26,6 +29,16 @@ func currencyFromToken(token string) string {
 		return ""
 	}
 	return strings.ToUpper(string(code))
+}
+
+// decodeBase64Any decodes unpadded base64 in either the URL-safe or the
+// standard alphabet.
+func decodeBase64Any(s string) ([]byte, error) {
+	raw, err := base64.RawURLEncoding.DecodeString(s)
+	if err == nil {
+		return raw, nil
+	}
+	return base64.RawStdEncoding.DecodeString(s)
 }
 
 // protoField returns the length-delimited (wire type 2) payload of the first

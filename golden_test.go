@@ -59,3 +59,39 @@ func TestSearchGolden(t *testing.T) {
 		})
 	}
 }
+
+// TestBookingGolden pins the decoded shape of a booking-results capture, the
+// same guard TestSearchGolden gives the itinerary decoder. Regenerate with:
+//
+//	go test ./... -run TestBookingGolden -update
+func TestBookingGolden(t *testing.T) {
+	t.Parallel()
+	const name = "booking_results_aa_jfk_lax"
+	c := serveBookingFixture(t, name+".txt", 200)
+	opts, err := c.BookingOptions(t.Context(), sampleRequest(), sampleItinerary())
+	if err != nil {
+		t.Fatalf("BookingOptions: %v", err)
+	}
+
+	got, err := json.MarshalIndent(opts, "", "  ")
+	if err != nil {
+		t.Fatalf("marshal: %v", err)
+	}
+	got = append(got, '\n')
+
+	path := filepath.Join("internal", "testdata", "golden", name+".json")
+	if *update {
+		if err := os.WriteFile(path, got, 0o644); err != nil {
+			t.Fatal(err)
+		}
+		return
+	}
+
+	want, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatalf("read golden (run with -update to create): %v", err)
+	}
+	if string(got) != string(want) {
+		t.Errorf("decoded booking options differ from %s\n--- got ---\n%s", path, got)
+	}
+}

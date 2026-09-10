@@ -39,7 +39,11 @@
 // Every filter is inert at its zero value. Their wire shapes are structurally
 // derived rather than browser-captured — see docs/wire/shopping-results.md.
 //
-// Calendar graphs and booking options are still to come. The undocumented upstream
+// [Client.BookingOptions] resolves the vendor offers behind one itinerary from
+// its [Itinerary.BookingToken] — the way to price an itinerary Google returned
+// with [Price.Unknown] set. See docs/wire/booking-results.md.
+//
+// Calendar graphs are still to come. The undocumented upstream
 // can change shape without notice; a response whose rows no longer decode is
 // reported as [ErrUpstreamChanged].
 //

@@ -23,8 +23,9 @@ Google's Terms of Service and any applicable rate limits. Use at your own risk.
 > filter set — sort order, infants, airline/alliance include+exclude, max price,
 > bags, max trip duration, layover airports and min/max layover, departure and
 > arrival hour windows, less-emissions-only, exclude-basic-economy — each inert
-> at its zero value and each with a structurally derived wire shape. Price
-> calendars and booking options are still to come.
+> at its zero value and each with a structurally derived wire shape.
+> `Client.BookingOptions` resolves the real vendor fares behind an itinerary.
+> Price calendars are still to come.
 >
 > Google fingerprints TLS clients — the stock `net/http` transport is often met
 > with a `*BlockedError`. Plug a browser-grade transport in with `WithTransport`
@@ -81,6 +82,22 @@ searches outbound options, then re-queries Google once per top-`n` outbound to
 get returns priced against it (bounded by `WithMaxConcurrency`). Each
 `RoundTrip` holds the `Outbound` itinerary and its `Return` list; return prices
 are trip totals.
+
+Some itineraries come back with `Price.Unknown` set — Google returned the
+journey but no shopping-list price, which is common for premium-cabin round
+trips. `BookingOptions(ctx, req, itinerary)` resolves the real, bookable fares
+behind one of those, using the itinerary's opaque `BookingToken`:
+
+```go
+opts, err := client.BookingOptions(ctx, req, itineraries[0])
+for _, o := range opts {
+ fmt.Printf("%s %s %.0f %s\n%s\n", o.Vendor, o.FareName, o.Price.Amount, o.Price.Currency, o.URL)
+}
+```
+
+Pass the same `SearchRequest` the itinerary came from: Google prices the offers
+against its passenger count and cabin. `URL` is a Google click-out that
+redirects to the vendor, not the vendor's own link.
 
 Locale defaults to `USD` / `en` / `US`; override with `WithCurrency`,
 `WithLanguage`, `WithCountry`, or per call with `SearchRequest.Currency`.
