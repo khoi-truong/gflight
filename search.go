@@ -16,9 +16,14 @@ import (
 	"github.com/khoi-truong/gflight/internal/wire"
 )
 
-// rpcPath is the FlightsFrontendService method the web UI calls for shopping
-// results. It is undocumented and unversioned.
-const rpcPath = "/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetShoppingResults"
+// FlightsFrontendService method names. The service is undocumented and
+// unversioned; each method hangs off rpcPathPrefix on the same origin.
+const (
+	rpcPathPrefix = "/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/"
+
+	rpcShoppingResults = "GetShoppingResults"
+	rpcBookingResults  = "GetBookingResults"
+)
 
 // Search executes a flight search and returns the itineraries Google offers,
 // cheapest-relevant first (Google's "best" order). It is [Client.SearchResults]
@@ -163,7 +168,7 @@ func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq enc
 		currency = strings.ToUpper(req.Currency)
 	}
 
-	endpoint, err := c.rpcEndpoint(currency)
+	endpoint, err := c.rpcEndpoint(rpcShoppingResults, currency)
 	if err != nil {
 		return SearchResult{}, err
 	}
@@ -310,16 +315,16 @@ func cabinToFreq(c CabinClass) encoding.FreqCabin {
 	}
 }
 
-// rpcEndpoint builds the GetShoppingResults URL from the client's base origin,
-// carrying the locale query parameters the UI sends.
-func (c *Client) rpcEndpoint(currency string) (string, error) {
+// rpcEndpoint builds the URL for one FlightsFrontendService method from the
+// client's base origin, carrying the locale query parameters the UI sends.
+func (c *Client) rpcEndpoint(method, currency string) (string, error) {
 	base, err := url.Parse(c.baseURL)
 	if err != nil {
 		return "", fmt.Errorf("gflight: bad base URL %q: %w", c.baseURL, err)
 	}
 	// The RPC route lives at a fixed path on the same origin; the deep-link
 	// path segment in the base URL is not part of it.
-	base.Path = rpcPath
+	base.Path = rpcPathPrefix + method
 	base.RawPath = ""
 	q := url.Values{}
 	q.Set("curr", currency)

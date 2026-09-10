@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1–M3 done, M5a–M5c done; M4 pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1–M3 done, M4a done, M5a–M5c done; M4b pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -358,11 +358,46 @@ Fold in here (see [Amendments](#amendments-2026-09-08-deep-analysis-review) A4):
 - **Response goldens regenerated** with the documented `-update` flag to absorb
   `City`, `OperatingFlightNumber` and the four new amenity fields.
 
-### M4 — calendar graph + booking options · `feat: add price calendar and booking options`
+### M4 — calendar graph + booking options
 
-`GetCalendarGraph` (≤61 days per call, ≤305 days ahead — chunk and merge) and
-`GetBookingResults` (needs the session-anchored booking token; `internal/encoding`
-gains `bookingToken.go`). This is where the multi-chunk reader earns its keep.
+Split into two PRs: **M4a** booking options (`feat: add booking options`),
+**M4b** price calendar (`feat: add price calendar`). This is where the
+multi-chunk reader earns its keep — `GetBookingResults` is the first endpoint
+that genuinely emits several chunks.
+
+- [x] **`Client.BookingOptions(ctx, req, itinerary)`** (M4a) — `GetBookingResults`
+  from the itinerary's `row[8]` booking token, returning `[]BookingOption`
+  (`Vendor`, `VendorCode`, `Price`, `URL`, `FareName`, `FareCode`). Wire map in
+  [`../wire/booking-results.md`](../wire/booking-results.md); recorded fixture
+  `internal/testdata/booking_results_aa_jfk_lax.txt`.
+- [ ] **`Client.PriceCalendar(ctx, req, from, to)`** (M4b) — `GetCalendarGraph`,
+  ≤61 days per call, ≤305 days ahead: chunk, fan out through `mapConcurrent`,
+  merge and de-duplicate.
+
+### M4a implementation deviations
+
+- **`internal/encoding/booking.go`, not `bookingToken.go`.** The plan assumed we
+  would have to synthesise a booking token the way `fli` does when a row has
+  none. We already decode the real per-row `row[8]` token, so the synthesiser is
+  dead weight: the new file is a payload builder (`EncodeBooking`) and an
+  itinerary without a token is rejected outright.
+- **No session id is sent.** The plan called the token "session-anchored". The
+  captured request carries only `[null, token]` plus the trimmed main block;
+  `inner[0][4]` is never echoed back. `Client.SessionID` stays as it was.
+- **`rpcEndpoint` now takes a method name.** `rpcPath` became `rpcPathPrefix`
+  plus named method constants, so M4b adds `GetCalendarGraph` with no further
+  churn.
+- **`currencyFromToken` accepts both base64 alphabets.** Booking price tokens use
+  the standard alphabet (they contain `+`); the URL-safe decoder alone silently
+  dropped the currency off every booking option.
+- **`BookingOption.VendorCode` was added** beyond the planned surface. `Vendor`
+  is a display name ("American") and is not safe to compare against; the IATA
+  code comes free in the same row.
+- **Fixture framing bug found in passing.** Reading the real multi-chunk capture
+  exposed that `internal/wire` consumed `length` bytes where the header counts
+  `length` including its own terminating newline. Fixed, with the mis-trimmed
+  `shopping_results_multichunk.txt` corrected, in its own `fix:` PR ahead of
+  this one.
 
 ### M5 — resilience · `chore: harden upstream resilience`
 
@@ -553,7 +588,8 @@ The findings below are additive, not structural.
 4. **M5 (pulled ahead of M4):** retry / backoff / `Retry-After` /
    `WithRateLimit` / `WithTransport` as composed RoundTrippers; live canary;
    `synctest` tests; `*BlockedError`; observer hook.
-5. **M4 (next):** calendar graph + booking options.
+5. **M4a (done):** booking options.
+6. **M4b (next):** calendar graph.
 
 ---
 

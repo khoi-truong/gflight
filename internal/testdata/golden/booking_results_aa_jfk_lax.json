@@ -1,0 +1,38 @@
+[
+  {
+    "Vendor": "American",
+    "VendorCode": "AA",
+    "Price": {
+      "Amount": 347,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "URL": "https://www.google.com/travel/clk/f?u=REDACTED_CLICK_TOKEN",
+    "FareName": "Basic Economy",
+    "FareCode": "BASIC ECONOMY"
+  },
+  {
+    "Vendor": "American",
+    "VendorCode": "AA",
+    "Price": {
+      "Amount": 457,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "URL": "https://www.google.com/travel/clk/f?u=REDACTED_CLICK_TOKEN",
+    "FareName": "Main Cabin",
+    "FareCode": "MAIN CABIN"
+  },
+  {
+    "Vendor": "American",
+    "VendorCode": "AA",
+    "Price": {
+      "Amount": 649,
+      "Currency": "USD",
+      "Unknown": false
+    },
+    "URL": "https://www.google.com/travel/clk/f?u=REDACTED_CLICK_TOKEN",
+    "FareName": "Main Plus",
+    "FareCode": "MAIN PLUS"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "_provenance": {
+    "captured_at": "2026-09-10",
+    "endpoint": "GetBookingResults",
+    "request": "JFK->LAX one-way, American Airlines itinerary",
+    "scrubbed": true,
+    "notes": "Real Google response (fli fixtures, MIT), 4 frames / 2 wrb.fr payloads. Session ids at inner[0][3] and inner[0][4] replaced; the session-anchored field 1 stripped from each base64 price token (field 3, the currency, is untouched); click-out u= tokens replaced; af.httprm request id zeroed."
+  }
+}
