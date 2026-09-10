@@ -62,9 +62,10 @@ func retryableStatus(code int) bool {
 // Every request this library issues carries a fully-buffered body (a short
 // form-encoded string) and is safe to replay.
 type retryTransport struct {
-	next   http.RoundTripper
-	policy RetryPolicy
-	logger *slog.Logger
+	next     http.RoundTripper
+	policy   RetryPolicy
+	logger   *slog.Logger
+	observer *Observer
 }
 
 func (t *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -92,7 +93,14 @@ func (t *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 			return resp, err
 		}
 
-		wait := t.backoff(attempt, resp)
+		wait, fromHeader := t.backoff(attempt, resp)
+		t.observer.retry(RetryEvent{
+			Attempt:    attempt,
+			Wait:       wait,
+			StatusCode: statusOf(resp),
+			RetryAfter: fromHeader,
+			Err:        err,
+		})
 		if t.logger != nil {
 			t.logger.Debug("gflight: retrying upstream request",
 				"attempt", attempt, "next_in", wait, "err", err, "status", statusOf(resp))
@@ -107,14 +115,15 @@ func (t *retryTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 }
 
 // backoff picks the wait before the next attempt: the Retry-After header when
-// the server sent one, otherwise full-jitter exponential backoff.
-func (t *retryTransport) backoff(attempt int, resp *http.Response) time.Duration {
+// the server sent one, otherwise full-jitter exponential backoff. The second
+// result reports whether the wait came from the header.
+func (t *retryTransport) backoff(attempt int, resp *http.Response) (time.Duration, bool) {
 	if resp != nil {
 		if d, ok := parseRetryAfter(resp.Header.Get("Retry-After"), time.Now()); ok {
 			if d > t.policy.MaxDelay {
-				return t.policy.MaxDelay
+				return t.policy.MaxDelay, true
 			}
-			return d
+			return d, true
 		}
 	}
 	ceil := float64(t.policy.BaseDelay) * math.Ldexp(1, attempt-1)
@@ -122,9 +131,9 @@ func (t *retryTransport) backoff(attempt int, resp *http.Response) time.Duration
 		ceil = capped
 	}
 	if ceil <= 0 {
-		return 0
+		return 0, false
 	}
-	return time.Duration(rand.Float64() * ceil)
+	return time.Duration(rand.Float64() * ceil), false
 }
 
 // rewindBody returns a fresh body ReadCloser for a replayed request.

@@ -41,7 +41,7 @@ func allFlights(t *testing.T, name string) []Flight {
 	t.Helper()
 	var out []Flight
 	for _, inner := range innerFromFixture(t, name) {
-		fs, err := Flights(inner)
+		fs, _, err := Flights(inner)
 		if err != nil {
 			t.Fatalf("Flights(%s): %v", name, err)
 		}
@@ -304,7 +304,7 @@ func TestFlightsAllRowsFail(t *testing.T) {
 	t.Parallel()
 	// inner[2][0] is a list of rows, each of which is unparseable garbage.
 	inner := []any{nil, nil, []any{[]any{"garbage", float64(42), true}}, nil}
-	_, err := Flights(inner)
+	_, stats, err := Flights(inner)
 	var allFailed *AllRowsFailedError
 	if !errors.As(err, &allFailed) {
 		t.Fatalf("err = %v, want *AllRowsFailedError", err)
@@ -312,12 +312,15 @@ func TestFlightsAllRowsFail(t *testing.T) {
 	if allFailed.Total != 3 || len(allFailed.Samples) == 0 {
 		t.Errorf("unexpected AllRowsFailedError: %+v", allFailed)
 	}
+	if stats.Rows != 3 || stats.Failures != 3 {
+		t.Errorf("stats = %+v, want {Rows:3 Failures:3}", stats)
+	}
 }
 
 func TestFlightsShapeChanged(t *testing.T) {
 	t.Parallel()
 	inner := []any{nil, nil, "not-a-list", 7}
-	_, err := Flights(inner)
+	_, _, err := Flights(inner)
 	if !errors.Is(err, ErrShapeChanged) {
 		t.Fatalf("err = %v, want ErrShapeChanged", err)
 	}

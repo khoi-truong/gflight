@@ -39,6 +39,10 @@ run = ["actionlint", "zizmor --persona=regular ."]
 description = "Tests with race detector + coverage"
 run = "go test -race -shuffle=on -covermode=atomic -coverprofile=coverage.txt ./..."
 
+[tasks."test:live"]
+description = "Live canary against the real endpoint (network; excluded from ci)"
+run = "go test -tags live -run TestLive -v -count=1 ."
+
 [tasks.vuln]
 description = "Check for known vulnerabilities"
 run = "govulncheck ./..."

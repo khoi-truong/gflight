@@ -1,0 +1,41 @@
+name: Live canary
+run-name: "${{ github.workflow }} · ${{ github.event_name }}"
+
+# The only workflow that reaches the network from a test. It answers "does
+# Google still serve the wire shape the fixtures record?", which `mise run ci`
+# structurally cannot. A failure here usually means upstream drifted or the
+# runner hit a bot wall — read it before blaming the last commit.
+
+on:
+  schedule:
+    # 05:17 UTC daily — off the hour, so it does not queue behind the herd.
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+env:
+  MISE_TASK_RUN_AUTO_INSTALL: "false"
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  live-smoke:
+    name: Smoke-test the live endpoint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up toolchain
+        uses: ./.github/actions/setup-go
+        with:
+          install-args: go
+      - name: Run the live smoke test
+        run: mise run test:live

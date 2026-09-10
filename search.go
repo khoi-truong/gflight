@@ -201,7 +201,8 @@ func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq enc
 		if sid := decode.SessionID(inner); sid != "" {
 			sessionID = sid
 		}
-		fs, err := decode.Flights(inner)
+		fs, stats, err := decode.Flights(inner)
+		c.observer.parse(ParseEvent{Rows: stats.Rows, Failures: stats.Failures})
 		if err != nil {
 			var allFailed *decode.AllRowsFailedError
 			if errors.As(err, &allFailed) {

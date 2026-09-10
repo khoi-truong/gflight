@@ -175,10 +175,19 @@ func SessionID(inner any) string {
 	return asStr(path(inner, 0, 4))
 }
 
-// Flights decodes every itinerary row in an already-JSON-decoded inner payload.
-// A zero-length result with err == nil means the search genuinely matched
-// nothing.
-func Flights(inner any) ([]Flight, error) {
+// Stats counts what one payload held, so callers can watch decode failures as
+// an upstream-drift canary.
+type Stats struct {
+	// Rows is the number of candidate itinerary rows found.
+	Rows int
+	// Failures is how many of those rows failed to decode.
+	Failures int
+}
+
+// Flights decodes every itinerary row in an already-JSON-decoded inner payload,
+// returning the counts alongside. A zero-length result with err == nil means
+// the search genuinely matched nothing.
+func Flights(inner any) ([]Flight, Stats, error) {
 	var rows []any
 	for _, i := range []int{2, 3} {
 		if block := at(inner, i); isSlice(block) {
@@ -187,20 +196,20 @@ func Flights(inner any) ([]Flight, error) {
 	}
 	if rows == nil {
 		if !isSlice(at(inner, 2)) && !isSlice(at(inner, 3)) {
-			return nil, ErrShapeChanged
+			return nil, Stats{}, ErrShapeChanged
 		}
-		return nil, nil
+		return nil, Stats{}, nil
 	}
 
 	cities := airportCities(at(inner, innerAirportDirIdx))
 
 	out := make([]Flight, 0, len(rows))
 	var samples []string
-	var failed bool
+	stats := Stats{Rows: len(rows)}
 	for _, row := range rows {
 		f, err := parseRow(row, cities)
 		if err != nil {
-			failed = true
+			stats.Failures++
 			reason := err.Error()
 			if len(samples) < 3 && !slices.Contains(samples, reason) {
 				samples = append(samples, reason)
@@ -210,10 +219,10 @@ func Flights(inner any) ([]Flight, error) {
 		out = append(out, f)
 	}
 
-	if len(out) == 0 && failed {
-		return nil, &AllRowsFailedError{Total: len(rows), Samples: samples}
+	if len(out) == 0 && stats.Failures > 0 {
+		return nil, stats, &AllRowsFailedError{Total: len(rows), Samples: samples}
 	}
-	return out, nil
+	return out, stats, nil
 }
 
 // innerAirportDirIdx is the airport directory Google ships alongside the rows.
