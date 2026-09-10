@@ -3,6 +3,7 @@ package gflight
 import (
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"log/slog"
 	"math"
@@ -10,6 +11,8 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+
+	"golang.org/x/time/rate"
 )
 
 // RetryPolicy configures the retrying [http.RoundTripper] that [WithRetry]
@@ -186,4 +189,32 @@ func parseRetryAfter(v string, now time.Time) (time.Duration, bool) {
 		return d, true
 	}
 	return 0, false
+}
+
+// rateLimitTransport paces upstream requests through a token bucket. It sits
+// below the retrying transport, so a retry costs a token like any other attempt.
+type rateLimitTransport struct {
+	next    http.RoundTripper
+	limiter *rate.Limiter
+}
+
+func (t *rateLimitTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if err := t.limiter.Wait(req.Context()); err != nil {
+		return nil, rateLimitWaitErr(req.Context(), err)
+	}
+	return t.next.RoundTrip(req)
+}
+
+// rateLimitWaitErr normalises the failure modes of [rate.Limiter.Wait] onto the
+// context errors callers already compare against: rate reports a request that
+// would outlive its deadline as a plain string error, before the deadline has
+// actually passed.
+func rateLimitWaitErr(ctx context.Context, err error) error {
+	if ctxErr := ctx.Err(); ctxErr != nil {
+		return ctxErr
+	}
+	if _, ok := ctx.Deadline(); ok {
+		return fmt.Errorf("gflight: rate limit wait outlives deadline: %w", context.DeadlineExceeded)
+	}
+	return fmt.Errorf("gflight: rate limit wait: %w", err)
 }

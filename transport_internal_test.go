@@ -9,6 +9,8 @@ import (
 	"testing"
 	"testing/synctest"
 	"time"
+
+	"golang.org/x/time/rate"
 )
 
 type rtFunc func(*http.Request) (*http.Response, error)
@@ -177,4 +179,88 @@ func TestParseRetryAfter(t *testing.T) {
 			t.Errorf("parseRetryAfter(%q) = (%s, %t), want (%s, %t)", tt.in, got, ok, tt.want, tt.ok)
 		}
 	}
+}
+
+func TestRateLimitTransportPacesRequests(t *testing.T) {
+	t.Parallel()
+	var calls int
+	rt := &rateLimitTransport{
+		limiter: rate.NewLimiter(10, 1), // 10 req/s, one token in hand
+		next: rtFunc(func(r *http.Request) (*http.Response, error) {
+			calls++
+			return newResp(http.StatusOK, nil), nil
+		}),
+	}
+	synctest.Test(t, func(t *testing.T) {
+		start := time.Now()
+		for range 3 {
+			if _, err := rt.RoundTrip(reqWithBody(t)); err != nil {
+				t.Fatalf("RoundTrip: %v", err)
+			}
+		}
+		// First request spends the burst token; the next two wait 100ms each.
+		if got, want := time.Since(start), 200*time.Millisecond; got != want {
+			t.Fatalf("elapsed = %v, want %v", got, want)
+		}
+		if calls != 3 {
+			t.Fatalf("calls = %d, want 3", calls)
+		}
+	})
+}
+
+func TestRateLimitTransportHonoursContext(t *testing.T) {
+	t.Parallel()
+	var calls int
+	rt := &rateLimitTransport{
+		limiter: rate.NewLimiter(1, 1),
+		next: rtFunc(func(r *http.Request) (*http.Response, error) {
+			calls++
+			return newResp(http.StatusOK, nil), nil
+		}),
+	}
+	synctest.Test(t, func(t *testing.T) {
+		if _, err := rt.RoundTrip(reqWithBody(t)); err != nil { // spends the token
+			t.Fatalf("RoundTrip: %v", err)
+		}
+
+		ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+		defer cancel()
+		req := reqWithBody(t).WithContext(ctx)
+		if _, err := rt.RoundTrip(req); !errors.Is(err, context.DeadlineExceeded) {
+			t.Fatalf("err = %v, want context.DeadlineExceeded", err)
+		}
+		if calls != 1 {
+			t.Fatalf("calls = %d, want 1 (queued request must not reach the network)", calls)
+		}
+	})
+}
+
+func TestRateLimitLayersUnderRetry(t *testing.T) {
+	t.Parallel()
+	var calls int
+	c := New(
+		WithRateLimit(10, 1),
+		WithRetry(RetryPolicy{MaxAttempts: 3, BaseDelay: time.Millisecond, MaxDelay: time.Millisecond}),
+		WithTransport(rtFunc(func(r *http.Request) (*http.Response, error) {
+			calls++
+			return newResp(http.StatusServiceUnavailable, nil), nil
+		})),
+	)
+	synctest.Test(t, func(t *testing.T) {
+		start := time.Now()
+		resp, err := c.httpClient.Transport.RoundTrip(reqWithBody(t))
+		if err != nil {
+			t.Fatalf("RoundTrip: %v", err)
+		}
+		drain(resp)
+		if calls != 3 {
+			t.Fatalf("calls = %d, want 3", calls)
+		}
+		// Two retries pay the 100ms limiter interval, not just the 1ms backoff.
+		// rate's float token maths can land a nanosecond short of the nominal
+		// 200ms, so allow a millisecond of slack.
+		if got, want := time.Since(start), 199*time.Millisecond; got < want {
+			t.Fatalf("elapsed = %v, want >= %v (retries must spend tokens)", got, want)
+		}
+	})
 }

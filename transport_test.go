@@ -5,6 +5,7 @@ import (
 	"errors"
 	"net/http"
 	"net/http/httptest"
+	"sync"
 	"sync/atomic"
 	"testing"
 	"time"
@@ -122,3 +123,52 @@ func TestWithTransportIsUsed(t *testing.T) {
 type roundTripFunc func(*http.Request) (*http.Response, error)
 
 func (f roundTripFunc) RoundTrip(r *http.Request) (*http.Response, error) { return f(r) }
+
+func TestWithRateLimitSpacesRequests(t *testing.T) {
+	t.Parallel()
+	body := fixtureBytes(t, "shopping_results_oneway_jfk_lax.txt")
+	var (
+		mu    sync.Mutex
+		times []time.Time
+	)
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		mu.Lock()
+		times = append(times, time.Now())
+		mu.Unlock()
+		_, _ = w.Write(body)
+	}))
+	t.Cleanup(srv.Close)
+
+	const interval = 20 * time.Millisecond
+	c := gflight.New(
+		gflight.WithBaseURL(srv.URL),
+		gflight.WithHTTPClient(srv.Client()),
+		gflight.WithRateLimit(float64(time.Second/interval), 1),
+	)
+	for range 3 {
+		if _, err := c.Search(context.Background(), sampleRequest()); err != nil {
+			t.Fatalf("Search: %v", err)
+		}
+	}
+
+	mu.Lock()
+	defer mu.Unlock()
+	if len(times) != 3 {
+		t.Fatalf("server hits = %d, want 3", len(times))
+	}
+	// The burst covers the first request; each later one waits out the interval.
+	// Exact pacing is asserted under synctest in transport_internal_test.go —
+	// here a wall clock only has to show the limiter is in the stack at all.
+	if gap := times[2].Sub(times[0]); gap < interval {
+		t.Fatalf("first-to-last gap = %v, want >= %v", gap, interval)
+	}
+}
+
+func TestWithRateLimitIgnoresNonPositiveRate(t *testing.T) {
+	t.Parallel()
+	hc := &http.Client{Transport: http.DefaultTransport}
+	c := gflight.New(gflight.WithHTTPClient(hc), gflight.WithRateLimit(0, 5))
+	if got := c.HTTPClient().Transport; got != http.DefaultTransport {
+		t.Fatalf("transport = %T, want the unwrapped base transport", got)
+	}
+}

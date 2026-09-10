@@ -5,8 +5,8 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/khoi-truong/gflight)](https://goreportcard.com/report/github.com/khoi-truong/gflight)
 
 A small Go client for searching flights on Google Flights — context-first,
-stdlib-only, and designed to be embedded in a backend rather than driven from a
-terminal.
+near-stdlib-only, and designed to be embedded in a backend rather than driven
+from a terminal.
 
 ## Disclaimer
 
@@ -101,9 +101,15 @@ reachable with `errors.As` that unwraps to `ErrBadResponse`. A block carries a
 `WithRetry(RetryPolicy{MaxAttempts: 4})` installs a retrying transport —
 connection errors and 408/425/429/500/502/503/504 are retried with full-jitter
 exponential backoff, and a `Retry-After` header overrides the computed wait.
-`WithTransport` sets the base `http.RoundTripper` (retry layers on top of it)
-for slotting in a uTLS or proxy stack without replacing the whole `http.Client`.
-Both are off by default; `go.sum` stays empty.
+`WithTransport` sets the base `http.RoundTripper` for slotting in a uTLS or
+proxy stack without replacing the whole `http.Client`.
+`WithRateLimit(rps, burst)` paces every request through a token bucket —
+retries included, since the limiter sits below retry. A request that cannot be
+sent before its context deadline fails with the context error instead of
+queueing. Google publishes no quota; comparable clients settle around 10 req/s.
+
+All three are off by default. Rate limiting is the library's one dependency,
+`golang.org/x/time/rate`; nothing else is imported outside the stdlib.
 
 ## Acknowledgements
 

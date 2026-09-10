@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1–M3 done, M5a done; M4 and M5b–M5c pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** in progress (M1–M3 done, M5a–M5b done; M4 and M5c pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -390,9 +390,9 @@ observability + live canary.
   bare `ErrBlocked` return (still `Unwrap`s to it); carries the parsed
   `Retry-After` and the `SearchURL` deep link so a blocked caller degrades to
   "open in browser".
-- **`WithRateLimit(rps, burst)`** (M5b) using `golang.org/x/time/rate` — the one
-  near-stdlib dependency worth taking. `go.sum` stops being empty; note it in the
-  README and the guardrails below. `fli`'s ceiling is ~10 req/s.
+- [x] **`WithRateLimit(rps, burst)`** (M5b) using `golang.org/x/time/rate` — the
+  one near-stdlib dependency worth taking. `go.sum` stops being empty; noted in
+  the README and the guardrails below. `fli`'s ceiling is ~10 req/s.
 - **`WithMaxConcurrency(n)`** (semaphore) — shared with M2's fan-out helper,
   landed in M2.
 - Document a uTLS recipe for `WithTransport` in `examples/` (M5c).
@@ -404,6 +404,23 @@ observability + live canary.
   `internal/encoding` (M5c); a `//go:build live` smoke test (one canonical route,
   >0 rows, required fields non-zero) excluded from `mise run ci` and run on a CI
   schedule (M5c); a goroutine-leak check (M5c).
+
+### M5b implementation deviations
+
+- **The limiter sits *below* retry, not above it** — `retry -> rate limit ->
+  base`. A retried attempt spends a token like any other request, which is the
+  point: retrying into a 429 storm at full speed is what the limiter exists to
+  prevent.
+- **`rate.Limiter.Wait` errors are normalised onto the context errors.** `rate`
+  reports a request that would outlive its deadline as a plain string error
+  *before* the deadline passes; `rateLimitWaitErr` maps that (and an
+  already-cancelled context) onto `context.DeadlineExceeded` /
+  `context.Canceled`, so `errors.Is` keeps working through `*url.Error`.
+- **Arguments are clamped, not rejected**, matching every other Option: `rps <= 0`
+  leaves rate limiting off, `burst < 1` is raised to 1 so the client always
+  makes progress.
+- **`go.sum` is no longer empty** — `golang.org/x/time v0.16.0`, no transitive
+  fan-out. The guardrail is amended accordingly.
 
 ### M5a implementation deviations
 
@@ -560,9 +577,9 @@ copyright headers go into `.go` files, since no source is copied verbatim.
 
 ### Must hold
 
-- `go.sum` stays empty through M4. **Amended (A2):** M5 may add
-  `golang.org/x/time/rate` — one quasi-stdlib dependency, no transitive fan-out —
-  and nothing else. `google.golang.org/protobuf` and uTLS stay out.
+- `go.sum` holds exactly one dependency: `golang.org/x/time` (M5b, per amendment
+  A2) — quasi-stdlib, no transitive fan-out. Nothing else goes in.
+  `google.golang.org/protobuf` and uTLS stay out.
 - No network in `go test`, ever. Every parser test is fixture-driven.
 - Every fixture is scrubbed per `.claude/skills/fixture-capture/SKILL.md` and
   carries a `_provenance` block. Raw RPC bodies are not JSON, so they land as

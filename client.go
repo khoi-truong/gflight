@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"sync"
 	"time"
+
+	"golang.org/x/time/rate"
 )
 
 // DefaultBaseURL is the Google Flights origin the client talks to.
@@ -29,6 +31,8 @@ type Client struct {
 	baseTransport http.RoundTripper
 	// retry, when non-nil, enables the retrying RoundTripper from [WithRetry].
 	retry *RetryPolicy
+	// limiter, when non-nil, paces requests per [WithRateLimit].
+	limiter *rate.Limiter
 
 	// maxConcurrency bounds phase-2 round-trip fan-out. Always >= 1.
 	maxConcurrency int
@@ -61,9 +65,10 @@ func New(opts ...Option) *Client {
 // assembleTransport layers the RoundTripper stack onto a private copy of the
 // http.Client, so a caller's [WithHTTPClient] value is never mutated:
 //
-//	retry (WithRetry) -> base (WithTransport, else the client's own transport)
+//	retry (WithRetry) -> rate limit (WithRateLimit) -> base (WithTransport,
+//	else the client's own transport)
 func (c *Client) assembleTransport() {
-	if c.baseTransport == nil && c.retry == nil {
+	if c.baseTransport == nil && c.retry == nil && c.limiter == nil {
 		return
 	}
 	hc := *c.httpClient
@@ -73,6 +78,9 @@ func (c *Client) assembleTransport() {
 	}
 	if base == nil {
 		base = http.DefaultTransport
+	}
+	if c.limiter != nil {
+		base = &rateLimitTransport{next: base, limiter: c.limiter}
 	}
 	if c.retry != nil {
 		base = &retryTransport{next: base, policy: *c.retry, logger: c.logger}
