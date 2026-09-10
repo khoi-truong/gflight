@@ -78,6 +78,13 @@ JSONP-flavoured envelope, decoded by `internal/wire`:
 [["wrb.fr", null, "<inner JSON string>"], ...]
 ```
 
+The length is a **byte** count, not a rune count, and it spans more than the
+JSON: it covers the newline that ends the length line, the JSON, and the newline
+before the next length line. A reader that has already consumed the header's
+newline must therefore take `len - 1` bytes. Taking `len` swallows the first
+digit of the next header and desynchronises every frame after it — invisible on
+a single-chunk reply, fatal on a multi-chunk one.
+
 `GetShoppingResults` emits **one** chunk today and may omit the length line
 entirely (bare frame); `GetBookingResults` emits several. The reader handles
 both. A `wrb.fr` row with a null payload and `row[5] == [N]` is an upstream

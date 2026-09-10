@@ -4,6 +4,7 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
+	"strconv"
 	"testing"
 )
 
@@ -83,6 +84,34 @@ func TestPayloadsEmptyEnvelope(t *testing.T) {
 	}
 	if len(payloads) != 0 {
 		t.Errorf("got %d payloads, want 0", len(payloads))
+	}
+}
+
+// TestPayloadsFrameLengthConvention pins how the length header is counted:
+// header newline + JSON + separating newline. The body below is built to that
+// convention, so a reader that consumes the full declared length instead of
+// length-1 eats the leading "4" of the second header, reads frame 2 as 5369
+// bytes, and fails. Both frames must come back intact.
+func TestPayloadsFrameLengthConvention(t *testing.T) {
+	t.Parallel()
+	first := `[["wrb.fr",null,"first"]]`
+	second := `[["wrb.fr",null,"second"]]`
+	body := ")]}'\n\n" +
+		strconv.Itoa(len(first)+2) + "\n" + first + "\n" +
+		strconv.Itoa(len(second)+2) + "\n" + second + "\n"
+
+	payloads, err := Payloads([]byte(body))
+	if err != nil {
+		t.Fatalf("Payloads: %v", err)
+	}
+	want := []string{"first", "second"}
+	if len(payloads) != len(want) {
+		t.Fatalf("got %d payloads, want %d", len(payloads), len(want))
+	}
+	for i, w := range want {
+		if string(payloads[i]) != w {
+			t.Errorf("payload %d = %q, want %q", i, payloads[i], w)
+		}
 	}
 }
 

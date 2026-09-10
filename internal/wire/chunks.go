@@ -12,6 +12,10 @@
 //   - length-prefixed: "<utf8-byte-length>\n<json-array>\n", or
 //   - bare: the JSON array alone, with no length line (single-frame replies).
 //
+// The length is a UTF-8 byte count that covers the newline terminating the
+// length line, the JSON, and the newline before the next length line — so the
+// JSON itself is length-1 bytes once the header has been consumed.
+//
 // Every JSON array looks like [["wrb.fr", null, "<payload>", ...], ...]. The
 // third element of a "wrb.fr" row is itself a JSON string; that inner string is
 // what callers want. This package returns those inner payloads, in order.
@@ -111,11 +115,17 @@ func nextFrame(buf []byte) (frame, rest []byte, err error) {
 	if nl > 0 {
 		if n, convErr := strconv.Atoi(string(bytes.TrimSpace(buf[:nl]))); convErr == nil && n >= 0 {
 			start := nl + 1
-			if start+n > len(buf) {
+			// The header counts three things: the newline that terminates the
+			// header itself, the JSON, and the newline separating this frame
+			// from the next header. That first newline is already consumed by
+			// start, so the frame is n-1 bytes — reading n swallows the first
+			// digit of the next header and desynchronises every frame after it.
+			size := max(n-1, 0)
+			if start+size > len(buf) {
 				return nil, nil, ErrShortRead
 			}
-			frame = buf[start : start+n]
-			rest = bytes.TrimLeft(buf[start+n:], "\r\n")
+			frame = buf[start : start+size]
+			rest = bytes.TrimLeft(buf[start+size:], "\r\n")
 			return frame, rest, nil
 		}
 	}
