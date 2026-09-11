@@ -106,8 +106,9 @@ func decodeTFSLeg(t *testing.T, raw []byte) (tfsLeg, bool) {
 }
 
 // FuzzEncodeFreqRoundTrip asserts the `f.req` body is always a percent-encoded
-// JSON pair whose second element is itself valid JSON — the shape the endpoint
-// requires — for arbitrary filter values, and that encoding never panics.
+// batchexecute envelope whose payload element is itself valid JSON — the shape
+// the endpoint requires — for arbitrary filter values, and that encoding never
+// panics.
 func FuzzEncodeFreqRoundTrip(f *testing.F) {
 	f.Add("JFK", "LAX", 1, 0, 2, 1200, false)
 	f.Add("", "", 0, 0, 0, 0, true)
@@ -140,24 +141,24 @@ func FuzzEncodeFreqRoundTrip(f *testing.F) {
 			return // a refusal is a valid outcome; a panic or bad JSON is not
 		}
 
-		decoded, err := url.QueryUnescape(body)
+		decoded, err := url.QueryUnescape(Batch("LqxFAb", body))
 		if err != nil {
 			t.Fatalf("f.req is not percent-encoded: %v", err)
 		}
-		var outer []any
-		if err := json.Unmarshal([]byte(decoded), &outer); err != nil {
-			t.Fatalf("outer f.req is not JSON: %v", err)
+		var envelope [][][]any
+		if err := json.Unmarshal([]byte(decoded), &envelope); err != nil {
+			t.Fatalf("f.req envelope is not JSON: %v", err)
 		}
-		if len(outer) != 2 {
-			t.Fatalf("outer f.req has %d elements, want 2", len(outer))
+		if len(envelope) != 1 || len(envelope[0]) != 1 || len(envelope[0][0]) != 4 {
+			t.Fatalf("f.req envelope shape = %v", envelope)
 		}
-		innerStr, ok := outer[1].(string)
+		payload, ok := envelope[0][0][1].(string)
 		if !ok {
-			t.Fatalf("f.req[1] is %T, want a JSON string", outer[1])
+			t.Fatalf("envelope payload is %T, want a JSON string", envelope[0][0][1])
 		}
 		var inner []any
-		if err := json.Unmarshal([]byte(innerStr), &inner); err != nil {
-			t.Fatalf("inner f.req is not JSON: %v", err)
+		if err := json.Unmarshal([]byte(payload), &inner); err != nil {
+			t.Fatalf("envelope payload is not JSON: %v", err)
 		}
 	})
 }

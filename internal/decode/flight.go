@@ -169,8 +169,8 @@ func (e *AllRowsFailedError) Error() string {
 		e.Total, strings.Join(e.Samples, "; "))
 }
 
-// SessionID reads the shopping-session id at inner[0][4], used to authenticate
-// a follow-up GetBookingResults call. Returns "" when absent.
+// SessionID reads the shopping-session id at inner[0][4]. Returns "" when
+// absent.
 func SessionID(inner any) string {
 	return asStr(path(inner, 0, 4))
 }
@@ -314,8 +314,8 @@ func parseRow(row any, cities map[string]string) (Flight, error) {
 }
 
 // parsePrice returns (amount, unknown, err). unknown is true for the
-// [[], "<token>"] form — Google declined to surface a shopping-list price and
-// the caller must resolve a real fare via a booking-results call.
+// [[], "<token>"] form — Google declined to surface a shopping-list price. It
+// prices those rows only in its own UI, behind a gated method.
 func parsePrice(block any) (amount float64, unknown bool, err error) {
 	s := sliceOf(block)
 	if s == nil {

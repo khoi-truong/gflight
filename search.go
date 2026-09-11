@@ -16,13 +16,34 @@ import (
 	"github.com/khoi-truong/gflight/internal/wire"
 )
 
-// FlightsFrontendService method names. The service is undocumented and
-// unversioned; each method hangs off rpcPathPrefix on the same origin.
+// The FlightsFrontendUi batchexecute endpoint and the rpc ids it dispatches on.
+//
+// Nearly every FlightsFrontendService method is gated on an
+// X-Goog-BatchExecute-Bgr header — a BotGuard token minted by obfuscated
+// in-page JS and bound to the exact request body. Without it the call fails
+// even with the UI's own byte-exact payload. No pure-Go client can produce one.
+// The gate is per method, not per transport: the per-method path style
+// (…/travel.frontend.flights.FlightsFrontendService/<Method>) and batchexecute
+// are gated alike. See docs/wire/botguard.md.
+//
+// batchexecute is used here because it names the method by an opaque rpc id
+// rather than a path segment, which keeps the one ungated method addressable
+// the same way the UI addresses it. The ids are read off the live UI's
+// requests; they are unversioned and can change without notice.
 const (
-	rpcPathPrefix = "/_/FlightsFrontendUi/data/travel.frontend.flights.FlightsFrontendService/"
+	rpcPath = "/_/FlightsFrontendUi/data/batchexecute"
 
-	rpcShoppingResults = "GetShoppingResults"
-	rpcBookingResults  = "GetBookingResults"
+	// sourcePath is the UI route Google attributes the call to. The real
+	// client sends it on every request.
+	sourcePath = "/travel/flights"
+
+	// rpcShoppingResults is GetShoppingResultsPrefetch, not GetShoppingResults.
+	// The prefetch variant is the one route the service answers for an
+	// anonymous caller — it has to, because it renders the initial page before
+	// any JS runs. It returns the same shopping payload, booking tokens
+	// included, and honours every filter. GetShoppingResults itself (Sipqjf)
+	// is BotGuard-gated like the rest.
+	rpcShoppingResults = "LqxFAb"
 )
 
 // Search executes a flight search and returns the itineraries Google offers,
@@ -37,7 +58,7 @@ func (c *Client) Search(ctx context.Context, req SearchRequest) ([]Itinerary, er
 }
 
 // SearchResults executes a flight search and returns the itineraries alongside
-// the shopping-session id a later booking-results call needs.
+// the shopping-session id upstream tagged the response with.
 //
 // With [SearchRequest.ReturnDate] set it returns the outbound options of a
 // round trip in a single request. To get return itineraries priced against a
@@ -173,7 +194,7 @@ func (c *Client) executeFreq(ctx context.Context, req SearchRequest, freqReq enc
 		return SearchResult{}, err
 	}
 
-	raw, err := c.post(ctx, endpoint, "f.req="+body)
+	raw, err := c.post(ctx, endpoint, "f.req="+encoding.Batch(rpcShoppingResults, body))
 	if err != nil {
 		var be *BlockedError
 		if errors.As(err, &be) && be.DeepLink == "" {
@@ -315,18 +336,20 @@ func cabinToFreq(c CabinClass) encoding.FreqCabin {
 	}
 }
 
-// rpcEndpoint builds the URL for one FlightsFrontendService method from the
-// client's base origin, carrying the locale query parameters the UI sends.
-func (c *Client) rpcEndpoint(method, currency string) (string, error) {
+// rpcEndpoint builds the batchexecute URL for one rpc id from the client's base
+// origin, carrying the locale query parameters the UI sends.
+func (c *Client) rpcEndpoint(rpcID, currency string) (string, error) {
 	base, err := url.Parse(c.baseURL)
 	if err != nil {
 		return "", fmt.Errorf("gflight: bad base URL %q: %w", c.baseURL, err)
 	}
 	// The RPC route lives at a fixed path on the same origin; the deep-link
 	// path segment in the base URL is not part of it.
-	base.Path = rpcPathPrefix + method
+	base.Path = rpcPath
 	base.RawPath = ""
 	q := url.Values{}
+	q.Set("rpcids", rpcID)
+	q.Set("source-path", sourcePath)
 	q.Set("curr", currency)
 	q.Set("hl", c.language)
 	q.Set("gl", c.country)

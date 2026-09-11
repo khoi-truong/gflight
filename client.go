@@ -41,7 +41,7 @@ type Client struct {
 
 	mu sync.Mutex
 	// lastSessionID is inner[0][4] from the most recent successful search —
-	// the shopping-session id a future booking-results call needs.
+	// the shopping-session id upstream tagged the response with.
 	lastSessionID string
 }
 
@@ -107,8 +107,8 @@ func (c *Client) UserAgent() string { return c.userAgent }
 func (c *Client) Currency() string { return c.currency }
 
 // SessionID reports the shopping-session id captured from the most recent
-// successful [Client.Search], or "" if none. It authenticates a follow-up
-// booking-results call.
+// successful [Client.Search], or "" if none. Nothing in this library consumes
+// it; it is exposed because upstream tags the response with it.
 //
 // Deprecated: use [SearchResult.SessionID] from [Client.SearchResults]. This
 // accessor is per-Client mutable state and races across concurrent searches.

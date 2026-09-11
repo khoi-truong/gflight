@@ -24,12 +24,18 @@ Google's Terms of Service and any applicable rate limits. Use at your own risk.
 > bags, max trip duration, layover airports and min/max layover, departure and
 > arrival hour windows, less-emissions-only, exclude-basic-economy — each inert
 > at its zero value and each with a structurally derived wire shape.
-> `Client.BookingOptions` resolves the real vendor fares behind an itinerary.
-> Price calendars are still to come.
 >
-> Google fingerprints TLS clients — the stock `net/http` transport is often met
-> with a `*BlockedError`. Plug a browser-grade transport in with `WithTransport`
-> when that happens, and enable `WithRetry` for transient 429/5xx.
+> Search is the only reachable surface. Google gates every other
+> `FlightsFrontendService` method — vendor fares and price calendars among them —
+> behind a BotGuard token minted by in-page JavaScript, which no Go client can
+> produce. The one method that answers an anonymous caller is
+> `GetShoppingResultsPrefetch`, and this library rides on it alone: if Google
+> ever gates that rpc id too, nothing here works. See
+> [`docs/wire/botguard.md`](docs/wire/botguard.md).
+>
+> `WithRetry` handles transient 429/5xx; `WithTransport` slots in a custom
+> `http.RoundTripper`. Neither defeats the BotGuard gate — a browser-grade TLS
+> fingerprint was tested and makes no difference.
 
 ## Install
 
@@ -85,19 +91,8 @@ are trip totals.
 
 Some itineraries come back with `Price.Unknown` set — Google returned the
 journey but no shopping-list price, which is common for premium-cabin round
-trips. `BookingOptions(ctx, req, itinerary)` resolves the real, bookable fares
-behind one of those, using the itinerary's opaque `BookingToken`:
-
-```go
-opts, err := client.BookingOptions(ctx, req, itineraries[0])
-for _, o := range opts {
- fmt.Printf("%s %s %.0f %s\n%s\n", o.Vendor, o.FareName, o.Price.Amount, o.Price.Currency, o.URL)
-}
-```
-
-Pass the same `SearchRequest` the itinerary came from: Google prices the offers
-against its passenger count and cabin. `URL` is a Google click-out that
-redirects to the vendor, not the vendor's own link.
+trips. Treat those as unpriced, not free: Google prices them only in its own UI,
+behind a method this library cannot call.
 
 Locale defaults to `USD` / `en` / `US`; override with `WithCurrency`,
 `WithLanguage`, `WithCountry`, or per call with `SearchRequest.Currency`.

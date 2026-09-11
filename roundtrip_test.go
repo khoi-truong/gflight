@@ -22,17 +22,21 @@ func decodeFreqBody(t *testing.T, body string) []any {
 	if err != nil {
 		t.Fatalf("unescape body: %v", err)
 	}
-	var outer []any
-	if err := json.Unmarshal([]byte(unescaped), &outer); err != nil {
-		t.Fatalf("outer unmarshal: %v", err)
+	// [[[rpcid, payload, null, "generic"]]] — the payload is the JSON string.
+	var envelope [][][]any
+	if err := json.Unmarshal([]byte(unescaped), &envelope); err != nil {
+		t.Fatalf("envelope unmarshal: %v", err)
 	}
-	inner, ok := outer[1].(string)
+	if len(envelope) != 1 || len(envelope[0]) != 1 || len(envelope[0][0]) < 2 {
+		t.Fatalf("envelope shape = %v", envelope)
+	}
+	payload, ok := envelope[0][0][1].(string)
 	if !ok {
-		t.Fatalf("outer[1] not a string: %v", outer)
+		t.Fatalf("envelope payload not a string: %v", envelope[0][0][1])
 	}
 	var filters []any
-	if err := json.Unmarshal([]byte(inner), &filters); err != nil {
-		t.Fatalf("inner unmarshal: %v", err)
+	if err := json.Unmarshal([]byte(payload), &filters); err != nil {
+		t.Fatalf("payload unmarshal: %v", err)
 	}
 	return filters
 }
