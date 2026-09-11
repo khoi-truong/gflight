@@ -8,26 +8,11 @@ import (
 	"time"
 )
 
-func decodeFreq(t *testing.T, encoded string) []any {
+func decodeFreq(t *testing.T, payload string) []any {
 	t.Helper()
-	unescaped, err := url.QueryUnescape(encoded)
-	if err != nil {
-		t.Fatalf("unescape: %v", err)
-	}
-	var outer []any
-	if err := json.Unmarshal([]byte(unescaped), &outer); err != nil {
-		t.Fatalf("outer unmarshal: %v", err)
-	}
-	if len(outer) != 2 || outer[0] != nil {
-		t.Fatalf("outer shape = %v", outer)
-	}
-	inner, ok := outer[1].(string)
-	if !ok {
-		t.Fatalf("outer[1] not a string")
-	}
 	var filters []any
-	if err := json.Unmarshal([]byte(inner), &filters); err != nil {
-		t.Fatalf("inner unmarshal: %v", err)
+	if err := json.Unmarshal([]byte(payload), &filters); err != nil {
+		t.Fatalf("payload unmarshal: %v", err)
 	}
 	return filters
 }
@@ -292,7 +277,7 @@ func freqRequestAllFilters() FreqRequest {
 // goldenAllFiltersOneWay freezes the fully-filtered body. Every slot's shape is
 // structurally derived from docs/wire/shopping-results.md, not from a live
 // capture — see docs/plans/porting.md deviations.
-const goldenAllFiltersOneWay = "%5Bnull%2C%22%5B%5B%5D%2C%5Bnull%2Cnull%2C2%2Cnull%2C%5B%5D%2C2%2C%5B2%2C1%2C1%2C1%5D%2C%5Bnull%2C700%5D%2Cnull%2Cnull%2C%5B2%2C1%5D%2Cnull%2Cnull%2C%5B%5B%5B%5B%5B%5C%22JFK%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22LAX%5C%22%2C0%5D%5D%5D%2C%5B6%2C12%2Cnull%2C22%5D%2C1%2C%5B%5C%22B6%5C%22%2C%5C%22AA%5C%22%5D%2C%5B%5C%22NK%5C%22%5D%2C%5C%222026-06-28%5C%22%2C%5B480%5D%2Cnull%2C%5B%5C%22DFW%5C%22%5D%2Cnull%2C90%2C300%2C%5B1%5D%2C3%5D%5D%2Cnull%2Cnull%2Cnull%2C1%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C1%5D%2C2%2C1%2C0%2C1%5D%22%5D"
+const goldenAllFiltersOneWay = "[[],[null,null,2,null,[],2,[2,1,1,1],[null,700],null,null,[2,1],null,null,[[[[[\"JFK\",0]]],[[[\"LAX\",0]]],[6,12,null,22],1,[\"B6\",\"AA\"],[\"NK\"],\"2026-06-28\",[480],null,[\"DFW\"],null,90,300,[1],3]],null,null,null,1,null,null,null,null,null,null,null,null,null,null,1],2,1,0,1]"
 
 func TestEncodeFreqAllFiltersGolden(t *testing.T) {
 	t.Parallel()
@@ -339,7 +324,7 @@ func TestEncodeFreqRoundTripClassifier(t *testing.T) {
 // 2026-10-01 with the outbound pinned to VN 245, HAN->SGN return open on
 // 2026-10-08. Structurally verified by TestEncodeFreqSelectedFlight; not a live
 // capture — see docs/plans/porting.md deviations.
-const goldenSelectedFlightRT = "%5Bnull%2C%22%5B%5B%5D%2C%5Bnull%2Cnull%2C1%2Cnull%2C%5B%5D%2C1%2C%5B1%2C0%2C0%2C0%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5B%5B%5B%5B%5C%22SGN%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22HAN%5C%22%2C0%5D%5D%5D%2Cnull%2C0%2Cnull%2Cnull%2C%5C%222026-10-01%5C%22%2Cnull%2C%5B%5B%5B%5C%22SGN%5C%22%2C%5C%222026-10-01%5C%22%2C%5C%22HAN%5C%22%2Cnull%2C%5C%22VN%5C%22%2C%5C%22245%5C%22%5D%5D%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C3%5D%2C%5B%5B%5B%5B%5C%22HAN%5C%22%2C0%5D%5D%5D%2C%5B%5B%5B%5C%22SGN%5C%22%2C0%5D%5D%5D%2Cnull%2C0%2Cnull%2Cnull%2C%5C%222026-10-08%5C%22%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C1%5D%5D%2Cnull%2Cnull%2Cnull%2C1%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C0%5D%2C1%2C1%2C0%2C1%5D%22%5D"
+const goldenSelectedFlightRT = "[[],[null,null,1,null,[],1,[1,0,0,0],null,null,null,null,null,null,[[[[[\"SGN\",0]]],[[[\"HAN\",0]]],null,0,null,null,\"2026-10-01\",null,[[[\"SGN\",\"2026-10-01\",\"HAN\",null,\"VN\",\"245\"]]],null,null,null,null,null,3],[[[[\"HAN\",0]]],[[[\"SGN\",0]]],null,0,null,null,\"2026-10-08\",null,null,null,null,null,null,null,1]],null,null,null,1,null,null,null,null,null,null,null,null,null,null,0],1,1,0,1]"
 
 func TestEncodeFreqSelectedFlightGolden(t *testing.T) {
 	t.Parallel()

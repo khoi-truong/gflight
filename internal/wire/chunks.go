@@ -12,9 +12,10 @@
 //   - length-prefixed: "<utf8-byte-length>\n<json-array>\n", or
 //   - bare: the JSON array alone, with no length line (single-frame replies).
 //
-// The length is a UTF-8 byte count that covers the newline terminating the
-// length line, the JSON, and the newline before the next length line — so the
-// JSON itself is length-1 bytes once the header has been consumed.
+// Two length conventions are in circulation: the count covers the JSON alone,
+// or it also covers the newlines around it. Since the JSON is minified and so
+// contains no newline of its own, the frame can be ended at the last newline
+// inside the counted span — which is right under either convention.
 //
 // Every JSON array looks like [["wrb.fr", null, "<payload>", ...], ...]. The
 // third element of a "wrb.fr" row is itself a JSON string; that inner string is
@@ -115,18 +116,20 @@ func nextFrame(buf []byte) (frame, rest []byte, err error) {
 	if nl > 0 {
 		if n, convErr := strconv.Atoi(string(bytes.TrimSpace(buf[:nl]))); convErr == nil && n >= 0 {
 			start := nl + 1
-			// The header counts three things: the newline that terminates the
-			// header itself, the JSON, and the newline separating this frame
-			// from the next header. That first newline is already consumed by
-			// start, so the frame is n-1 bytes — reading n swallows the first
-			// digit of the next header and desynchronises every frame after it.
-			size := max(n-1, 0)
-			if start+size > len(buf) {
+			end := start + n
+			switch {
+			case end == len(buf)+1:
+				// The count included a trailing newline the body does not
+				// have, because this is the last frame. Not a truncation.
+				end = len(buf)
+			case end > len(buf):
 				return nil, nil, ErrShortRead
 			}
-			frame = buf[start : start+size]
-			rest = bytes.TrimLeft(buf[start+size:], "\r\n")
-			return frame, rest, nil
+			span := buf[start:end]
+			if i := bytes.LastIndexByte(span, '\n'); i >= 0 {
+				return span[:i], bytes.TrimLeft(buf[start+i:], "\r\n"), nil
+			}
+			return span, bytes.TrimLeft(buf[end:], "\r\n"), nil
 		}
 	}
 	// Bare frame: the remainder is a single JSON array.

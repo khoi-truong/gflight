@@ -1,6 +1,6 @@
 # Plan: port a real Google Flights client into `gflight`
 
-**Status:** in progress (M1–M3 done, M4a done, M5a–M5c done; M4b pending) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
+**Status:** closed (M1–M3 done, M5a–M5c done; M4 abandoned — upstream gated) · **Module:** `github.com/khoi-truong/gflight` · Go 1.26 · MIT
 **Supersedes nothing.** Follows `docs/plans/scaffold.md` (commit `3e2f6ae`).
 **Amended 2026-09-08** — see [Amendments](#amendments-2026-09-08-deep-analysis-review)
 after a deep-analysis review against `fli`, `krisukox`, `fast-flights`, and
@@ -358,21 +358,45 @@ Fold in here (see [Amendments](#amendments-2026-09-08-deep-analysis-review) A4):
 - **Response goldens regenerated** with the documented `-update` flag to absorb
   `City`, `OperatingFlightNumber` and the four new amenity fields.
 
-### M4 — calendar graph + booking options
+### M4 — calendar graph + booking options — **abandoned**
 
-Split into two PRs: **M4a** booking options (`feat: add booking options`),
-**M4b** price calendar (`feat: add price calendar`). This is where the
-multi-chunk reader earns its keep — `GetBookingResults` is the first endpoint
-that genuinely emits several chunks.
+Both halves are unreachable, and this was only discovered while implementing
+M4b. Google gates every `FlightsFrontendService` method except
+`GetShoppingResultsPrefetch` behind an `X-Goog-BatchExecute-Bgr` BotGuard token
+minted by in-page JavaScript and bound to the exact request body. No Go client
+can produce one. The evidence — header ablation, token rebinding, the
+open-vs-gated status-code test, and the full rpc id table — is recorded in
+[`../wire/botguard.md`](../wire/botguard.md).
 
-- [x] **`Client.BookingOptions(ctx, req, itinerary)`** (M4a) — `GetBookingResults`
-  from the itinerary's `row[8]` booking token, returning `[]BookingOption`
-  (`Vendor`, `VendorCode`, `Price`, `URL`, `FareName`, `FareCode`). Wire map in
-  [`../wire/booking-results.md`](../wire/booking-results.md); recorded fixture
-  `internal/testdata/booking_results_aa_jfk_lax.txt`.
-- [ ] **`Client.PriceCalendar(ctx, req, from, to)`** (M4b) — `GetCalendarGraph`,
-  ≤61 days per call, ≤305 days ahead: chunk, fan out through `mapConcurrent`,
-  merge and de-duplicate.
+- ~~**`Client.BookingOptions(ctx, req, itinerary)`** (M4a)~~ — shipped in #12,
+  then **removed**. `GetBookingResults` (`cgyvtd`) answers HTTP 500 for an
+  anonymous caller even when handed the UI's own byte-exact payload. The fixture
+  it was tested against was derived from a browser capture, so the tests passed
+  while the method could never have worked live. Removed rather than kept as an
+  API that always fails.
+- ~~**`Client.PriceCalendar(ctx, req, from, to)`** (M4b)~~ — never landed.
+  `GetCalendarGrid` (`z1rpkf`), `GetCalendarPicker` (`j1QEDd`) and
+  `GetCalendarGraph` (`YMjVO`) are all gated. A calendar could only be derived
+  by running one shopping search per departure date, which is a different
+  feature with a different cost profile; it is not planned.
+- The M4a work did leave something behind: the multi-chunk framing fix in #11,
+  and `Itinerary.BookingToken`, which is still decoded and exposed even though
+  nothing here can spend it.
+
+### M6 — transport migration (`fix: move to the batchexecute endpoint`)
+
+Fallout from the M4 finding, landed as its own PR.
+
+- [x] Move every call from the per-method path style to
+  `…/data/batchexecute?rpcids=LqxFAb`, the one route open to an anonymous
+  caller. `internal/encoding/batch.go` splits the wire envelope out of the
+  encoders, so `Encode*` now returns a payload and `Batch` wraps it.
+- [x] Reconcile `internal/wire` with the live framing: the live route answers
+  unframed unless `&rt=c` is set, and the two length conventions in circulation
+  differ by the surrounding newlines.
+- [x] Remove `Client.BookingOptions` and its fixtures; correct
+  `examples/utls/README.md`, which asserted the TLS-fingerprint theory this work
+  falsified.
 
 ### M4a implementation deviations
 
@@ -544,7 +568,8 @@ The findings below are additive, not structural.
 - **A4 · Filters, sort, infants, richer amenities/segments** — all fold into M3;
   every `f.req` index is already mapped in `docs/wire/shopping-results.md`.
 - Deferred, unchanged: multi-city, IATA dataset, CLI, MCP server (all remain out
-  of scope); calendar graph + booking options stay M4.
+  of scope). Calendar graph and booking options were M4 and are now abandoned —
+  see that section.
 - `SearchURL` (deep-link builder) is a strength — resilience practice
   independently recommends "always be able to hand back a deep link". → wire it
   into `*BlockedError` (M5, A2).
@@ -588,8 +613,9 @@ The findings below are additive, not structural.
 4. **M5 (pulled ahead of M4):** retry / backoff / `Retry-After` /
    `WithRateLimit` / `WithTransport` as composed RoundTrippers; live canary;
    `synctest` tests; `*BlockedError`; observer hook.
-5. **M4a (done):** booking options.
-6. **M4b (next):** calendar graph.
+5. ~~**M4a:** booking options.~~ Landed, then removed — upstream is gated.
+6. ~~**M4b:** calendar graph.~~ Abandoned — upstream is gated.
+7. **M6 (done):** migrate to the batchexecute endpoint; drop the gated surface.
 
 ---
 
@@ -623,7 +649,7 @@ docs/plans/
 - **`docs/plans/README.md` is the index** and the only file that must be touched
   by every plan PR. Keep it a table: plan · status · PR · one-line hook.
 - **Reverse-engineering notes are not plans.** Field maps and index tables go in
-  `docs/wire/` (`shopping-results.md`, `tfs.md`, `booking-results.md`) — they
+  `docs/wire/` (`shopping-results.md`, `tfs.md`, `botguard.md`) — they
   outlive any single plan and are what a future maintainer greps when Google
   moves an index. fli keeps these in `.reverse-eng/notes/`; we track them,
   because they _are_ the value.

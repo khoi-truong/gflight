@@ -10,7 +10,7 @@ import (
 // nested field 3. Returns "" on any decode failure — the currency is optional
 // metadata and never worth failing a row over.
 //
-// Shopping tokens use the URL-safe alphabet, booking tokens the standard one
+// Shopping tokens use the URL-safe alphabet, others the standard one
 // (they contain "+"), so both are tried.
 func currencyFromToken(token string) string {
 	if token == "" {

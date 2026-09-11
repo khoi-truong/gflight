@@ -23,9 +23,8 @@ func run(ctx context.Context) error {
 	defer cancel()
 
 	var opts []gflight.Option
-	// Google fingerprints TLS clients, so the live endpoint often answers the
-	// stock transport with ErrBlocked. Point GFLIGHT_BASE_URL at a recorded
-	// httptest server (see search_test.go) to run this offline.
+	// The live endpoint can answer with ErrBlocked. Point GFLIGHT_BASE_URL at
+	// a recorded httptest server (see search_test.go) to run this offline.
 	if base := os.Getenv("GFLIGHT_BASE_URL"); base != "" {
 		opts = append(opts, gflight.WithBaseURL(base))
 	}

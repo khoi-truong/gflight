@@ -30,8 +30,8 @@ func serveFixture(t *testing.T, name string, status int) *gflight.Client {
 	t.Helper()
 	body := fixtureBytes(t, name)
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if !strings.Contains(r.URL.Path, "GetShoppingResults") {
-			t.Errorf("unexpected request path: %s", r.URL.Path)
+		if got := r.URL.Query().Get("rpcids"); got != "LqxFAb" {
+			t.Errorf("rpcids = %q, want the shopping rpc id", got)
 		}
 		if got := r.URL.Query().Get("curr"); got != strings.ToUpper(got) {
 			t.Errorf("curr not upper-cased: %q", got)

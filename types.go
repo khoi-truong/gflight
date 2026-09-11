@@ -108,8 +108,8 @@ type Airport struct {
 //
 // Unknown is true when Google returned an itinerary but no shopping-list price
 // for it — common for premium-cabin round trips. Amount is then zero and
-// callers must not treat it as free; use [Itinerary.BookingToken] to resolve a
-// real fare.
+// callers must not treat it as free; Google prices those rows only in its own
+// UI, behind a method this library cannot call (see docs/wire/botguard.md).
 type Price struct {
 	Amount   float64
 	Currency string // ISO 4217 code.
@@ -180,7 +180,7 @@ type Emissions struct {
 }
 
 // SearchResult is the outcome of one search, including the shopping-session id
-// a later booking-results call needs.
+// upstream tagged it with.
 type SearchResult struct {
 	Itineraries []Itinerary
 	SessionID   string // inner[0][4]; "" when upstream omitted it.
@@ -197,8 +197,10 @@ type Itinerary struct {
 	// BookingID is retained for backwards compatibility and mirrors
 	// BookingToken.
 	BookingID string
-	// BookingToken is the opaque per-row token needed to resolve real fares
-	// via a future booking-results call.
+	// BookingToken is the opaque per-row token Google's own UI spends to
+	// resolve vendor fares. Nothing in this library consumes it: the method
+	// that does is BotGuard-gated (see docs/wire/botguard.md). It is exposed
+	// because it is part of the row, not because it is actionable here.
 	BookingToken string
 
 	Emissions      Emissions

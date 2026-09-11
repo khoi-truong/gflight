@@ -1,14 +1,21 @@
 # Browser-grade TLS with `WithTransport`
 
-Google fingerprints the TLS handshake. Go's `crypto/tls` produces a ClientHello
-no browser would ever send, so the live endpoint answers the stock transport
-with a bot wall — a `*gflight.BlockedError` — far more often than it answers a
-browser.
+> **This does not unlock anything.** An earlier version of this page claimed
+> Google's bot wall was TLS fingerprinting. It is not: the gate is a BotGuard
+> token minted by in-page JavaScript, and a uTLS `HelloChrome_Auto` handshake
+> over HTTP/2 is refused exactly as the stock transport is. The theory was
+> tested and falsified — see [`../../docs/wire/botguard.md`](../../docs/wire/botguard.md).
+> The one method this library calls needs no token, and needs no uTLS either.
 
-`WithTransport` is the seam for fixing that. This library bundles no TLS stack:
-the dependency list stays at one module, and a uTLS fingerprint that is current
-today is stale in six months. The recipe lives here as code you copy into your
-own program, where you own the upgrade.
+What `WithTransport` is genuinely for is owning the bottom of the stack: a
+proxy, a custom dialer, connection-pool tuning, or a TLS stack of your choosing.
+This library bundles none of them — the dependency list stays at one module —
+so the recipe lives here as code you copy into your own program.
+
+The uTLS variant below is kept because blending in is still reasonable
+behaviour for a scrape-based client, and because upstream's defences can change
+at any time. Just do not expect it to change a `*gflight.BlockedError` into a
+result today.
 
 There is no `main.go` in this directory on purpose — compiling it would drag
 [uTLS](https://github.com/refraction-networking/utls) into `go.mod` for every
@@ -98,5 +105,6 @@ func main() {
   the other.
 - **Watch it.** `WithObserver` reports each attempt's status; a rising 429/403
   share is the signal to back off before the address is blocked outright.
-- **It is not a guarantee.** Fingerprinting is an arms race with no SLA on
-  either side. Keep the `*BlockedError.DeepLink` browser fallback wired up.
+- **It is not a guarantee, and it is not the gate.** A `*BlockedError` from the
+  live endpoint means rate limiting or a bot wall, and no handshake shape is
+  known to move it. Keep the `*BlockedError.DeepLink` browser fallback wired up.

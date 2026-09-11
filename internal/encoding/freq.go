@@ -3,7 +3,6 @@ package encoding
 import (
 	"encoding/json"
 	"errors"
-	"net/url"
 	"time"
 )
 
@@ -29,8 +28,8 @@ const (
 )
 
 // Segment classifier (segment[segClassifierIdx]): 3 = outbound / only leg,
-// 1 = the return leg of a round trip. GetShoppingResults tolerates a uniform 3
-// but GetBookingResults does not, so we set it correctly from the start.
+// 1 = the return leg of a round trip. The shopping methods tolerate a uniform
+// 3, but the UI sets it correctly, so we do too.
 const (
 	segOutbound = 3
 	segReturn   = 1
@@ -145,24 +144,19 @@ type FreqRequest struct {
 	ExcludeBasicEconomy bool
 }
 
-// EncodeFreq returns the percent-encoded value for the `f.req` form field.
+// EncodeFreq returns the GetShoppingResults payload as a JSON string. Wrap it
+// with [Batch] to get the value for the `f.req` form field.
 func EncodeFreq(req FreqRequest) (string, error) {
 	filters, err := buildFilters(req)
 	if err != nil {
 		return "", err
 	}
 
-	inner, err := json.Marshal(filters)
+	payload, err := json.Marshal(filters)
 	if err != nil {
 		return "", err
 	}
-	outer, err := json.Marshal([]any{nil, string(inner)})
-	if err != nil {
-		return "", err
-	}
-	// Google's UI uses url-encoding that leaves "/" untouched; QueryEscape is
-	// a superset of that and the endpoint accepts it.
-	return url.QueryEscape(string(outer)), nil
+	return string(payload), nil
 }
 
 func buildFilters(req FreqRequest) ([]any, error) {
@@ -228,11 +222,6 @@ func buildFilters(req FreqRequest) ([]any, error) {
 	}
 	return filters, nil
 }
-
-// outer[] index names.
-const (
-	outerMainIdx = 1
-)
 
 // main[] index names.
 const (
